@@ -7,4 +7,4 @@ RUN mkdir /documents
 RUN mkdir /site
 WORKDIR /documents
 
-CMD mkdocs serve
+ENTRYPOINT ["mkdocs"]
