@@ -3,6 +3,8 @@ dev_addr: 0.0.0.0:8000
 theme: mkdocs
 pages:
   - Home: index.md
+  - "Getting started":
+    - "Run sample": gettingStarted/index.md
   - Documentation:
     - Overview: 'reference/index.md'
     - Actions: 'reference/actions.md'

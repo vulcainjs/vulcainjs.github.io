@@ -1,4 +1,4 @@
-# Overview
+# Dynamic configuration properties
 
 Configuration properties often need to be update during runtime without restarting your service.
 

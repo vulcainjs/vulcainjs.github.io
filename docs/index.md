@@ -28,7 +28,7 @@
     </div>
     <div class="row head-banner-text">
         <p class="lead text-center col-md-12 col-xs-12">
-            Open-Source Microservice Framework<br>
+            Open-Source Microservice Framework for nodejs<br>
         </p>
     </div>
     <div class="row head-banner-buttons">
