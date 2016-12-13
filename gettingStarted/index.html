@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Overview - Vulcain</title>
+        <title>Run sample - Vulcain</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -48,57 +48,57 @@
                     <li >
                         <a href="..">Home</a>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting started <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../gettingStarted/">Run sample</a>
+<li class="active">
+    <a href="./">Run sample</a>
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li class="active">
-    <a href="./">Overview</a>
+<li >
+    <a href="../reference/">Overview</a>
 </li>
                             
 <li >
-    <a href="actions/">Actions</a>
+    <a href="../reference/actions/">Actions</a>
 </li>
                             
 <li >
-    <a href="query/">Queries</a>
+    <a href="../reference/query/">Queries</a>
 </li>
                             
 <li >
-    <a href="event/">Events</a>
+    <a href="../reference/event/">Events</a>
 </li>
                             
 <li >
-    <a href="domain/">Domain models</a>
+    <a href="../reference/domain/">Domain models</a>
 </li>
                             
 <li >
-    <a href="injection/">Dependencies injection</a>
+    <a href="../reference/injection/">Dependencies injection</a>
 </li>
                             
 <li >
-    <a href="commands/">Commands</a>
+    <a href="../reference/commands/">Commands</a>
 </li>
                             
 <li >
-    <a href="configurations/">Configurations</a>
+    <a href="../reference/configurations/">Configurations</a>
 </li>
                             
 <li >
-    <a href="metrics/">Monitoring</a>
+    <a href="../reference/metrics/">Monitoring</a>
 </li>
                             
 <li >
-    <a href="security/">Security</a>
+    <a href="../reference/security/">Security</a>
 </li>
                         </ul>
                     </li>
@@ -120,12 +120,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../gettingStarted/">
+                        <a rel="next" href="..">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="actions/">
+                        <a rel="prev" href="../reference/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -137,13 +137,59 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#documentation">Documentation</a></li>
+        <li class="main active"><a href="#getting-started">Getting started</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#creating-a-simple-microservice">Creating a simple microservice</a></li>
+            <li><a href="#vulcain-concepts">Vulcain concepts</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="documentation">Documentation</h1>
-<p><strong>Documentation is in progress</strong></p></div>
+<h1 id="getting-started">Getting started</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>node 6.0 see <a href="https://nodejs.org/en/download/">this link</a> to install node on your machine.</li>
+<li>docker version &gt; 1.12. See <a href="https://docs.docker.com/engine/installation/">this link</a> to install docker.</li>
+<li><strong>vulcain-cli</strong> is not mandatory but can help you to start easily whith <strong>vulcain</strong>. Install it whith</li>
+</ul>
+<pre><code class="js">npm install vulcain-cli -g
+</code></pre>
+
+<h2 id="creating-a-simple-microservice">Creating a simple microservice</h2>
+<h4 id="option-1">Option 1</h4>
+<p>After installing <strong><em>vulcain-cli</em></strong>, run <code>vulcain init my-service</code>.</p>
+<h4 id="option-2">Option 2</h4>
+<p>Clone the starter template from <code>github</code> with</p>
+<p><code>git clone https://github.com/vulcainjs/vulcain-template-microservice.git my-service</code></p>
+<p>and replace all '&lt;%= project.fullName %&gt;' project occurences with <code>my-service</code> and '&lt;%=project.namespace%&gt;' by <code>my-domain</code> in <code>startup.ts</code>.</p>
+<h2 id="vulcain-concepts">Vulcain concepts</h2>
+<p>You are ready to run your micro-service. Open the projet with your favorite editor.</p>
+<blockquote>
+<p>Vulcain template are predefined for using with <a href="https://code.visualstudio.com/">vscode</a> or <a href="https://www.jetbrains.com/webstorm/">webstorm</a>.</p>
+</blockquote>
+<p>The starter template contains a fullly founctional micro-service for managing a simple <code>Customer</code>. By default, the
+microservice uses a very basic in-memory provider persisting on disk for testing.</p>
+<p>A vulcain micro-service uses the following concepts :</p>
+<h4 id="requests-are-not-in-rest">Requests are not in REST</h4>
+<p>Micro-services communicate with a RPC like protocol over HTTP by using only two HTTP verbs:</p>
+<ol>
+<li><code>GET</code> : for query (list or unique)</li>
+<li><code>POST</code>: for action</li>
+</ol>
+<p>Responses are standardized and http code is limited to 200, 401, 403, 500.</p>
+<pre><code class="js">
+@ActionHandler({ async: false, scope: &quot;*&quot;, schema: Customer })
+export class CustomerActionHandler extends DefaultActionHandler {
+
+    @Action({ description: &quot;Custom action&quot;, outputSchema: &quot;Customer&quot; })
+    myActionAsync(customer: Customer): Promise&lt;Customer&gt; {
+
+        const cmd = await this.requestContext.getCommandAsync(&quot;MyHystrixCommand&quot;, this.metadata.schema);
+        return cmd.executeAsync(customer);
+    }
+}
+
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
