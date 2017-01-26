@@ -28,7 +28,7 @@
     </div>
     <div class="row head-banner-text">
         <p class="lead text-center col-md-12 col-xs-12">
-            Open-Source Microservice Framework for nodejs<br>
+            Open-Source Microservice Framework for nodejs (Preview)<br>
         </p>
     </div>
     <div class="row head-banner-buttons">
@@ -52,8 +52,8 @@
             <li>Event sourcing, CQRS </li>
             <li>Fully extensible whith adapters</li>
             <li>Automatic input data validation</li>
-            <li>Default implementation (MongoDb, rabbitmq, statsd, swarm)
-            <li>Authoring tool (Create project from template, code generation...)
+            <li>Default implementation (MongoDb, rabbitmq, statsd, swarm)</li>
+            <li>Authoring tool (Create project from template, code generation...)</li>
             </ul>
         </p>
     </div>
@@ -69,13 +69,15 @@
             <li>Log obfuscation for sensible data</li>
             <li>User interface management for teams</li>
             <li>Automatic metrics generation</li>
+            <li>Multi-tenants</li>
+            <li>Log aggregation with correlation-id</li>
             </ul>
         </p>
     </div>
     <div class="col-md-4">
         <h4>Video Tutorial</h4>
         <p class="video-wrapper">
-           <iframe width="300" height="220" src="//www.youtube.com/embed/xxx" frameborder="0" allowfullscreen></iframe>
+           <iframe width="300" height="220" src="https://youtu.be/LAQK-ZjW124" frameborder="0" allowfullscreen></iframe>
         </p>
     </div>
 </div>
