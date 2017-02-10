@@ -1,0 +1,3 @@
+mkdocs>=0.16
+pygments
+pymdown-extensions

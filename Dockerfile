@@ -1,10 +1,16 @@
-FROM python:3.4
+FROM python:3.6-alpine
 
 EXPOSE 8000
-RUN pip install mkdocs
 
 RUN mkdir /documents
 RUN mkdir /site
 WORKDIR /documents
 
-ENTRYPOINT ["mkdocs"]
+COPY requirements.txt .
+RUN \
+  pip install -r requirements.txt && \
+  pip install mkdocs-material && \
+  rm requirements.txt
+RUN mkdocs serve --help
+
+ENTRYPOINT ["mkdocs", "-", "material"]

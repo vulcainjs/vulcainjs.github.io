@@ -1,6 +1,6 @@
 site_name: Vulcain
 dev_addr: 0.0.0.0:8000
-theme: mkdocs
+theme: 'material'
 pages:
   - Home: index.md
   - "Getting started":
@@ -18,3 +18,17 @@ pages:
     - Security: 'reference/security.md'
   - About: 
     - license: 'about/license.md'
+repo_url: https://github.com/vulcainjs/vulcainjs.github.io
+site_author: Alain Metge
+copyright: Copyright © 2017 Zenasoft
+strict: true
+extra:
+  palette:
+    primary: 'blue'
+    accent: 'light blue'
+markdown_extensions:
+  - toc
+  - admonition
+  - codehilite(guess_lang=false)
+  - toc(permalink=true)
+  - footnotes

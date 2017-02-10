@@ -4,22 +4,22 @@
 
 It uses annotations to declare dependencies.
 
-## Declaring components
+## Declaring services
 
-You can declare component with the ```@Injectable``` annotation.
+You can declare service with the ```@Injectable``` annotation.
 
 ```js
 @Injectable(LifeTime.Singleton)
-export class Component1 {}
+export class Service1 {}
 ```
 
 ```Injectable``` accepts three parameters:
 
 | name | required | |
 |-----|----------|-|
-| lifeTime | yes | Component life time can be ```Singleton```, ```Scoped``` or ```Transient``` |
-| component name | false | default to class name |
-| enableInTestOnly | false | Register this component only in test mode (default false) |
+| lifeTime | yes | Service life time can be ```Singleton```, ```Scoped``` or ```Transient``` |
+| service name | false | default to class name |
+| enableInTestOnly | false | Register this service only in test mode (default false) |
 
 with **lifeTime**
 
@@ -29,14 +29,14 @@ with **lifeTime**
 | Transient | A new instance is always created
 | Scoped    | Singleton instance by request scope
 
-## Using components
+## Using services
 
 As already saw, dependency injection only works within constructor with ```@Inject``` annotation.
 
 ```js
 
 export class MyClass {
-    constructor(@Inject("Component1") myComponent: Component1) {}
+    constructor(@Inject("Service1") myService: Service1) {}
 }
 
 ```
@@ -45,25 +45,25 @@ The following rules are used :
 
 1. Using ```@Inject``` is mandatory to specify parameter injection.
 1. You can mix injected parameter with *classic* parameter but injected parameters must be declared first.
-1. When service start, all components defined in the following folders are automatically registered : api/handlers,
+1. When service start, all services defined in the following folders are automatically registered : api/handlers,
 api/models, api/services and api/commands.
-1. Scoped components are disposed when the request ends. You can provide your own ```dispose``` method.
-1. All scoped components are initialized with a ```requestContext``` property.
+1. Scoped services are disposed when the request ends. You can provide your own ```dispose``` method.
+1. All scoped services are initialized with a ```requestContext``` property.
 
-Component can be created manually using ```container.get("component-name")```.
+Service can be created manually using ```container.get("service-name")```.
 
-Also you can inject component manually with the following container methods :
+Also you can inject service manually with the following container methods :
 
 - ```injectTransient```
 - ```injectSingleton``` and ```injectInstance```
 - ```injectScoped```
 
-## Predefined components
+## Predefined services
 
-Vulcain provides predefined components availables with standardized names.
-All predefined component names are defined in a static class named ```DefaultServiceNames```
+Vulcain provides predefined services availables with standardized names.
+All predefined service names are defined in a static class named ```DefaultServiceNames```
 
-| name | component |
+| name | service |
 |------|-----------|
 | Container | Current container (global) or scoped in requestContext
 | TenantPolicy | Policy used to resolve TenantPolicy

@@ -6,7 +6,7 @@
 - docker version > 1.12. See [this link](https://docs.docker.com/engine/installation/) to install docker.
 - **vulcain-cli** is not mandatory but can help you to start easily whith **vulcain**. Install it whith
 
-```js
+```bash
 npm install vulcain-cli -g
 ```
 
@@ -28,7 +28,8 @@ and replace all '<%= project.fullName %>' project occurences with ```my-service`
 
 You are ready to run your micro-service. Open the projet with your favorite editor.
 
-> Vulcain template are predefined for using with [vscode](https://code.visualstudio.com/) or [webstorm](https://www.jetbrains.com/webstorm/).
+!!! info
+    Vulcain template are predefined for using with [vscode](https://code.visualstudio.com/) or [webstorm](https://www.jetbrains.com/webstorm/).
 
 The starter template contains a fullly founctional micro-service for managing a simple ```Customer```. By default, the
 microservice uses a very basic in-memory provider persisting on disk for testing.

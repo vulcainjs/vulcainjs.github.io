@@ -4,7 +4,7 @@ Configuration properties often need to be update during runtime without restarti
 
 Dynamic properties offers a simple and easy way to update properties on the fly.
 
-*Inspired by [Netflix archaius](http://github.com/netflix/archaius).*
+> This is inspired by [Netflix archaius](http://github.com/netflix/archaius).
 
 ## Features
 
@@ -18,33 +18,37 @@ Dynamic properties offers a simple and easy way to update properties on the fly.
 ## Concepts
 
 All properties are managed by a `DynamicConfiguration` object instanciated as a singleton.
-This object is the unique entry point to all dynamic properties.
-It exposes different static methods for creating, listening and initializing properties.
+This is the unique entry point to all dynamic properties and exposes different static methods for creating, listening and initializing properties.
 
 Property values are updated with `ConfigurationSource` object pulling data at specific interval.
 
+!!! info
+    Polling configurations are set in index.ts. Application starts only after first polling completes successfully.
+
 There are two kind of properties :
 
-1. Service specific : Visible only from a specific Service
-1. Shared : View by all services
+| Type | Description |
+|-----|-----|
+| Service specific | Visible only from a specific Service |
+| Shared | Visible by all services |
 
-## Using a dynamic property
+## Declaring a dynamic property
 
-**Vulcain** provide helpers to create property.
+**Vulcain** provides helpers to create property.
 
 To create a shared property:
 
-```js
-let property1 = System.createSharedConfigurationProperty<string>("property-name", "string", "default value");
+```ts
+let property1 = System.createSharedConfigurationProperty<string>("property-name", "default value");
 ```
 
 To create a service property:
 
-```js
-let property1 = System.createServiceConfigurationProperty<number>("property-name", "number", 0);
+```ts
+let property1 = System.createServiceConfigurationProperty<number>("property-name", 0);
 ```
 
-The latter create a *chained* property. Chained property create a pipeline of dynamic property using the first value
+These helpers create a *chained* property. Chained property create a pipeline of dynamic property using the first value
 available.
 
 For example for a service property, the pipeline consists of the following property names :
@@ -55,16 +59,21 @@ For example for a service property, the pipeline consists of the following prope
 1. default value
 1. Environment variable (as property name in uppercase and all '.' replaced by '_')
 
-> You can create your own chained property with ```DynamicConfiguration.asChainedProperty<string>()```.
+!!! info
+    You can create your own chained property with ```DynamicConfiguration.asChainedProperty<string>()```.
+
+## Using a dynamic property
 
 You can get property value with its ```value``` property.
 
-```js
+
+```ts
 let value = property1.value;
 ```
 
-> Dynamic property can not be updated from a service, you can override a value but only locally, no update
-will be send to the different sources.
+!!! info
+    Dynamic property can not be updated from a service, you can only override the local default value, no update
+    will be send to sources.
 
 ## Providing values with configuration source
 
