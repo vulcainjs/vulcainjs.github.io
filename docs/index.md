@@ -1,15 +1,29 @@
+---
+template: home.html
+---
+
 <style>
-.col-md-3 {
-    display: none;
+.lead {
+    color:#555;
+    font-weight: normal;
 }
-.navbar-right {
-    display: none;
+.btn-default {
+    background-image: linear-gradient(#fff,#fff 60%,#f5f5f5);    
+    border-bottom: 1px solid #e6e6e6;    
+}
+.btn-lg: {
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+    color: #555;
+    background-color: #fff;
+    border-color: rgba(0,0,0,0.1);    
 }
 .head-banner-text {
     padding: 10px;
 }
 .head-banner {
-    padding: 20px 0;
+    padding: 90px 0 20px 0;
 }
 .col-md-9 img {
     padding: 0px;
@@ -17,6 +31,20 @@
 }
 .col-md-9 {
     width: 90%;
+}
+.md-header a {
+    color: white;
+}
+.md-header a:hover {
+    text-decoration: none;
+}
+.nav li a:hover {
+    background-color: #2196f3;
+    color: hsla(0,0%,100%,.7);    
+}
+
+.btn-success {
+    background-image: linear-gradient(#88c149,#73a839 60%,#699934);
 }
 </style>
 
@@ -33,10 +61,10 @@
     </div>
     <div class="row head-banner-buttons">
         <div class="col-md-offset-2 col-md-4 col-xs-12">
-            <a href="https://github.com/vulcainjs/vulcain-corejs/zipball/master" class="btn btn-default btn-lg btn-block">Download</a>
+            <a href="https://github.com/vulcainjs/vulcain-corejs/zipball/master" class="btn btn-default btn-lg btn-block" style="padding: 14px 16px;">Download</a>
         </div>
         <div class="col-md-4  col-xs-12">
-            <a href="http://github.com/vulcainjs/vulcain-corejs" class="btn btn-success btn-lg btn-block">View On GitHub</a>
+            <a href="http://github.com/vulcainjs/vulcain-corejs" class="btn btn-success btn-lg btn-block"  style="padding: 14px 16px;">View On GitHub</a>
         </div>
     </div>
 </div>

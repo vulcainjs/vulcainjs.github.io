@@ -2,15 +2,13 @@ FROM python:3.6-alpine
 
 EXPOSE 8000
 
-RUN mkdir /documents
-RUN mkdir /site
-WORKDIR /documents
+WORKDIR /docs
 
 COPY requirements.txt .
 RUN \
   pip install -r requirements.txt && \
   pip install mkdocs-material && \
   rm requirements.txt
-RUN mkdocs serve --help
 
-ENTRYPOINT ["mkdocs", "-", "material"]
+ENTRYPOINT ["mkdocs"]
+CMD ["serve"]

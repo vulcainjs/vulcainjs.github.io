@@ -10,6 +10,64 @@
 npm install vulcain-cli -g
 ```
 
+## Installing a demo vulcain environment ?
+
+* Create a virtual machine with docker-machine
+
+```sh
+docker-machine create -d virtualbox --virtualbox-memory 2048 vulcain
+```
+
+> Note: Machine must have at least 2gb of memory for running elasticsearch
+
+* Install vulcain-cli like any global npm package with the following command :
+
+```sh
+npm install -g vulcain-cli
+```
+
+> May need sudo.
+
+## Clone the demo scripts repo
+
+```sh
+git clone https://github.com/vulcainjs/demo-scripts.git vulcain-demo
+```
+
+## Run the initialisation script with
+
+```sh
+cd vulcain-demo
+./install-demo.sh --host vulcain
+````
+
+**You have now a fully operationnel vulcain environment.**
+
+Vulcain ui is available at http://(docker-machine ip vulcain):8080 with admin/vulcain.
+
+Try to create your first microservice :
+
+```sh
+vulcain create service1
+```
+
+This command creates a microservice using the NodeMicroService template which consists as a fully functional
+customer service providing CRUD handlers.
+
+> For this demo, all handlers (query and actions) are in the same service but it's a best practice to
+> dispatch handlers on separate services.
+
+You can edit the code or publish directly this service with
+
+```sh
+vulcain publish 1
+```
+
+> This command must be run in the service's root folder and docker context initialized to connect
+> to vulcain machine. (This is the case if you have run the install-demo script)
+
+1 is a version number, you must increment it every time you'll publish a new version.
+
 ## Creating a simple microservice
 
 #### Option 1
