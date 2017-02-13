@@ -33,7 +33,7 @@ npm install -g vulcain-cli
 * Clone the demo scripts repo
 
 ```sh
-git clone https://github.com/vulcainjs/demo-scripts.git vulcain-demo
+git clone https://github.com/vulcainjs/vulcain-demo.git vulcain-demo
 ```
 
 * And run the initialisation script with

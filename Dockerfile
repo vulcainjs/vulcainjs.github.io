@@ -5,7 +5,7 @@ EXPOSE 8000
 WORKDIR /docs
 
 COPY requirements.txt .
-RUN \
+RUN apk update && apk add git && \
   pip install -r requirements.txt && \
   pip install mkdocs-material && \
   rm requirements.txt
