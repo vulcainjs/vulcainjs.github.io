@@ -40,7 +40,7 @@ template: home.html
 }
 .nav li a:hover {
     background-color: #2196f3;
-    color: hsla(0,0%,100%,.7);    
+    color: hsla( 0,0%, 100%, .7 );    
 }
 
 .btn-success {
