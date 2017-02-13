@@ -66,14 +66,17 @@ For example for a service property, the pipeline consists of the following prope
 
 You can get property value with its ```value``` property.
 
-
 ```ts
 let value = property1.value;
 ```
 
+You can subscribe on a specific property value changed with ```property1.propertyChanged.subscribe( fn )```.
+
 !!! info
     Dynamic property can not be updated from a service, you can only override the local default value, no update
     will be send to sources.
+
+
 
 ## Providing values with configuration source
 
