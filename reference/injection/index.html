@@ -482,10 +482,10 @@
                
               
                 
-                <h1 id="dependency-injection">Dependency injection<a class="headerlink" href="#dependency-injection" title="Permanent link">&para;</a></h1>
+                <h1 id="dependency-injection">Dependency injection</h1>
 <p><strong>Vulcain</strong> provides a minimalist dependency injection mechanism limited to <code>constructor parameters injection</code></p>
 <p>It uses annotations to declare dependencies.</p>
-<h2 id="declaring-services">Declaring services<a class="headerlink" href="#declaring-services" title="Permanent link">&para;</a></h2>
+<h2 id="declaring-services">Declaring services</h2>
 <p>You can declare service with the <code>@Injectable</code> annotation.</p>
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Injectable</span><span class="p">(</span><span class="nx">LifeTime</span><span class="p">.</span><span class="nx">Singleton</span><span class="p">)</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">Service1</span> <span class="p">{}</span>
@@ -542,7 +542,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="using-services">Using services<a class="headerlink" href="#using-services" title="Permanent link">&para;</a></h2>
+<h2 id="using-services">Using services</h2>
 <p>As already saw, dependency injection only works within constructor with <code>@Inject</code> annotation.</p>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Inject</span><span class="p">(</span><span class="s2">&quot;Service1&quot;</span><span class="p">)</span> <span class="nx">myService</span><span class="o">:</span> <span class="nx">Service1</span><span class="p">)</span> <span class="p">{}</span>
@@ -566,7 +566,7 @@ api/models, api/services and api/commands.</li>
 <li><code>injectSingleton</code> and <code>injectInstance</code></li>
 <li><code>injectScoped</code></li>
 </ul>
-<h2 id="predefined-services">Predefined services<a class="headerlink" href="#predefined-services" title="Permanent link">&para;</a></h2>
+<h2 id="predefined-services">Predefined services</h2>
 <p>Vulcain provides predefined services availables with standardized names.
 All predefined service names are defined in a static class named <code>DefaultServiceNames</code></p>
 <table>

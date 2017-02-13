@@ -510,13 +510,13 @@
                
               
                 
-                <h1 id="dynamic-configuration-properties">Dynamic configuration properties<a class="headerlink" href="#dynamic-configuration-properties" title="Permanent link">&para;</a></h1>
+                <h1 id="dynamic-configuration-properties">Dynamic configuration properties</h1>
 <p>Configuration properties often need to be update during runtime without restarting your service.</p>
 <p>Dynamic properties offers a simple and easy way to update properties on the fly.</p>
 <blockquote>
 <p>This is inspired by <a href="http://github.com/netflix/archaius">Netflix archaius</a>.</p>
 </blockquote>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h2 id="features">Features</h2>
 <ul>
 <li>Runtime update. Last values are caching locally.</li>
 <li>Service can be notified when a value changes.</li>
@@ -525,7 +525,7 @@
 <li>Properties can be chained, providing a value from a hierachic chain of value.</li>
 <li>Properties can be encrypted and decrypted locally inside service.</li>
 </ul>
-<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<h2 id="concepts">Concepts</h2>
 <p>All properties are managed by a <code>DynamicConfiguration</code> object instanciated as a singleton.
 This is the unique entry point to all dynamic properties and exposes different static methods for creating, listening and initializing properties.</p>
 <p>Property values are updated with <code>ConfigurationSource</code> object pulling data at specific interval.</p>
@@ -552,7 +552,7 @@ This is the unique entry point to all dynamic properties and exposes different s
 </tr>
 </tbody>
 </table>
-<h2 id="declaring-a-dynamic-property">Declaring a dynamic property<a class="headerlink" href="#declaring-a-dynamic-property" title="Permanent link">&para;</a></h2>
+<h2 id="declaring-a-dynamic-property">Declaring a dynamic property</h2>
 <p><strong>Vulcain</strong> provides helpers to create property.</p>
 <p>To create a shared property:</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">createSharedConfigurationProperty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="s2">&quot;default value&quot;</span><span class="p">);</span>
@@ -578,7 +578,7 @@ available.</p>
 <p class="admonition-title">Info</p>
 <p>You can create your own chained property with <code>DynamicConfiguration.asChainedProperty&lt;string&gt;()</code>.</p>
 </div>
-<h2 id="using-a-dynamic-property">Using a dynamic property<a class="headerlink" href="#using-a-dynamic-property" title="Permanent link">&para;</a></h2>
+<h2 id="using-a-dynamic-property">Using a dynamic property</h2>
 <p>You can get property value with its <code>value</code> property.</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">property1</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
 </pre></div>
@@ -590,7 +590,7 @@ available.</p>
 <p>Dynamic property can not be updated from a service, you can only override the local default value, no update
 will be send to sources.</p>
 </div>
-<h2 id="providing-values-with-configuration-source">Providing values with configuration source<a class="headerlink" href="#providing-values-with-configuration-source" title="Permanent link">&para;</a></h2>
+<h2 id="providing-values-with-configuration-source">Providing values with configuration source</h2>
 <p>By default, service template uses a vulcain configuration source valid only within vulcain environement.</p>
 <p>But you can create a custom <code>HttpConfigurationSource</code> reading properties for a specific url.</p>
               
