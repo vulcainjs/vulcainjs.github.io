@@ -1,3 +1,7 @@
+---
+template: home.html
+---
+
 # Getting started
 
 ## Prerequisites

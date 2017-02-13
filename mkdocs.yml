@@ -31,5 +31,5 @@ markdown_extensions:
   - toc
   - admonition
   - codehilite(guess_lang=false)
-  - toc(permalink=true)
+  - toc
   - footnotes

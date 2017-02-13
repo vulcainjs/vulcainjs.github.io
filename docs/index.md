@@ -2,51 +2,6 @@
 template: home.html
 ---
 
-<style>
-.lead {
-    color:#555;
-    font-weight: normal;
-}
-.btn-default {
-    background-image: linear-gradient(#fff,#fff 60%,#f5f5f5);    
-    border-bottom: 1px solid #e6e6e6;    
-}
-.btn-lg: {
-    font-size: 18px;
-    line-height: 1.33;
-    border-radius: 6px;
-    color: #555;
-    background-color: #fff;
-    border-color: rgba(0,0,0,0.1);    
-}
-.head-banner-text {
-    padding: 10px;
-}
-.head-banner {
-    padding: 90px 0 20px 0;
-}
-.col-md-9 img {
-    padding: 0px;
-    margin: 0;
-}
-.col-md-9 {
-    width: 90%;
-}
-.md-header a {
-    color: white;
-}
-.md-header a:hover {
-    text-decoration: none;
-}
-.nav li a:hover {
-    background-color: #2196f3;
-    color: hsla( 0,0%, 100%, .7 );    
-}
-
-.btn-success {
-    background-image: linear-gradient(#88c149,#73a839 60%,#699934);
-}
-</style>
 
 <div class="head-banner">
     <div class="row">
