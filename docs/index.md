@@ -44,7 +44,7 @@ template: home.html
                     <img class="img-responsive" src="images/intro3.png" alt="vulcain.js">
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="images/intro3.png" alt="vulcain.js">
+                    <img class="img-responsive" src="images/intro4.png" alt="vulcain.js">
                 </div>                
             </div>
 
