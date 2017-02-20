@@ -137,8 +137,8 @@
   <div class="row" style="height: 80px"></div>
   <div class="col-md-11">
       
-        <h1 id="getting-started">Getting started</h1>
-<h2 id="prerequisites">Prerequisites</h2>
+        <h3 id="getting-started">Getting started</h3>
+<p><strong>Prerequisites</strong></p>
 <ul>
 <li>node 6.0 see <a href="https://nodejs.org/en/download/">this link</a> to install node on your machine.</li>
 <li>docker version &gt; 1.12. See <a href="https://docs.docker.com/engine/installation/">this link</a> to install docker.</li>
@@ -148,7 +148,7 @@
 </pre></div>
 
 
-<h2 id="installing-a-demo-vulcain-environment">Installing a demo vulcain environment ?</h2>
+<p><strong>Installing a demo vulcain environment</strong></p>
 <ul>
 <li>Create a virtual machine with docker-machine</li>
 </ul>
@@ -161,16 +161,12 @@
 <p>Machine must have at least 2gb of memory for running elasticsearch</p>
 </div>
 <ul>
-<li>Install vulcain-cli like any global npm package with the following command :</li>
+<li>Install vulcain-cli like any global npm package with the following command (may needs sudo):</li>
 </ul>
 <div class="codehilite"><pre><span></span>npm install -g vulcain-cli
 </pre></div>
 
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You may need sudo to run this command.</p>
-</div>
 <ul>
 <li>Clone the demo scripts repo</li>
 </ul>
@@ -188,38 +184,51 @@
 
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p>You have now a fully operationnel vulcain environment.</p>
-<p>Vulcain ui is available on <code>http://$(docker-machine ip vulcain):8080</code> with admin/vulcain.</p>
+<p>You have now a fully operationnel vulcain environment available on <code>http://$(docker-machine ip vulcain):8080</code> with admin/vulcain.</p>
 </div>
-<h2 id="create-your-first-microservice">Create your first microservice</h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p><strong>Create your first microservice</strong></p>
 <p>The following commands must be run in the service's root folder and docker context initialized to connect
 to vulcain machine. (This is the case if you have run the install-demo script)</p>
-</div>
 <div class="codehilite"><pre><span></span>vulcain create service1
 </pre></div>
 
 
 <p>This command creates a microservice using a default project template which consists as a fully functional
 customer service providing CRUD handlers.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For this demo, all handlers (query and actions) are in the same service but it's a best practice to
-dispatch handlers on separate services.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Vulcain templates are predefined for <a href="https://code.visualstudio.com/">vscode</a> or <a href="https://www.jetbrains.com/webstorm/">webstorm</a>.</p>
+<p>The starter template contains a fullly founctional micro-service for managing a simple <code>Customer</code>. By default, the
+microservice uses a very basic in-memory provider persisting on disk for testing.</p>
 </div>
-<p>You can edit the code or publish it directly with</p>
+<p>A <strong>vulcain</strong> microservice implements the CQRS pattern providing two (and only two) kinds of requests:</p>
+<ul>
+<li>Command (named action in <strong>vulcain</strong>) requests available with a <strong>POST</strong> http verb.</li>
+<li>Query requests available with a <strong>GET</strong> http verb.</li>
+</ul>
+<p>See <a href="../reference/index.html">documentation</a> for more details.</p>
+<p><strong>For this demo, all handlers (query and actions) are in the same service but it's a best practice to dispatch handlers on separate services.</strong></p>
+<p>You can now edit the code or publish it directly with :</p>
 <div class="codehilite"><pre><span></span>vulcain publish <span class="m">1</span>
 </pre></div>
 
 
-<p>where 1 is a version number, you must increment it every time you'll publish a new version.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Vulcain template are predefined for using with <a href="https://code.visualstudio.com/">vscode</a> or <a href="https://www.jetbrains.com/webstorm/">webstorm</a>.</p>
-<p>The starter template contains a fullly founctional micro-service for managing a simple <code>Customer</code>. By default, the
-microservice uses a very basic in-memory provider persisting on disk for testing.</p>
-</div>
+<p>where 1 is a version number (you must increment it every time you'll publish a new version).</p>
+<p>When a microservice is published, <strong>vulcain</strong> assign it a unique port number beginning from 30000 used to test your microservice. All microservice endpoints respects the same
+endpoint format (valid only for testing) :</p>
+<div class="codehilite"><pre><span></span>http://&lt;host&gt;:&lt;port&gt;/api/&lt;verb&gt;
+</pre></div>
+
+
+<p><strong>Test the microservice</strong></p>
+<p>A <strong>vulcain</strong> microservice is auto-descriptive, you can visualize its definition () with :</p>
+<div class="codehilite"><pre><span></span>curl http:<span class="k">$(</span>docker-machine ip vulcain<span class="k">)</span>:30000/api/_servicedescription
+</pre></div>
+
+
+<p>or its dependencies (databases, external http requests, other microservice, configuration properties and npm packages) with:</p>
+<div class="codehilite"><pre><span></span>curl http:<span class="k">$(</span>docker-machine ip vulcain<span class="k">)</span>:30000/api/_servicedependencies
+</pre></div>
       
   </div>
     
