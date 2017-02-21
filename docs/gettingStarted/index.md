@@ -44,19 +44,20 @@ cd vulcain-demo
 ./install-demo.sh
 ```
 
-!!! success
-    You have now a fully operationnel vulcain environment available on ```http://$(docker-machine ip vulcain):8080``` with admin/vulcain.
+You have now a fully operationnel vulcain environment.
 
-**Create your first microservice**
+Vulcain ui is available on ```http://$(docker-machine ip vulcain):8080``` with admin/vulcain.
 
-The following commands must be run in the service's root folder and docker context initialized to connect
-to vulcain machine. (This is the case if you have run the install-demo script)
+### Create your first microservice
+
+> The following commands must be run in the service's root folder and docker context initialized to connect
+> to vulcain machine. (This is the case if you have run the install-demo script)
 
 ```sh
 vulcain create service1
 ```
 
-This command creates a microservice using a default project template which consists as a fully functional
+This command creates a microservice named service1 using a default project template which consists as a fully functional
 customer service providing CRUD handlers.
 
 !!! info
@@ -102,4 +103,6 @@ or its dependencies (databases, external http requests, other microservice, conf
 ```bash
 curl http:$(docker-machine ip vulcain):30000/api/_servicedependencies
 ```
+
+By default, the microservice uses a very basic in-memory provider persisting on disk for testing.
 
