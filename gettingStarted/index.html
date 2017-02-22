@@ -182,18 +182,18 @@
 </pre></div>
 
 
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>You have now a fully operationnel vulcain environment available on <code>http://$(docker-machine ip vulcain):8080</code> with admin/vulcain.</p>
-</div>
-<p><strong>Create your first microservice</strong></p>
+<p>You have now a fully operationnel vulcain environment.</p>
+<p>Vulcain ui is available on <code>http://$(docker-machine ip vulcain):8080</code> with admin/vulcain.</p>
+<h3 id="create-your-first-microservice">Create your first microservice</h3>
+<blockquote>
 <p>The following commands must be run in the service's root folder and docker context initialized to connect
 to vulcain machine. (This is the case if you have run the install-demo script)</p>
+</blockquote>
 <div class="codehilite"><pre><span></span>vulcain create service1
 </pre></div>
 
 
-<p>This command creates a microservice using a default project template which consists as a fully functional
+<p>This command creates a microservice named service1 using a default project template which consists as a fully functional
 customer service providing CRUD handlers.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -229,6 +229,9 @@ endpoint format (valid only for testing) :</p>
 <p>or its dependencies (databases, external http requests, other microservice, configuration properties and npm packages) with:</p>
 <div class="codehilite"><pre><span></span>curl http:<span class="k">$(</span>docker-machine ip vulcain<span class="k">)</span>:30000/api/_servicedependencies
 </pre></div>
+
+
+<p>By default, the microservice uses a very basic in-memory provider persisting on disk for testing.</p>
       
   </div>
     
