@@ -77,7 +77,7 @@ template: home.html
         <h4>Features</h4>
         <p>
             <ul>
-            <li>Fully docker deployable</li>
+            <li>Fully deployable on Docker</li>
             <li>Hystrix command implementation (circuit-breaker, bulkhead, timeout)</li>
             <li>Context propagation (user context, correlation id...)
             <li>CQRS implementation</li>

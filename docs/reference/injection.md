@@ -1,6 +1,6 @@
 # Dependency injection
 
-**Vulcain** provides a minimalist dependency injection mechanism limited to ```constructor parameters injection```
+**Vulcain** provides a simple dependency injection mechanism limited to ```constructor parameters injection```
 
 It uses annotations to declare dependencies.
 
@@ -25,13 +25,13 @@ with **lifeTime**
 
 | name | Description |
 |------|-------------|
-| Singleton | Only one instance will be created
-| Transient | A new instance is always created
-| Scoped    | Singleton instance by request scope
+| Singleton | Only one instance will be created |
+| Transient | A new instance is always created |
+| Scoped    | Singleton instance by request scope |
 
 ## Using services
 
-As already saw, dependency injection only works within constructor with ```@Inject``` annotation.
+As mentioned above, dependency injection only works with constructor with ```@Inject``` annotation.
 
 ```js
 
@@ -41,11 +41,11 @@ export class MyClass {
 
 ```
 
-The following rules are used :
+The following rules are applied :
 
 1. Using ```@Inject``` is mandatory to specify parameter injection.
-1. You can mix injected parameter with *classic* parameter but injected parameters must be declared first.
-1. When service start, all services defined in the following folders are automatically registered : api/handlers,
+1. You can mix injected parameters with *classic* parameters however injected parameters must be declared first.
+1. When service starts, all services defined in the following folders are automatically registered : api/handlers,
 api/models, api/services and api/commands.
 1. Scoped services are disposed when the request ends. You can provide your own ```dispose``` method.
 1. All scoped services are initialized with a ```requestContext``` property.
@@ -60,7 +60,7 @@ Also you can inject service manually with the following container methods :
 
 ## Predefined services
 
-Vulcain provides predefined services availables with standardized names.
+Vulcain provides predefined services available with standardized names.
 All predefined service names are defined in a static class named ```DefaultServiceNames```
 
 | name | service |
@@ -79,9 +79,8 @@ All predefined service names are defined in a static class named ```DefaultServi
 | Domain | Current domain definition
 | Application | Current application context
 | ServerAdapter | Current server adapter (default express adapter)
-| ProviderFactory | Service to use for creating provider
-| TestUser | Default test user in test environnement
+| ProviderFactory | Service to use for creating providers
+| TestUser | Default test user in test environment
 | RequestContext | Current request context
 | Metrics | Manage and emit metrics
 | ApiKeyService | Service to manage api key
-

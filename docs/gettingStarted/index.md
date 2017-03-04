@@ -8,7 +8,7 @@ template: home.html
 
 - node 6.0 see [this link](https://nodejs.org/en/download/) to install node on your machine.
 - docker version > 1.12. See [this link](https://docs.docker.com/engine/installation/) to install docker.
-- **vulcain-cli** is not mandatory but can help you to start easily whith **vulcain**. Install it with
+- **vulcain-cli** is not mandatory but can help you to start easily with **vulcain**. Install it with
 
 ```bash
 npm install vulcain-cli -g
@@ -23,7 +23,7 @@ docker-machine create -d virtualbox --virtualbox-memory 2048 vulcain
 ```
 
 !!! note
-    Machine must have at least 2gb of memory for running elasticsearch
+    Machine must have at least 2gb of memory to run ElasticSearch
 
 * Install vulcain-cli like any global npm package with the following command (may needs sudo):
 
@@ -44,29 +44,29 @@ cd vulcain-demo
 ./install-demo.sh
 ```
 
-You have now a fully operationnel vulcain environment.
+You have now a fully operational vulcain environment.
 
-Vulcain ui is available on ```http://$(docker-machine ip vulcain):8080``` with admin/vulcain.
+Vulcain UI is available on ```http://$(docker-machine ip vulcain):8080``` with the default credentials admin/vulcain.
 
 ### Create your first microservice
 
-> The following commands must be run in the service's root folder and docker context initialized to connect
+> The following commands must be run in the service's root folder with an initialiazed docker context in order to connect
 > to vulcain machine. (This is the case if you have run the install-demo script)
 
 ```sh
 vulcain create service1
 ```
 
-This command creates a microservice named service1 using a default project template which consists as a fully functional
-customer service providing CRUD handlers.
+This command creates a microservice named service1 using a default project template which is a fully functional
+CRUD customer service.
 
 !!! info
     Vulcain templates are predefined for [vscode](https://code.visualstudio.com/) or [webstorm](https://www.jetbrains.com/webstorm/).
 
-    The starter template contains a fullly founctional micro-service for managing a simple ```Customer```. By default, the
-    microservice uses a very basic in-memory provider persisting on disk for testing.
+    The starter template contains a fully functional microservice managing a simple ```Customer```. By default, the
+    microservice uses a very basic in-memory provider persisting to disk for testing.
     
-A **vulcain** microservice implements the CQRS pattern providing two (and only two) kinds of requests:
+**Vulcain** microservice implements CQRS pattern providing two (and only two) kinds of request:
 
 * Command (named action in **vulcain**) requests available with a **POST** http verb.
 * Query requests available with a **GET** http verb.
@@ -81,10 +81,9 @@ You can now edit the code or publish it directly with :
 vulcain publish 1
 ```
 
-where 1 is a version number (you must increment it every time you'll publish a new version).
+where 1 is a version number (you must increment it every time you publish a new version).
 
-When a microservice is published, **vulcain** assign it a unique port number beginning from 30000 used to test your microservice. All microservice endpoints respects the same
-endpoint format (valid only for testing) :
+When a microservice is published, **vulcain** automatically assigns a unique port number beginning from 30000 and used to test your microservice. All microservice endpoints follow the same endpoint format (valid only for testing) :
 
 ```
 http://<host>:<port>/api/<verb>
@@ -92,7 +91,7 @@ http://<host>:<port>/api/<verb>
 
 **Test the microservice**
 
-A **vulcain** microservice is auto-descriptive, you can visualize its definition () with :
+**Vulcain** microservice is auto-descriptive, you can expose its definition () with :
 
 ```bash
 curl http:$(docker-machine ip vulcain):30000/api/_servicedescription
@@ -104,5 +103,5 @@ or its dependencies (databases, external http requests, other microservice, conf
 curl http:$(docker-machine ip vulcain):30000/api/_servicedependencies
 ```
 
-By default, the microservice uses a very basic in-memory provider persisting on disk for testing.
+By default, the microservice uses a very basic in-memory provider persisting to disk for testing.
 

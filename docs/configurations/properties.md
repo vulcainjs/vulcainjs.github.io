@@ -4,4 +4,4 @@ encryption
 
 ## ChainedDynamicProperty
 
-## Listening properties change
+## Listening to properties change

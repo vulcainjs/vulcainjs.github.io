@@ -1,3 +1,3 @@
 ## Polling process overview
 
-Properties values are initialized by configuration sources
+Property values are initialized by configuration sources
