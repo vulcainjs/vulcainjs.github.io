@@ -13,9 +13,9 @@
         <meta name="author" content="Alain Metge">
       
       
-        <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
     
     
       
@@ -23,7 +23,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-facb31f4a3.js"></script>
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
+      
     
     
       
@@ -35,12 +41,6 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/application-f3ab63f78a.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02ce7adcc2.palette.css">
-      
-      
     
     
   </head>
@@ -66,9 +66,10 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Vulcain" class=" md-icon md-icon--home  md-header-nav__button">
-          
-        </a>
+        
+          <a href="../.." title="Vulcain" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
@@ -95,7 +96,7 @@
   <div class="md-search__overlay"></div>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
     </form>
     <div class="md-search__output">
@@ -108,9 +109,9 @@
         
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
+        <div class="md-header-nav__source">
+          
             
-              
 
 
   
@@ -129,14 +130,16 @@
     </div>
   </a>
 
-            
-          </div>
+          
+        </div>
       </div>
     </div>
   </nav>
 </header>
     
     <div class="md-container">
+      
+      
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
@@ -144,11 +147,11 @@
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    <i class=" md-icon md-icon--home  md-nav__button">
-      
-    </i>
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
     Vulcain
   </label>
   
@@ -178,17 +181,21 @@
     
       
       
+      
+
+
   <li class="md-nav__item">
-    
-      <a href="../.." title="Home" class="md-nav__link">
-        Home
-      </a>
-    
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
   </li>
 
     
       
       
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
@@ -196,7 +203,7 @@
     <label class="md-nav__link" for="nav-2">
       Getting started
     </label>
-    <nav class="md-nav" data-md-component="collapsible">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         Getting started
       </label>
@@ -205,12 +212,13 @@
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../../gettingStarted/" title="Run sample" class="md-nav__link">
-        Run sample
-      </a>
-    
+    <a href="../../gettingStarted/" title="Run sample" class="md-nav__link">
+      Run sample
+    </a>
   </li>
 
         
@@ -221,14 +229,19 @@
     
       
       
-  <li class="md-nav__item md-nav__item--nested">
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Documentation
     </label>
-    <nav class="md-nav" data-md-component="collapsible">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         Documentation
       </label>
@@ -237,84 +250,96 @@
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../" title="Overview" class="md-nav__link">
-        Overview
-      </a>
-    
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../actions/" title="Actions" class="md-nav__link">
-        Actions
-      </a>
-    
+    <a href="../actions/" title="Actions" class="md-nav__link">
+      Actions
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../query/" title="Queries" class="md-nav__link">
-        Queries
-      </a>
-    
+    <a href="../query/" title="Queries" class="md-nav__link">
+      Queries
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../event/" title="Events" class="md-nav__link">
-        Events
-      </a>
-    
+    <a href="../event/" title="Events" class="md-nav__link">
+      Events
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../domain/" title="Domain models" class="md-nav__link">
-        Domain models
-      </a>
-    
+    <a href="../domain/" title="Domain models" class="md-nav__link">
+      Domain models
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../injection/" title="Dependencies injection" class="md-nav__link">
-        Dependencies injection
-      </a>
-    
+    <a href="../injection/" title="Dependencies injection" class="md-nav__link">
+      Dependencies injection
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../commands/" title="Commands" class="md-nav__link">
-        Commands
-      </a>
-    
+    <a href="../commands/" title="Commands" class="md-nav__link">
+      Commands
+    </a>
   </li>
 
         
           
           
-  <li class="md-nav__item">
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
@@ -383,23 +408,25 @@
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../metrics/" title="Monitoring" class="md-nav__link">
-        Monitoring
-      </a>
-    
+    <a href="../metrics/" title="Monitoring" class="md-nav__link">
+      Monitoring
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../security/" title="Security" class="md-nav__link">
-        Security
-      </a>
-    
+    <a href="../security/" title="Security" class="md-nav__link">
+      Security
+    </a>
   </li>
 
         
@@ -410,6 +437,9 @@
     
       
       
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
@@ -417,7 +447,7 @@
     <label class="md-nav__link" for="nav-4">
       About
     </label>
-    <nav class="md-nav" data-md-component="collapsible">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
         About
       </label>
@@ -426,12 +456,13 @@
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../../about/license/" title="license" class="md-nav__link">
-        license
-      </a>
-    
+    <a href="../../about/license/" title="license" class="md-nav__link">
+      license
+    </a>
   </li>
 
         
@@ -511,24 +542,24 @@
               
                 
                 <h1 id="dynamic-configuration-properties">Dynamic configuration properties</h1>
-<p>Configuration properties often need to be update during runtime without restarting your service.</p>
+<p>Configuration properties often require to be updated at runtime without restarting your services.</p>
 <p>Dynamic properties offers a simple and easy way to update properties on the fly.</p>
 <blockquote>
 <p>This is inspired by <a href="http://github.com/netflix/archaius">Netflix archaius</a>.</p>
 </blockquote>
 <h2 id="features">Features</h2>
 <ul>
-<li>Runtime update. Last values are caching locally.</li>
+<li>Runtime update. Last values are cached locally.</li>
 <li>Service can be notified when a value changes.</li>
-<li>Property values are pulling from remote server with configuration source adapter.</li>
+<li>Property values are pulled from a remote server with a configuration source adapter.</li>
 <li>Many adapters can be used with different protocols (http, consul, file...)</li>
-<li>Properties can be chained, providing a value from a hierachic chain of value.</li>
-<li>Properties can be encrypted and decrypted locally inside service.</li>
+<li>Properties can be chained, providing a value to a hierachical chain of values.</li>
+<li>Properties can be encrypted and decrypted locally inside a service.</li>
 </ul>
 <h2 id="concepts">Concepts</h2>
-<p>All properties are managed by a <code>DynamicConfiguration</code> object instanciated as a singleton.
+<p>All properties are managed by a <code>DynamicConfiguration</code> singleton object.
 This is the unique entry point to all dynamic properties and exposes different static methods for creating, listening and initializing properties.</p>
-<p>Property values are updated with <code>ConfigurationSource</code> object pulling data at specific interval.</p>
+<p>Property values are updated with <code>ConfigurationSource</code> object pulling data at specific time interval.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Polling configurations are set in index.ts. Application starts only after first polling completes successfully.</p>
@@ -544,7 +575,7 @@ This is the unique entry point to all dynamic properties and exposes different s
 <tbody>
 <tr>
 <td>Service specific</td>
-<td>Visible only from a specific Service</td>
+<td>Visible only by a specific Service</td>
 </tr>
 <tr>
 <td>Shared</td>
@@ -553,7 +584,7 @@ This is the unique entry point to all dynamic properties and exposes different s
 </tbody>
 </table>
 <h2 id="declaring-a-dynamic-property">Declaring a dynamic property</h2>
-<p><strong>Vulcain</strong> provides helpers to create property.</p>
+<p><strong>Vulcain</strong> provides helpers to create dynamic properties.</p>
 <p>To create a shared property:</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">createSharedConfigurationProperty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="s2">&quot;default value&quot;</span><span class="p">);</span>
 </pre></div>
@@ -564,7 +595,7 @@ This is the unique entry point to all dynamic properties and exposes different s
 </pre></div>
 
 
-<p>These helpers create a <em>chained</em> property. Chained property create a pipeline of dynamic property using the first value
+<p>These helpers create a <em>chained</em> property. Chained property create a pipeline of dynamic properties using the first value
 available.</p>
 <p>For example for a service property, the pipeline consists of the following property names :</p>
 <ol>
@@ -579,20 +610,21 @@ available.</p>
 <p>You can create your own chained property with <code>DynamicConfiguration.asChainedProperty&lt;string&gt;()</code>.</p>
 </div>
 <h2 id="using-a-dynamic-property">Using a dynamic property</h2>
-<p>You can get property value with its <code>value</code> property.</p>
+<p>You can get a property value through its <code>value</code> property.</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">property1</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
 </pre></div>
 
 
-<p>You can subscribe on a specific property value changed with <code>property1.propertyChanged.subscribe( fn )</code>.</p>
+<p>You can subscribe to a specific property value change with <code>property1.propertyChanged.subscribe( fn )</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Dynamic property can not be updated from a service, you can only override the local default value, no update
-will be send to sources.</p>
+will be sent to sources.</p>
 </div>
 <h2 id="providing-values-with-configuration-source">Providing values with configuration source</h2>
-<p>By default, service template uses a vulcain configuration source valid only within vulcain environement.</p>
+<p>By default, service template uses a vulcain configuration source only valid within vulcain environment.</p>
 <p>But you can create a custom <code>HttpConfigurationSource</code> reading properties for a specific url.</p>
+              
               
             </article>
           </div>
@@ -660,8 +692,8 @@ will be send to sources.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-2afe21e0b2.js"></script>
-      <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
+      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
       
     
     
