@@ -9,7 +9,7 @@ copyright: Copyright © 2017 Zenasoft
 pages:
   - Home: index.md
   - "Getting started":
-    - "Run sample": gettingStarted/index.md
+    - "My first microservices": gettingStarted/index.md
   - Documentation:
     - Overview: 'reference/index.md'
     - Actions: 'reference/actions.md'
@@ -31,5 +31,4 @@ markdown_extensions:
   - toc
   - admonition
   - codehilite(guess_lang=false)
-  - toc
   - footnotes
