@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -14,15 +15,15 @@
       
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.0.3">
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-f3ab63f78a.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
+        <title>My first microservices - Vulcain</title>
       
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-  crossorigin="anonymous">
+    
+    
+      <script src="../assets/javascripts/modernizr-facb31f4a3.js"></script>
     
     
       
@@ -35,40 +36,33 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
+      <link rel="stylesheet" href="../assets/stylesheets/application-f3ab63f78a.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
+      
+      
     
-<style>  
-  .md-header a {
-    color: white;
-  }
-  
-  .md-header a:hover {
-    text-decoration: none;
-  }
-  
-  .nav li a:hover {
-    background-color: #2196f3;
-    color: hsla( 0, 0%, 100%, .7);
-  }
-  
-  .btn-success {
-    background-image: linear-gradient(#88c149, #73a839 60%, #699934);
-  }
-</style>    
+    
   </head>
-    
-
-<body data-md-color-primary="blue" data-md-color-accent="light-blue">
   
-<svg class="md-svg">
-  <defs>
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg> 
-  </defs>
-</svg>      
-<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-<input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
-<label class="md-overlay" data-md-component="overlay" for="drawer"></label> 
-<!-- header -->
-<header class="md-header">
+  
+  
+  
+    <body data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -81,15 +75,22 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <span class="md-flex__ellipsis md-header-nav__title">
-          <ul class="nav navbar-nav">
-            <li><a href="/gettingStarted/index.html">Getting started</a></li>
-            <li><a href="/reference/index.html">Documentation</a></li>            
-          </ul>
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Getting started
+                </span>
+              
+            
+            My first microservices
+          
         </span>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-        <label class="md-icon md-icon--search md-header-nav__button" for="search"></label> 
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
 <div class="md-search" data-md-component="search">
   <div class="md-search__overlay"></div>
   <div class="md-search__inner">
@@ -103,11 +104,13 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
+        
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-           
+          <div class="md-header-nav__source">
+            
+              
 
 
   
@@ -125,119 +128,770 @@
       GitHub
     </div>
   </a>
- 
-        </div>
+
+            
+          </div>
       </div>
     </div>
   </nav>
-</header>    
-<!-- !header -->
-
-<div class="container">
-  <div class="row" style="height: 80px"></div>
-  <div class="col-md-11">
+</header>
+    
+    <div class="md-container">
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <i class=" md-icon md-icon--home  md-nav__button">
       
-        <h3 id="getting-started">Getting started</h3>
-<p><strong>Prerequisites</strong></p>
+    </i>
+    Vulcain
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/vulcainjs/vulcainjs.github.io" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href=".." title="Home" class="md-nav__link">
+        Home
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        My first microservices
+      </label>
+    
+    <a href="./" title="My first microservices" class="md-nav__link md-nav__link--active">
+      My first microservices
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" title="Getting started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-backend-service" title="Creating the backend service" class="md-nav__link">
+    Creating the backend service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-facade-service" title="Creating the facade service" class="md-nav__link">
+    Creating the facade service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-the-handler" title="Anatomy of the handler" class="md-nav__link">
+    Anatomy of the handler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communicate-between-services" title="Communicate between services" class="md-nav__link">
+    Communicate between services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-command-request-with-hystrix-dashboard" title="Monitoring command request with hystrix dashboard" class="md-nav__link">
+    Monitoring command request with hystrix dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-compensation" title="Failure compensation" class="md-nav__link">
+    Failure compensation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-3">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/" title="Overview" class="md-nav__link">
+        Overview
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/actions/" title="Actions" class="md-nav__link">
+        Actions
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/query/" title="Queries" class="md-nav__link">
+        Queries
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/event/" title="Events" class="md-nav__link">
+        Events
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/domain/" title="Domain models" class="md-nav__link">
+        Domain models
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/injection/" title="Dependencies injection" class="md-nav__link">
+        Dependencies injection
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/commands/" title="Commands" class="md-nav__link">
+        Commands
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/configurations/" title="Configurations" class="md-nav__link">
+        Configurations
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/metrics/" title="Monitoring" class="md-nav__link">
+        Monitoring
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../reference/security/" title="Security" class="md-nav__link">
+        Security
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-4">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../about/license/" title="license" class="md-nav__link">
+        license
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" title="Getting started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-backend-service" title="Creating the backend service" class="md-nav__link">
+    Creating the backend service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-facade-service" title="Creating the facade service" class="md-nav__link">
+    Creating the facade service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-the-handler" title="Anatomy of the handler" class="md-nav__link">
+    Anatomy of the handler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communicate-between-services" title="Communicate between services" class="md-nav__link">
+    Communicate between services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-command-request-with-hystrix-dashboard" title="Monitoring command request with hystrix dashboard" class="md-nav__link">
+    Monitoring command request with hystrix dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-compensation" title="Failure compensation" class="md-nav__link">
+    Failure compensation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+               
+                 <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/master/docs/gettingStarted/index.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+               
+              
+                
+                  <h1>My first microservices</h1>
+                
+                <h3 id="getting-started">Getting started</h3>
+<p>In this tutorial, we will create two micro-services, a backend service and a facade service calling the backend service.</p>
+<p>We will see:</p>
 <ul>
-<li>node 6.0 see <a href="https://nodejs.org/en/download/">this link</a> to install node on your machine.</li>
-<li>docker version &gt; 1.12. See <a href="https://docs.docker.com/engine/installation/">this link</a> to install docker.</li>
-<li><strong>vulcain-cli</strong> is not mandatory but can help you to start easily with <strong>vulcain</strong>. Install it with</li>
+<li>How to create a new service</li>
+<li>How to generate a proxy class for calling another micro-service</li>
+<li>How to display monitoring with hystrix dashboard</li>
+<li>How to add fallback response for providing compensation when a service is down</li>
+</ul>
+<h4 id="prerequisites">Prerequisites</h4>
+<ul>
+<li>node &gt;= 6.0 see <a href="https://nodejs.org/en/download/">this link</a> to install node on your machine.</li>
+<li>docker version &gt;= 1.12. See <a href="https://docs.docker.com/engine/installation/">this link</a> to install docker.</li>
+<li><strong>vulcain-cli</strong> You can install it with</li>
 </ul>
 <div class="codehilite"><pre><span></span>npm install vulcain-cli -g
 </pre></div>
 
 
-<p><strong>Installing a demo vulcain environment</strong></p>
-<ul>
-<li>Create a virtual machine with docker-machine</li>
-</ul>
-<div class="codehilite"><pre><span></span>docker-machine create -d virtualbox --virtualbox-memory <span class="m">2048</span> vulcain
+<h3 id="creating-the-backend-service">Creating the backend service</h3>
+<p>Creating a new microservice project is easy with <strong>vulcain-cli</strong>. The following command creates a new project
+from a template. This template provides a sample customers management service.</p>
+<div class="codehilite"><pre><span></span>vulcain create customers-service
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Machine must have at least 2gb of memory to run ElasticSearch</p>
-</div>
-<ul>
-<li>Install vulcain-cli like any global npm package with the following command (may needs sudo):</li>
-</ul>
-<div class="codehilite"><pre><span></span>npm install -g vulcain-cli
-</pre></div>
-
-
-<ul>
-<li>Clone the demo scripts repo</li>
-</ul>
-<div class="codehilite"><pre><span></span>git clone https://github.com/vulcainjs/vulcain-demo.git vulcain-demo
-</pre></div>
-
-
-<ul>
-<li>And run the initialisation script with</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nb">cd</span> vulcain-demo
-./install-demo.sh
-</pre></div>
-
-
-<p>You have now a fully operational vulcain environment.</p>
-<p>Vulcain UI is available on <code>http://$(docker-machine ip vulcain):8080</code> with the default credentials admin/vulcain.</p>
-<h3 id="create-your-first-microservice">Create your first microservice</h3>
-<blockquote>
-<p>The following commands must be run in the service's root folder with an initialiazed docker context in order to connect
-to vulcain machine. (This is the case if you have run the install-demo script)</p>
-</blockquote>
-<div class="codehilite"><pre><span></span>vulcain create service1
-</pre></div>
-
-
-<p>This command creates a microservice named service1 using a default project template which is a fully functional
-CRUD customer service.</p>
+<p>This template is fully operational, you can go to the code, and test it directly in local mode
+using <code>http://localhost:8080/api</code> with curl or postman.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Vulcain templates are predefined for <a href="https://code.visualstudio.com/">vscode</a> or <a href="https://www.jetbrains.com/webstorm/">webstorm</a>.</p>
-<p>The starter template contains a fully functional microservice managing a simple <code>Customer</code>. By default, the
-microservice uses a very basic in-memory provider persisting to disk for testing.</p>
+<p>Vulcain templates are predefined to be used with <a href="https://code.visualstudio.com/">vscode</a> or <a href="https://www.jetbrains.com/webstorm/">webstorm</a>.</p>
 </div>
-<p><strong>Vulcain</strong> microservice implements CQRS pattern providing two (and only two) kinds of request:</p>
+<p>Try some urls to see how <strong>vulcain</strong> works:</p>
+<table>
+<thead>
+<tr>
+<th>url (prefixed with localhost:8080)</th>
+<th>Http Verb</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/api/_servicedescription</td>
+<td>GET</td>
+<td>Show service description (metadata)</td>
+</tr>
+<tr>
+<td>/api/_servicedependencies</td>
+<td>GET</td>
+<td>Show service dependencies (metadata)</td>
+</tr>
+<tr>
+<td>/api</td>
+<td>GET</td>
+<td>Display all customers (this is the default behavior)</td>
+</tr>
+<tr>
+<td>/api/customer.all</td>
+<td>GET</td>
+<td>Idem</td>
+</tr>
+<tr>
+<td>/api/customer.create</td>
+<td>POST</td>
+<td>Create a customer (see below)</td>
+</tr>
+<tr>
+<td>/api/customer.delete</td>
+<td>POST</td>
+<td>Delete a customer</td>
+</tr>
+<tr>
+<td>/api/customer.update</td>
+<td>POST</td>
+<td>Update a customer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Go to <a href="./../reference/index">concepts</a> to see more infos on the vulcain protocol.</p>
+</blockquote>
+<p>Now we can publish this service in a local demo swarm cluster.</p>
+<div class="codehilite"><pre><span></span>docker build -t customers-service:1.0 .
+vulcain run customers-service:1.0
+</pre></div>
+
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>you can also use ./build.sh 1.0 to build the service.</p>
+</div>
+<blockquote>
+<p><code>vulcain run</code> initializes a swarm cluster if any and create a net-vulcain network and create a new docker service.</p>
+</blockquote>
+<p>The service is now available with a new exposed port (30000 if this is the first service in your swarm cluster). This port is displayed when the vulcain run command ends.</p>
+<p>Let's try to create some customers using this new port using the <code>customer.create</code> action.
+E.g.</p>
+<div class="codehilite"><pre><span></span>curl -XPOST localhost:30000/api/customer.create -d <span class="s1">&#39;{&quot;firstName&quot;:&quot;Albert&quot;, &quot;lastName&quot;: &quot;Einstein&quot;}&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span>
+</pre></div>
+
+
+<p>You can list all customers with /api/customer.all (or /api).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, data are stored in memory and will be lost if you restart the container.</p>
+</div>
+<h3 id="creating-the-facade-service">Creating the facade service</h3>
+<p>We will now create a new facade service exposing a customer with an additional fullName property.</p>
+<p>Create a new service facade-service.</p>
+<div class="codehilite"><pre><span></span>vulcain create facade-service
+</pre></div>
+
+
+<p>Then open the project and remove the <code>src/api/samples</code> folder to start with a new clean project.</p>
+<p>The first thing to do is to create a model. A model (or schema) describes data manipulated by the service. It has many
+functionalities:</p>
 <ul>
-<li>Command (named action in <strong>vulcain</strong>) requests available with a <strong>POST</strong> http verb.</li>
-<li>Query requests available with a <strong>GET</strong> http verb.</li>
+<li>For input data, it is used to check and validate argument values (rasing a 400 bad request error if any errors)</li>
+<li>For storing data, it can be used by the <strong>default</strong> provider to get some persistance informations like key definition, uniqueness, collection name...</li>
+<li>For metadata description, it is used to display informations (with /api/_servicedescription) used for code generation or other tools.</li>
 </ul>
-<p>See <a href="../reference/index.html">documentation</a> for more details.</p>
-<p><strong>For this demo, all handlers (query and actions) are in the same service but it's a best practice to dispatch handlers on separate services.</strong></p>
-<p>You can now edit the code or publish it directly with :</p>
-<div class="codehilite"><pre><span></span>vulcain publish <span class="m">1</span>
+<p>Create a new file /src/api/model.ts and copy/paste the following code:</p>
+<div class="codehilite"><pre><span></span>import { Property, Model } from &quot;vulcain-corejs&quot;;
+
+@Model()
+export class CustomerView {
+    @Property({ type: &#39;string&#39; })
+    fullName: string;
+    @Property({ type: &#39;string&#39; })
+    firstName: string;
+    @Property({ type: &#39;string&#39; })
+    lastName: string;
+}
 </pre></div>
 
 
-<p>where 1 is a version number (you must increment it every time you publish a new version).</p>
-<p>When a microservice is published, <strong>vulcain</strong> automatically assigns a unique port number beginning from 30000 and used to test your microservice. All microservice endpoints follow the same endpoint format (valid only for testing) :</p>
-<div class="codehilite"><pre><span></span>http://&lt;host&gt;:&lt;port&gt;/api/&lt;verb&gt;
+<p>This is a very basic model, it has the same properties than customer with an additional fullName property.
+Since this model will be used for output response, no validations are added.</p>
+<p>Now we will create a handler to query a customers view.</p>
+<div class="codehilite"><pre><span></span>import { QueryHandler, Query, AbstractQueryHandler, Command, ServiceDependency, AbstractServiceCommand, IHasFallbackCommand } from &quot;vulcain-corejs&quot;;
+import { CustomerView } from &quot;./model&quot;;
+import { CustomersService, Customer } from &quot;./customersService10&quot;;
+
+@QueryHandler({ scope: &#39;?&#39; })
+export class MyQueryHandler extends AbstractQueryHandler {
+
+    @Query({ description: &quot;Get a list of customers&quot;, outputSchema: CustomerView })
+    async CustomerViewsAsync() {
+        let customersService = new CustomersService(this.requestContext);
+        let customers = await customersService.getAllCustomerAsync();
+        return customers.map(c =&gt; {
+            return {
+                firstName: c.firstName,
+                lastName: c.lastName,
+                fullName: c.firstName + &#39; &#39; + c.lastName
+            };
+        });
+    }
+}
 </pre></div>
 
 
-<p><strong>Test the microservice</strong></p>
-<p><strong>Vulcain</strong> microservice is auto-descriptive, you can expose its definition () with :</p>
-<div class="codehilite"><pre><span></span>curl http:<span class="k">$(</span>docker-machine ip vulcain<span class="k">)</span>:30000/api/_servicedescription
+<h4 id="anatomy-of-the-handler">Anatomy of the handler</h4>
+<ul>
+<li>A handler is just a class with annoted methods. This annotations describe how the handler can be requested. There are 3 kinds of handler: <code>Query handler</code>, <code>Action handler</code> and <code>Event handler</code>. See <a href="./../reference/index">concepts</a></li>
+<li>The <code>QueryHandler</code> annotation tells that the class exposes handler(s) for query (accessible with a GET http verb) and can define default configurations. In this case, the handler could be requested by any (anonymous) user thanks to the <code>scope:'?'</code> property.</li>
+<li>The <code>Query</code> annotation is used to expose a method. Annotations has mandatory properties used to describe the service. The query will be accessible from <code>/api/customersview</code> (The name is inferred from the method name removing the Async suffix).</li>
+<li>The handler code is like any traditional method. With some specifications:<ul>
+<li>It can take only one argument described by a model. This model will be validated before the method is called and raise a Bad Request error in case of errors.</li>
+<li>The return value must be described by a model (can be the same as the input argument). This is used to decribe the service.</li>
+<li>If any error occurs, a 500 http error will be send to the client.</li>
+</ul>
+</li>
+</ul>
+<p>You can note that the service use a custom service class (<code>CustomersService</code>) to read all customers. This is a proxy class requesting our first service : customers-service.</p>
+<p>But how can i create this proxy class ?</p>
+<h3 id="communicate-between-services">Communicate between services</h3>
+<p>Thanks to the metadata description hability of any vulcain service, we can used tool to generate code. The code generation uses template to generate a static class with typed method sending fully hight tolerance, monitored and vulcain compatible requests.</p>
+<p>Vulcain compatible means context propagation : security context, global correlation id, tenant information...</p>
+<p>To generate the proxy class, we need some informations:</p>
+<ul>
+<li>Address of the target service. In our case, localhost:30000</li>
+<li>A template to use, by default this is microServiceProxy (for generating vulcain proxy). The other template is angularServiceProxy to generate proxy class for angular application.</li>
+<li>The folder where the generated file will be saved. Default is the current folder.</li>
+</ul>
+<p>To generate the class, type the following code from the application root folder.</p>
+<div class="codehilite"><pre><span></span>vulcain generate --address localhost:30000 --folder src/api
 </pre></div>
 
 
-<p>or its dependencies (databases, external http requests, other microservice, configuration properties and npm packages) with:</p>
-<div class="codehilite"><pre><span></span>curl http:<span class="k">$(</span>docker-machine ip vulcain<span class="k">)</span>:30000/api/_servicedependencies
+<p>The proxy class encapsulates all requests into <a href="https://github.com/Netflix/Hystrix">hystrix commands</a> providing circuit breaker, timeout, bulkhead and monitoring.</p>
+<p>Now you can compile and test the service locally with:</p>
+<div class="codehilite"><pre><span></span>curl http://localhost:8080/api/customersview
 </pre></div>
 
 
-<p>By default, the microservice uses a very basic in-memory provider persisting to disk for testing.</p>
+<p>Result depends of how many customers you created before, but note the standardized response format.</p>
+<h3 id="monitoring-command-request-with-hystrix-dashboard">Monitoring command request with hystrix dashboard</h3>
+<p>To enable hystrix monitoring, just set the variable <code>enableHystrixStream</code> to <code>true</code> in startup.ts.</p>
+<p>To visualize metrics, we need to start hystrix dashboard with the following command:</p>
+<div class="codehilite"><pre><span></span>docker service create --network net-vulcain -p <span class="m">9999</span>:9002 --name hystrix-dashboard mlabouardy/hystrix-dashboard:latest
+</pre></div>
+
+
+<p>Then open the dashboard on <code>http://localhost:9999/hyxtrix</code>, set the service endpoint whith <code>http://&lt;host ip&gt;:8080/hystrix.stream</code> and click on <strong>Monitor Stream</strong>.</p>
+<p>You can test monitoring by calling many requests.
+For example with :</p>
+<div class="codehilite"><pre><span></span>ab -n <span class="m">200</span> http://localhost:8080/api/customersview
+</pre></div>
+
+
+<p>You must see something like this:</p>
+<p><img src="../images/demo-hystrix.png" width="300px"></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Note how the service ip address changes depending on where you call it. To test the service, you can use <code>localhost</code> but since hystrix is running within a container you must provide the host ip.</p>
+<p>If the service were deployed as a swarm service, you can access it with a standardize DNS name corresponding to the service name + its version (removing all special characters).</p>
+<p>For example, if you deploy the service with <code>vulcain run service-facade:1.0</code>, you can monitor it with the address <code>http://servicefacade10:8080/hystrix.stream</code>.</p>
+</div>
+<h3 id="failure-compensation">Failure compensation</h3>
+<p>Calling microservice over http is not a long quiet stream, many errors can occur and you must be prepared for this.
+For this situation, <strong>vulcain</strong> uses a hystrix implementation of command. You can configure the command behavior with annotation. For example, the following command has a 1500ms timeout protecting from too long request.</p>
+<p>This is the microservice philosophy : Service can failed but quickly.</p>
+<p>For many usages, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.</p>
+<blockquote>
+<p>You can try a request failure by removing the backend service with <code>docker service rm customersservice10</code> and by requesting the facade service. Due to the default 1500ms timeout, errors will occur quickly. You can see it in hystrix dashboard.</p>
+</blockquote>
+<p><img src="../images/demo-hystrix2.png" width="300px"></p>
+<p>Before adding a compensation, we need to understand how the service proxy class works. This class provides a method for each endpoints (handlers) of the target service. Every time a call is made to an endpoint, a (hystrix) command is created by the proxy to encapsulate this call. By default, all calls of the same proxy use the same command named <code>&lt;service name&gt;Command</code>.</p>
+<p>If you need to customize a call, you need to customize a command but only for this specific call. To do that, the proxy class will check for every call if a specific command exists for this call else it will use the default command. A specific command is identify by a name like <code>&lt;service name&gt;&lt;method name&gt;Command</code>.</p>
+<p>So since we will customize a call to <code>getAllCustomerAsync</code> of the proxy class named <code>CustomersService</code> we need to create a new command named <code>CustomersServiceGetAllCustomer</code> (Async is always removed for naming).</p>
+<p>To add compensation we need to provide a <code>fallback</code> method returning the default value.</p>
+<p>You can now create a new file in src/api/ containing the following code.</p>
+<div class="codehilite"><pre><span></span>@Command({ executionTimeoutInMilliseconds: 1500 })
+@ServiceDependency(&#39;customers-service&#39;, &#39;1.0&#39;, &#39;http://localhost:32772/api/_servicedescription&#39;)
+export class CustomersServiceGetAllCustomerCommand extends AbstractServiceCommand
+    implements IHasFallbackCommand&lt;Customer[]&gt; {
+    async fallbackAsync(): Promise&lt;Customer[]&gt; {
+        return [{
+            firstName: &quot;John&quot;, lastName: &quot;Lennon&quot;
+        }];
+    }
+}
+</pre></div>
+
+
+<p>Annotations are copied from the default generated command. You can see how setting timeout delay and how define informations used for describing the service.</p>
+<p>Fallback method is called on every error during the request including timeout.</p>
+<p>Now if you request the facade service, the compensation response will be return.</p>
+              
+            </article>
+          </div>
+        </div>
+      </main>
       
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../reference/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2017 Zenasoft
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
   </div>
+</footer>
+      
+    </div>
     
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  crossorigin="anonymous"></script>   
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>    
+      <script src="../assets/javascripts/application-2afe21e0b2.js"></script>
+      <script>var config={url:{base:".."}},app=new Application(config);app.initialize()</script>
+      
     
     
       
