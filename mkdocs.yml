@@ -6,6 +6,7 @@ site_url: https://vulcainjs.github.io
 repo_url: https://github.com/vulcainjs/vulcainjs.github.io
 site_author: Alain Metge
 copyright: Copyright © 2017 Zenasoft
+google_analytics: ['UA-49523450-2', 'auto']
 pages:
   - Home: index.md
   - "Getting started":

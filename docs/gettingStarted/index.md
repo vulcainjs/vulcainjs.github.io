@@ -22,10 +22,10 @@ npm install vulcain-cli -g
 ### Creating the backend service
 
 Creating a new microservice project is easy with **vulcain-cli**. The following command creates a new project
-from a template. This template provides a sample customer management service.
+from a template into the current directory. This template provides a sample customer management service.
 
 ```bash
-vulcain create customers-service
+vulcain init customers-service
 ```
 
 This template is fully operational, you can go to the code, and test it directly in local mode
@@ -48,7 +48,7 @@ Try some urls to see how **vulcain** works:
 
 > Go to [concepts](../reference/index) to see more infos on the vulcain protocol.
 
-Now we can publish this service in a local demo swarm cluster.
+Now we can publish this service in a local demo swarm cluster. From the project root folder type:
 
 ```bash
 docker build -t customers-service:1.0 .
@@ -79,10 +79,10 @@ You can list all customers with /api/customer.all (or /api).
 
 We will now create a new facade service exposing a customer with an additional fullName property.
 
-Create a new service facade-service.
+Create a new service facade-service. In a new folder type:
 
 ```bash
-vulcain create facade-service
+vulcain init facade-service
 ```
 
 Then open the project and remove the ```src/api/samples``` folder to start with a new clean project.
@@ -94,7 +94,7 @@ capabilities:
 - For storing data, it can be used by the **default** provider to get some persistance information like key definition, uniqueness, collection name...
 - For metadata description, it is used to display information (with /api/_servicedescription) usefull to code generation or other tools.
 
-Create a new file /src/api/model.ts and copy/paste the following code:
+Create a new file src/api/model.ts and copy/paste the following code:
 
 ```csharp
 import { Property, Model } from "vulcain-corejs";
@@ -113,7 +113,7 @@ export class CustomerView {
 This is a very basic model, it has the properties of a customer with an additional fullName property.
 Since this model will be used for output response, no validation is added.
 
-Now we will create an handler to query a customer view.
+Now we will create an handler to query a customer view into a new file src/api/queryHandler.ts
 
 ```csharp
 import { QueryHandler, Query, AbstractQueryHandler, Command, ServiceDependency, AbstractServiceCommand, IHasFallbackCommand } from "vulcain-corejs";
@@ -137,6 +137,9 @@ export class MyQueryHandler extends AbstractQueryHandler {
     }
 }
 ```
+
+!!! info
+    See below to remove the reference error on customersService10
 
 #### Handler anatomy
 
@@ -164,7 +167,7 @@ To generate the proxy class, we need some information:
 - A template to use, by default this is microServiceProxy (for generating vulcain proxy). The other template is angularServiceProxy to generate proxy class for angular application.
 - The folder where the generated file will be saved. Default is the current folder.
 
-To generate the class, type the following code from the application root folder.
+To generate the class, type the following code from the application root folder (Change the port number if necessary)
 
 ```sh
 vulcain generate --address localhost:30000 --folder src/api
@@ -175,7 +178,7 @@ The proxy class encapsulates all requests into [hystrix commands](https://github
 Now you can compile and test the service locally with:
 
 ```sh
-curl http://localhost:8080/api/customersview
+curl http://localhost:8080/api/customerviews
 ```
 
 Result depends of how many customers you created before, but note the standardized response format.
@@ -196,7 +199,7 @@ You can test monitoring by calling many requests.
 For example with :
 
 ```sh
-ab -n 200 http://localhost:8080/api/customersview
+ab -n 200 http://localhost:8080/api/customerviews
 ```
 
 You must see something like this:
@@ -219,7 +222,8 @@ This is the microservice philosophy : Service can failed but quickly.
 
 For most scenarii, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.
 
-> You can try a request failure by removing the backend service with ```docker service rm customersservice10``` and by requesting the facade service. Due to the default 1500ms timeout, errors will occur quickly. You can see it in hystrix dashboard.
+Try a request failure by removing the backend service with ```docker service rm customersservice10``` and by requesting the facade service. Due to the default 1500ms timeout, errors will occur quickly.
+You can see it in hystrix dashboard.
 
 <img src="../images/demo-hystrix2.png" width="300px">
 
@@ -234,8 +238,11 @@ To add compensation we need to provide a ```fallback``` method returning the def
 You can now create a new file in src/api/ containing the following code.
 
 ```csharp
+import { ServiceDependency, Command, AbstractServiceCommand, IHasFallbackCommand } from 'vulcain-corejs';
+import { Customer } from './customersService10';
+
 @Command({ executionTimeoutInMilliseconds: 1500 })
-@ServiceDependency('customers-service', '1.0', 'http://localhost:32772/api/_servicedescription')
+@ServiceDependency('customers-service', '1.0', 'http://localhost:30000/api/_servicedescription')
 export class CustomersServiceGetAllCustomerCommand extends AbstractServiceCommand
     implements IHasFallbackCommand<Customer[]> {
     async fallbackAsync(): Promise<Customer[]> {
