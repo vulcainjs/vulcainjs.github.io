@@ -251,4 +251,3 @@ Annotations are copied from the default generated command. You can see how to se
 Fallback method is called on every error during the request including timeout.
 
 Now if you request the facade service, the compensation response will be returned.
-
