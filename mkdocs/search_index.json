@@ -52,18 +52,63 @@
         },
         {
             "location": "/reference/",
-            "text": "Documentation\n\n\nDocumentation is in progress",
+            "text": "Documentation\n\n\nDocumentation is in progress\n\n\nVulcain\n is a new microservice framework. It provides a way to create easily full operational microservices by normalizing i/o protocol, metrics and logging.\n\n\nEvery \nvulcain\n microservice encapsulates metadata description allowing to use external tools for generating code, services cartography, monitoring...\n\n\nVulcain\n implements natively some major well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event sourcing.\n\n\nIt targets the nodejs V6 (or more) platform and leverages all typescript functionalities like annotations, async/await, reflection...\n\n\nMajor functionalities\n\n\n\n\nStandardizes request and response HTTP format\n\n\nGenerate metrics for every request\n\n\nStandardizes logging format with data obfuscation for sensible data.\n\n\nServices are organized by domain and separate Query request from action (command) request.\n\n\nValidate input data.\n\n\nRequest context propagation on every service request.\n\n\n\n\nMain concepts\n\n\nThe first concept to understand how \nvulcain\n works is \nhandler\n. There is three kind of handler:\n\n\n\n\nQuery handler can not manipulate data and has side effect, it just returns data.\n\n\nAction handler can modify data and can be asynchrone. Every action raises an event when it completes.\n\n\nEvent handler subscribes to event. Event can be filtered by domain, action, schema and any more.\n\n\n\n\nThis a basic schema showing how it works:",
             "title": "Overview"
         },
         {
             "location": "/reference/#documentation",
-            "text": "Documentation is in progress",
+            "text": "Documentation is in progress  Vulcain  is a new microservice framework. It provides a way to create easily full operational microservices by normalizing i/o protocol, metrics and logging.  Every  vulcain  microservice encapsulates metadata description allowing to use external tools for generating code, services cartography, monitoring...  Vulcain  implements natively some major well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event sourcing.  It targets the nodejs V6 (or more) platform and leverages all typescript functionalities like annotations, async/await, reflection...",
             "title": "Documentation"
         },
         {
+            "location": "/reference/#major-functionalities",
+            "text": "Standardizes request and response HTTP format  Generate metrics for every request  Standardizes logging format with data obfuscation for sensible data.  Services are organized by domain and separate Query request from action (command) request.  Validate input data.  Request context propagation on every service request.",
+            "title": "Major functionalities"
+        },
+        {
+            "location": "/reference/#main-concepts",
+            "text": "The first concept to understand how  vulcain  works is  handler . There is three kind of handler:   Query handler can not manipulate data and has side effect, it just returns data.  Action handler can modify data and can be asynchrone. Every action raises an event when it completes.  Event handler subscribes to event. Event can be filtered by domain, action, schema and any more.   This a basic schema showing how it works:",
+            "title": "Main concepts"
+        },
+        {
             "location": "/reference/actions/",
-            "text": "",
+            "text": "Action handler\n\n\nAction handler is defined with the \nActionHandler\n and \nAction\n annotations.\n\n\nThe first indicates that a class implements one (or more) action handler. It has two main behaviors : It defines some default configurations used by all handler defined in the class and, it registers the class in the dependency manager.\n\n\nThe latter must be set on every handler method, it can override every properties of the \nActionHandler\n annotations.\n\n\nhandler definition\n\n\n@ActionHandler\n({\n \nasync\n:\n \nfalse\n,\n \nscope\n:\n \n\"?\"\n,\n \nschema\n:\n \nCustomer\n \n})\n\n\nexport\n \nclass\n \nCustomerActionHandler\n \nextends\n \nDefaultActionHandler\n \n{\n\n\n    \n@Action\n({\n \ndescription\n:\n \n\"Custom action\"\n,\n \noutputSchema\n:\n \n\"string\"\n \n})\n\n    \nasync\n \nmyActionAsync\n()\n \n{\n\n\n    \n}\n\n\n}\n\n\n\n\n\n\nThis code defines an action handler and can be requested by \nPOST\ning to \n/api/Customer.myaction\n.\n\n\nCustomer.action\n is called \nverb\n following the pattern <schema>.<action name>.\n\n\n\n\nInfo\n\n\nschema can be undefined so the \nverb\n is simply the action name.\n\n\n\n\nAction handler properties\n\n\n\n\n\n\n\n\nProperty\n\n\nRequired\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nscope\n\n\nyes\n\n\nDefine authorization. See how to define \nscope\n\n\n\n\n\n\n\n\ndescription\n\n\nyes\n\n\nGlobal definition\n\n\n\n\n\n\n\n\nschema\n\n\n\n\nSchema manipulates by the handler. It must be a \ndomain\n schema\n\n\n\n\n\n\n\n\nasync\n\n\n\n\nIf true, handler will be process asynchronously\n\n\nfalse\n\n\n\n\n\n\neventMode\n\n\n\n\nDefine how to raise event when the handler completes\n\n\nsuccessOnly\n\n\n\n\n\n\nserviceName\n\n\n\n\nName to identify the handler class in the \ndependency container\n\n\nclass name\n\n\n\n\n\n\nserviceLifeTime\n\n\n\n\nDependency component lifetime\n\n\nScoped\n\n\n\n\n\n\nenableOnTestOnly\n\n\n\n\nEnable this handler only on test mode\n\n\nfalse\n\n\n\n\n\n\n\n\nHandler properties\n\n\n\n\n\n\n\n\nProperty\n\n\nRequired\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nscope\n\n\n\n\nDefine authorization. See how to define \nscope\n\n\nfrom ActionHandler\n\n\n\n\n\n\ndescription\n\n\nyes\n\n\nHandler description\n\n\n\n\n\n\n\n\naction\n\n\n\n\nAction name\n\n\nInferred from the method name (minus Async prefix if any)\n\n\n\n\n\n\ninputSchema\n\n\n\n\nargument schema. Must be a \ndomain\n schema\n\n\nArgument type\n\n\n\n\n\n\noutputSchema\n\n\nyes\n\n\nSchema of the return value. It must be a \ndomain\n schema\n\n\n\n\n\n\n\n\nschema\n\n\n\n\nSchema manipulates by the handler. It must be a \ndomain\n schema\n\n\nfrom ActionHandler\n\n\n\n\n\n\nasync\n\n\n\n\nIf true, handler will be process asynchronously\n\n\nfrom ActionHandler\n\n\n\n\n\n\neventMode\n\n\n\n\nDefine how to raise event when the handler completes\n\n\nfrom ActionHandler\n\n\n\n\n\n\n\n\n\n\nInfo\n\n\ninputSchema\n,\noutputSchema\nand\ndescription\n properties are used for metadata description.\n\n\n\n\nStandardized protocol\n\n\nVulcain\n uses a standardized way for all query and action handlers.\n\n\nEndpoint\n\n\nAll endpoint action address format is \n/api/<verb>\n with \nverb\n equals to <schema>.<action name> and must be called with a \nPOST\n http verb.\n\n\nverb\n is optional but should be defined within the post body with the \nschema\n and \naction\n properties.\n\n\nBody must contains a json object with the following format :\n\n\n\n\n\n\n\n\nProperty\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nschema\n\n\n\n\n\n\n\n\naction\n\n\n\n\n\n\n\n\nparams\n\n\n\n\n\n\n\n\n\n\nAsynchronous action task",
             "title": "Actions"
+        },
+        {
+            "location": "/reference/actions/#action-handler",
+            "text": "Action handler is defined with the  ActionHandler  and  Action  annotations.  The first indicates that a class implements one (or more) action handler. It has two main behaviors : It defines some default configurations used by all handler defined in the class and, it registers the class in the dependency manager.  The latter must be set on every handler method, it can override every properties of the  ActionHandler  annotations.",
+            "title": "Action handler"
+        },
+        {
+            "location": "/reference/actions/#handler-definition",
+            "text": "@ActionHandler ({   async :   false ,   scope :   \"?\" ,   schema :   Customer   })  export   class   CustomerActionHandler   extends   DefaultActionHandler   { \n\n     @Action ({   description :   \"Custom action\" ,   outputSchema :   \"string\"   }) \n     async   myActionAsync ()   { \n\n     }  }   This code defines an action handler and can be requested by  POST ing to  /api/Customer.myaction .  Customer.action  is called  verb  following the pattern <schema>.<action name>.   Info  schema can be undefined so the  verb  is simply the action name.",
+            "title": "handler definition"
+        },
+        {
+            "location": "/reference/actions/#action-handler-properties",
+            "text": "Property  Required  Description  Default      scope  yes  Define authorization. See how to define  scope     description  yes  Global definition     schema   Schema manipulates by the handler. It must be a  domain  schema     async   If true, handler will be process asynchronously  false    eventMode   Define how to raise event when the handler completes  successOnly    serviceName   Name to identify the handler class in the  dependency container  class name    serviceLifeTime   Dependency component lifetime  Scoped    enableOnTestOnly   Enable this handler only on test mode  false",
+            "title": "Action handler properties"
+        },
+        {
+            "location": "/reference/actions/#handler-properties",
+            "text": "Property  Required  Description  Default      scope   Define authorization. See how to define  scope  from ActionHandler    description  yes  Handler description     action   Action name  Inferred from the method name (minus Async prefix if any)    inputSchema   argument schema. Must be a  domain  schema  Argument type    outputSchema  yes  Schema of the return value. It must be a  domain  schema     schema   Schema manipulates by the handler. It must be a  domain  schema  from ActionHandler    async   If true, handler will be process asynchronously  from ActionHandler    eventMode   Define how to raise event when the handler completes  from ActionHandler      Info  inputSchema , outputSchema and description  properties are used for metadata description.",
+            "title": "Handler properties"
+        },
+        {
+            "location": "/reference/actions/#standardized-protocol",
+            "text": "Vulcain  uses a standardized way for all query and action handlers.",
+            "title": "Standardized protocol"
+        },
+        {
+            "location": "/reference/actions/#endpoint",
+            "text": "All endpoint action address format is  /api/<verb>  with  verb  equals to <schema>.<action name> and must be called with a  POST  http verb.  verb  is optional but should be defined within the post body with the  schema  and  action  properties.  Body must contains a json object with the following format :     Property  Description      schema     action     params",
+            "title": "Endpoint"
+        },
+        {
+            "location": "/reference/actions/#asynchronous-action-task",
+            "text": "",
+            "title": "Asynchronous action task"
         },
         {
             "location": "/reference/query/",
