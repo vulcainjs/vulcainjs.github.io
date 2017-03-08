@@ -13,9 +13,9 @@
         <meta name="author" content="Alain Metge">
       
       
-        <link rel="shortcut icon" href="../assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
     
     
       
@@ -23,7 +23,13 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-facb31f4a3.js"></script>
+      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-e17eeafcbc.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-892b79c5c5.palette.css">
+      
     
     
       
@@ -35,12 +41,6 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-f3ab63f78a.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
-      
-      
     
     
   </head>
@@ -66,9 +66,10 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Vulcain" class=" md-icon md-icon--home  md-header-nav__button">
-          
-        </a>
+        
+          <a href=".." title="Vulcain" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
@@ -95,7 +96,7 @@
   <div class="md-search__overlay"></div>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
     </form>
     <div class="md-search__output">
@@ -108,9 +109,9 @@
         
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
+        <div class="md-header-nav__source">
+          
             
-              
 
 
   
@@ -129,14 +130,16 @@
     </div>
   </a>
 
-            
-          </div>
+          
+        </div>
       </div>
     </div>
   </nav>
 </header>
     
     <div class="md-container">
+      
+      
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
@@ -144,11 +147,11 @@
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    <i class=" md-icon md-icon--home  md-nav__button">
-      
-    </i>
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
     Vulcain
   </label>
   
@@ -178,25 +181,31 @@
     
       
       
+      
+
+
   <li class="md-nav__item">
-    
-      <a href=".." title="Home" class="md-nav__link">
-        Home
-      </a>
-    
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
   </li>
 
     
       
       
-  <li class="md-nav__item md-nav__item--nested">
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Getting started
     </label>
-    <nav class="md-nav" data-md-component="collapsible">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         Getting started
       </label>
@@ -205,9 +214,16 @@
         
           
           
-  <li class="md-nav__item">
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
@@ -262,8 +278,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anatomy-of-the-handler" title="Anatomy of the handler" class="md-nav__link">
-    Anatomy of the handler
+  <a href="#handler-anatomy" title="Handler anatomy" class="md-nav__link">
+    Handler anatomy
   </a>
   
 </li>
@@ -274,8 +290,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#communicate-between-services" title="Communicate between services" class="md-nav__link">
-    Communicate between services
+  <a href="#communication-between-services" title="Communication between services" class="md-nav__link">
+    Communication between services
   </a>
   
 </li>
@@ -308,6 +324,9 @@
     
       
       
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
@@ -315,7 +334,7 @@
     <label class="md-nav__link" for="nav-3">
       Documentation
     </label>
-    <nav class="md-nav" data-md-component="collapsible">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         Documentation
       </label>
@@ -324,111 +343,121 @@
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/" title="Overview" class="md-nav__link">
-        Overview
-      </a>
-    
+    <a href="../reference/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/actions/" title="Actions" class="md-nav__link">
-        Actions
-      </a>
-    
+    <a href="../reference/actions/" title="Actions" class="md-nav__link">
+      Actions
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/query/" title="Queries" class="md-nav__link">
-        Queries
-      </a>
-    
+    <a href="../reference/query/" title="Queries" class="md-nav__link">
+      Queries
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/event/" title="Events" class="md-nav__link">
-        Events
-      </a>
-    
+    <a href="../reference/event/" title="Events" class="md-nav__link">
+      Events
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/domain/" title="Domain models" class="md-nav__link">
-        Domain models
-      </a>
-    
+    <a href="../reference/domain/" title="Domain models" class="md-nav__link">
+      Domain models
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/injection/" title="Dependencies injection" class="md-nav__link">
-        Dependencies injection
-      </a>
-    
+    <a href="../reference/injection/" title="Dependencies injection" class="md-nav__link">
+      Dependencies injection
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/commands/" title="Commands" class="md-nav__link">
-        Commands
-      </a>
-    
+    <a href="../reference/commands/" title="Commands" class="md-nav__link">
+      Commands
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/configurations/" title="Configurations" class="md-nav__link">
-        Configurations
-      </a>
-    
+    <a href="../reference/configurations/" title="Configurations" class="md-nav__link">
+      Configurations
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/metrics/" title="Monitoring" class="md-nav__link">
-        Monitoring
-      </a>
-    
+    <a href="../reference/metrics/" title="Monitoring" class="md-nav__link">
+      Monitoring
+    </a>
   </li>
 
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../reference/security/" title="Security" class="md-nav__link">
-        Security
-      </a>
-    
+    <a href="../reference/security/" title="Security" class="md-nav__link">
+      Security
+    </a>
   </li>
 
         
@@ -439,6 +468,9 @@
     
       
       
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
@@ -446,7 +478,7 @@
     <label class="md-nav__link" for="nav-4">
       About
     </label>
-    <nav class="md-nav" data-md-component="collapsible">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
         About
       </label>
@@ -455,12 +487,13 @@
         
           
           
+          
+
+
   <li class="md-nav__item">
-    
-      <a href="../about/license/" title="license" class="md-nav__link">
-        license
-      </a>
-    
+    <a href="../about/license/" title="license" class="md-nav__link">
+      license
+    </a>
   </li>
 
         
@@ -523,8 +556,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anatomy-of-the-handler" title="Anatomy of the handler" class="md-nav__link">
-    Anatomy of the handler
+  <a href="#handler-anatomy" title="Handler anatomy" class="md-nav__link">
+    Handler anatomy
   </a>
   
 </li>
@@ -535,8 +568,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#communicate-between-services" title="Communicate between services" class="md-nav__link">
-    Communicate between services
+  <a href="#communication-between-services" title="Communication between services" class="md-nav__link">
+    Communication between services
   </a>
   
 </li>
@@ -593,7 +626,7 @@
 
 <h3 id="creating-the-backend-service">Creating the backend service</h3>
 <p>Creating a new microservice project is easy with <strong>vulcain-cli</strong>. The following command creates a new project
-from a template. This template provides a sample customers management service.</p>
+from a template. This template provides a sample customer management service.</p>
 <div class="codehilite"><pre><span></span>vulcain create customers-service
 </pre></div>
 
@@ -677,7 +710,7 @@ E.g.</p>
 <p>You can list all customers with /api/customer.all (or /api).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>By default, data are stored in memory and will be lost if you restart the container.</p>
+<p>By default, data is stored in memory and will be lost if you restart the container.</p>
 </div>
 <h3 id="creating-the-facade-service">Creating the facade service</h3>
 <p>We will now create a new facade service exposing a customer with an additional fullName property.</p>
@@ -687,72 +720,72 @@ E.g.</p>
 
 
 <p>Then open the project and remove the <code>src/api/samples</code> folder to start with a new clean project.</p>
-<p>The first thing to do is to create a model. A model (or schema) describes data manipulated by the service. It has many
-functionalities:</p>
+<p>The first thing to do is to create a model. A model (or schema) describes data manipulated by the service. It offers many
+capabilities:</p>
 <ul>
-<li>For input data, it is used to check and validate argument values (rasing a 400 bad request error if any errors)</li>
-<li>For storing data, it can be used by the <strong>default</strong> provider to get some persistance informations like key definition, uniqueness, collection name...</li>
-<li>For metadata description, it is used to display informations (with /api/_servicedescription) used for code generation or other tools.</li>
+<li>For input data, it is used to check and validate argument values (raising a 400 bad request error if any errors)</li>
+<li>For storing data, it can be used by the <strong>default</strong> provider to get some persistance information like key definition, uniqueness, collection name...</li>
+<li>For metadata description, it is used to display information (with /api/_servicedescription) usefull to code generation or other tools.</li>
 </ul>
 <p>Create a new file /src/api/model.ts and copy/paste the following code:</p>
-<div class="codehilite"><pre><span></span>import { Property, Model } from &quot;vulcain-corejs&quot;;
+<div class="codehilite"><pre><span></span><span class="n">import</span> <span class="p">{</span> <span class="n">Property</span><span class="p">,</span> <span class="n">Model</span> <span class="p">}</span> <span class="k">from</span> <span class="s">&quot;vulcain-corejs&quot;</span><span class="p">;</span>
 
-@Model()
-export class CustomerView {
-    @Property({ type: &#39;string&#39; })
-    fullName: string;
-    @Property({ type: &#39;string&#39; })
-    firstName: string;
-    @Property({ type: &#39;string&#39; })
-    lastName: string;
-}
+<span class="n">@Model</span><span class="p">()</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">CustomerView</span> <span class="p">{</span>
+    <span class="n">@Property</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="kt">string</span><span class="err">&#39;</span> <span class="p">})</span>
+    <span class="n">fullName</span><span class="p">:</span> <span class="kt">string</span><span class="p">;</span>
+    <span class="n">@Property</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="kt">string</span><span class="err">&#39;</span> <span class="p">})</span>
+    <span class="n">firstName</span><span class="p">:</span> <span class="kt">string</span><span class="p">;</span>
+    <span class="n">@Property</span><span class="p">({</span> <span class="n">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="kt">string</span><span class="err">&#39;</span> <span class="p">})</span>
+    <span class="n">lastName</span><span class="p">:</span> <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<p>This is a very basic model, it has the same properties than customer with an additional fullName property.
-Since this model will be used for output response, no validations are added.</p>
-<p>Now we will create a handler to query a customers view.</p>
-<div class="codehilite"><pre><span></span>import { QueryHandler, Query, AbstractQueryHandler, Command, ServiceDependency, AbstractServiceCommand, IHasFallbackCommand } from &quot;vulcain-corejs&quot;;
-import { CustomerView } from &quot;./model&quot;;
-import { CustomersService, Customer } from &quot;./customersService10&quot;;
+<p>This is a very basic model, it has the properties of a customer with an additional fullName property.
+Since this model will be used for output response, no validation is added.</p>
+<p>Now we will create an handler to query a customer view.</p>
+<div class="codehilite"><pre><span></span><span class="n">import</span> <span class="p">{</span> <span class="n">QueryHandler</span><span class="p">,</span> <span class="n">Query</span><span class="p">,</span> <span class="n">AbstractQueryHandler</span><span class="p">,</span> <span class="n">Command</span><span class="p">,</span> <span class="n">ServiceDependency</span><span class="p">,</span> <span class="n">AbstractServiceCommand</span><span class="p">,</span> <span class="n">IHasFallbackCommand</span> <span class="p">}</span> <span class="k">from</span> <span class="s">&quot;vulcain-corejs&quot;</span><span class="p">;</span>
+<span class="n">import</span> <span class="p">{</span> <span class="n">CustomerView</span> <span class="p">}</span> <span class="k">from</span> <span class="s">&quot;./model&quot;</span><span class="p">;</span>
+<span class="n">import</span> <span class="p">{</span> <span class="n">CustomersService</span><span class="p">,</span> <span class="n">Customer</span> <span class="p">}</span> <span class="k">from</span> <span class="s">&quot;./customersService10&quot;</span><span class="p">;</span>
 
-@QueryHandler({ scope: &#39;?&#39; })
-export class MyQueryHandler extends AbstractQueryHandler {
+<span class="n">@QueryHandler</span><span class="p">({</span> <span class="n">scope</span><span class="p">:</span> <span class="sc">&#39;?&#39;</span> <span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">MyQueryHandler</span> <span class="n">extends</span> <span class="n">AbstractQueryHandler</span> <span class="p">{</span>
 
-    @Query({ description: &quot;Get a list of customers&quot;, outputSchema: CustomerView })
-    async CustomerViewsAsync() {
-        let customersService = new CustomersService(this.requestContext);
-        let customers = await customersService.getAllCustomerAsync();
-        return customers.map(c =&gt; {
-            return {
-                firstName: c.firstName,
-                lastName: c.lastName,
-                fullName: c.firstName + &#39; &#39; + c.lastName
-            };
-        });
-    }
-}
+    <span class="n">@Query</span><span class="p">({</span> <span class="n">description</span><span class="p">:</span> <span class="s">&quot;Get a list of customers&quot;</span><span class="p">,</span> <span class="n">outputSchema</span><span class="p">:</span> <span class="n">CustomerView</span> <span class="p">})</span>
+    <span class="k">async</span> <span class="nf">CustomerViewsAsync</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">customersService</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CustomersService</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">requestContext</span><span class="p">);</span>
+        <span class="k">let</span> <span class="n">customers</span> <span class="p">=</span> <span class="k">await</span> <span class="n">customersService</span><span class="p">.</span><span class="n">getAllCustomerAsync</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">customers</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="n">firstName</span><span class="p">:</span> <span class="n">c</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span>
+                <span class="n">lastName</span><span class="p">:</span> <span class="n">c</span><span class="p">.</span><span class="n">lastName</span><span class="p">,</span>
+                <span class="n">fullName</span><span class="p">:</span> <span class="n">c</span><span class="p">.</span><span class="n">firstName</span> <span class="p">+</span> <span class="sc">&#39; &#39;</span> <span class="p">+</span> <span class="n">c</span><span class="p">.</span><span class="n">lastName</span>
+            <span class="p">};</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<h4 id="anatomy-of-the-handler">Anatomy of the handler</h4>
+<h4 id="handler-anatomy">Handler anatomy</h4>
 <ul>
-<li>A handler is just a class with annoted methods. This annotations describe how the handler can be requested. There are 3 kinds of handler: <code>Query handler</code>, <code>Action handler</code> and <code>Event handler</code>. See <a href="./../reference/index">concepts</a></li>
+<li>An handler is just a class with annoted methods. These annotations describe how the handler can be requested. There are 3 kinds of handler: <code>Query handler</code>, <code>Action handler</code> and <code>Event handler</code>. See <a href="./../reference/index">concepts</a></li>
 <li>The <code>QueryHandler</code> annotation tells that the class exposes handler(s) for query (accessible with a GET http verb) and can define default configurations. In this case, the handler could be requested by any (anonymous) user thanks to the <code>scope:'?'</code> property.</li>
-<li>The <code>Query</code> annotation is used to expose a method. Annotations has mandatory properties used to describe the service. The query will be accessible from <code>/api/customersview</code> (The name is inferred from the method name removing the Async suffix).</li>
-<li>The handler code is like any traditional method. With some specifications:<ul>
+<li>The <code>Query</code> annotation is used to expose a method. Annotations have mandatory properties used to describe the service. The query will be accessible from <code>/api/customersview</code> (The name is inferred from the method name and removing the Async suffix).</li>
+<li>The handler code is like any traditional method. With some specificities:<ul>
 <li>It can take only one argument described by a model. This model will be validated before the method is called and raise a Bad Request error in case of errors.</li>
-<li>The return value must be described by a model (can be the same as the input argument). This is used to decribe the service.</li>
-<li>If any error occurs, a 500 http error will be send to the client.</li>
+<li>The return value must be described by a model (can be the same as the input argument). This is used to describe the service.</li>
+<li>If any error occurs, a 500 http error will be sent to the client.</li>
 </ul>
 </li>
 </ul>
-<p>You can note that the service use a custom service class (<code>CustomersService</code>) to read all customers. This is a proxy class requesting our first service : customers-service.</p>
+<p>You can note that the service uses a custom service class (<code>CustomersService</code>) to read all customers. This is a proxy class requesting our first service : customers-service.</p>
 <p>But how can i create this proxy class ?</p>
-<h3 id="communicate-between-services">Communicate between services</h3>
-<p>Thanks to the metadata description hability of any vulcain service, we can used tool to generate code. The code generation uses template to generate a static class with typed method sending fully hight tolerance, monitored and vulcain compatible requests.</p>
+<h3 id="communication-between-services">Communication between services</h3>
+<p>Thanks to the metadata description hability of any vulcain service, we can use dedicated tooling to generate code. Code generation uses template to generate a static class with typed method sending request that are high tolerance, monitored and vulcain compatible.</p>
 <p>Vulcain compatible means context propagation : security context, global correlation id, tenant information...</p>
-<p>To generate the proxy class, we need some informations:</p>
+<p>To generate the proxy class, we need some information:</p>
 <ul>
 <li>Address of the target service. In our case, localhost:30000</li>
 <li>A template to use, by default this is microServiceProxy (for generating vulcain proxy). The other template is angularServiceProxy to generate proxy class for angular application.</li>
@@ -777,7 +810,7 @@ export class MyQueryHandler extends AbstractQueryHandler {
 </pre></div>
 
 
-<p>Then open the dashboard on <code>http://localhost:9999/hyxtrix</code>, set the service endpoint whith <code>http://&lt;host ip&gt;:8080/hystrix.stream</code> and click on <strong>Monitor Stream</strong>.</p>
+<p>Then open the dashboard on <code>http://localhost:9999/hyxtrix</code>, set the service endpoint with <code>http://&lt;host ip&gt;:8080/hystrix.stream</code> and click on <strong>Monitor Stream</strong>.</p>
 <p>You can test monitoring by calling many requests.
 For example with :</p>
 <div class="codehilite"><pre><span></span>ab -n <span class="m">200</span> http://localhost:8080/api/customersview
@@ -789,39 +822,40 @@ For example with :</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Note how the service ip address changes depending on where you call it. To test the service, you can use <code>localhost</code> but since hystrix is running within a container you must provide the host ip.</p>
-<p>If the service were deployed as a swarm service, you can access it with a standardize DNS name corresponding to the service name + its version (removing all special characters).</p>
+<p>If the service were deployed as a swarm service, you can access it with a standardized DNS name corresponding to the service name + its version (removing all special characters).</p>
 <p>For example, if you deploy the service with <code>vulcain run service-facade:1.0</code>, you can monitor it with the address <code>http://servicefacade10:8080/hystrix.stream</code>.</p>
 </div>
 <h3 id="failure-compensation">Failure compensation</h3>
 <p>Calling microservice over http is not a long quiet stream, many errors can occur and you must be prepared for this.
-For this situation, <strong>vulcain</strong> uses a hystrix implementation of command. You can configure the command behavior with annotation. For example, the following command has a 1500ms timeout protecting from too long request.</p>
+For this situation, <strong>vulcain</strong> uses an hystrix implementation of command. You can configure the command behavior with annotation. For example, the following command has a 1500ms timeout protecting from long requests.</p>
 <p>This is the microservice philosophy : Service can failed but quickly.</p>
-<p>For many usages, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.</p>
+<p>For most scenarii, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.</p>
 <blockquote>
 <p>You can try a request failure by removing the backend service with <code>docker service rm customersservice10</code> and by requesting the facade service. Due to the default 1500ms timeout, errors will occur quickly. You can see it in hystrix dashboard.</p>
 </blockquote>
 <p><img src="../images/demo-hystrix2.png" width="300px"></p>
 <p>Before adding a compensation, we need to understand how the service proxy class works. This class provides a method for each endpoints (handlers) of the target service. Every time a call is made to an endpoint, a (hystrix) command is created by the proxy to encapsulate this call. By default, all calls of the same proxy use the same command named <code>&lt;service name&gt;Command</code>.</p>
-<p>If you need to customize a call, you need to customize a command but only for this specific call. To do that, the proxy class will check for every call if a specific command exists for this call else it will use the default command. A specific command is identify by a name like <code>&lt;service name&gt;&lt;method name&gt;Command</code>.</p>
-<p>So since we will customize a call to <code>getAllCustomerAsync</code> of the proxy class named <code>CustomersService</code> we need to create a new command named <code>CustomersServiceGetAllCustomer</code> (Async is always removed for naming).</p>
+<p>If you need to customize a call, you need to customize a command but only for this specific call. To do that, the proxy class will check for every call if a specific command exists for this call otherwise it will use the default command. A specific command is identified by a name like <code>&lt;service name&gt;&lt;method name&gt;Command</code>.</p>
+<p>Since we will customize a call to <code>getAllCustomerAsync</code> of the proxy class named <code>CustomersService</code> we need to create a new command named <code>CustomersServiceGetAllCustomer</code> (Async is always removed for naming).</p>
 <p>To add compensation we need to provide a <code>fallback</code> method returning the default value.</p>
 <p>You can now create a new file in src/api/ containing the following code.</p>
-<div class="codehilite"><pre><span></span>@Command({ executionTimeoutInMilliseconds: 1500 })
-@ServiceDependency(&#39;customers-service&#39;, &#39;1.0&#39;, &#39;http://localhost:32772/api/_servicedescription&#39;)
-export class CustomersServiceGetAllCustomerCommand extends AbstractServiceCommand
-    implements IHasFallbackCommand&lt;Customer[]&gt; {
-    async fallbackAsync(): Promise&lt;Customer[]&gt; {
-        return [{
-            firstName: &quot;John&quot;, lastName: &quot;Lennon&quot;
-        }];
-    }
-}
+<div class="codehilite"><pre><span></span><span class="n">@Command</span><span class="p">({</span> <span class="n">executionTimeoutInMilliseconds</span><span class="p">:</span> <span class="m">1500</span> <span class="p">})</span>
+<span class="n">@ServiceDependency</span><span class="p">(</span><span class="err">&#39;</span><span class="n">customers</span><span class="p">-</span><span class="n">service</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="m">1.0</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">http</span><span class="p">:</span><span class="c1">//localhost:32772/api/_servicedescription&#39;)</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">CustomersServiceGetAllCustomerCommand</span> <span class="n">extends</span> <span class="n">AbstractServiceCommand</span>
+    <span class="n">implements</span> <span class="n">IHasFallbackCommand</span><span class="p">&lt;</span><span class="n">Customer</span><span class="p">[]&gt;</span> <span class="p">{</span>
+    <span class="k">async</span> <span class="nf">fallbackAsync</span><span class="p">():</span> <span class="n">Promise</span><span class="p">&lt;</span><span class="n">Customer</span><span class="p">[]&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[{</span>
+            <span class="n">firstName</span><span class="p">:</span> <span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="n">lastName</span><span class="p">:</span> <span class="s">&quot;Lennon&quot;</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
-<p>Annotations are copied from the default generated command. You can see how setting timeout delay and how define informations used for describing the service.</p>
+<p>Annotations are copied from the default generated command. You can see how to set timeout delay and how to define informations used for service description.</p>
 <p>Fallback method is called on every error during the request including timeout.</p>
-<p>Now if you request the facade service, the compensation response will be return.</p>
+<p>Now if you request the facade service, the compensation response will be returned.</p>
+              
               
             </article>
           </div>
@@ -889,8 +923,8 @@ export class CustomersServiceGetAllCustomerCommand extends AbstractServiceComman
       
     </div>
     
-      <script src="../assets/javascripts/application-2afe21e0b2.js"></script>
-      <script>var config={url:{base:".."}},app=new Application(config);app.initialize()</script>
+      <script src="../assets/javascripts/application-30ac6a1727.js"></script>
+      <script>app.initialize({url:{base:".."}})</script>
       
     
     
