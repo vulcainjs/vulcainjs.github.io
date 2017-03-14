@@ -288,6 +288,10 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Domain models
+      </label>
+    
     <a href="./" title="Domain models" class="md-nav__link md-nav__link--active">
       Domain models
     </a>
@@ -298,6 +302,100 @@
   
     
   
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-domain" title="What is a domain ?" class="md-nav__link">
+    What is a domain ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-local-schema" title="Using local schema" class="md-nav__link">
+    Using local schema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-a-schema" title="Defining a schema" class="md-nav__link">
+    Defining a schema
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-model-annotation" title="The @Model annotation" class="md-nav__link">
+    The @Model annotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-property-annotation" title="The @Property annotation" class="md-nav__link">
+    The @Property annotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-reference-annotation" title="The @Reference annotation" class="md-nav__link">
+    The @Reference annotation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-process-detail" title="Validation process detail" class="md-nav__link">
+    Validation process detail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predefined-types-and-validators" title="Predefined types and validators" class="md-nav__link">
+    Predefined types and validators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-validation-method" title="Custom validation method" class="md-nav__link">
+    Custom validation method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validators" title="Validators" class="md-nav__link">
+    Validators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definining-custom-validator" title="Definining custom validator" class="md-nav__link">
+    Definining custom validator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
     
@@ -413,6 +511,100 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-domain" title="What is a domain ?" class="md-nav__link">
+    What is a domain ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-local-schema" title="Using local schema" class="md-nav__link">
+    Using local schema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-a-schema" title="Defining a schema" class="md-nav__link">
+    Defining a schema
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-model-annotation" title="The @Model annotation" class="md-nav__link">
+    The @Model annotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-property-annotation" title="The @Property annotation" class="md-nav__link">
+    The @Property annotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-reference-annotation" title="The @Reference annotation" class="md-nav__link">
+    The @Reference annotation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-process-detail" title="Validation process detail" class="md-nav__link">
+    Validation process detail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predefined-types-and-validators" title="Predefined types and validators" class="md-nav__link">
+    Predefined types and validators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-validation-method" title="Custom validation method" class="md-nav__link">
+    Custom validation method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validators" title="Validators" class="md-nav__link">
+    Validators
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definining-custom-validator" title="Definining custom validator" class="md-nav__link">
+    Definining custom validator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -427,25 +619,377 @@
               
                 
                 <h1 id="domain-model">Domain model</h1>
-<p>All services belong to a domain like <strong>Customer</strong> or <strong>Billing</strong>. Domain name is defined in every startup file and
-is available as a standard service (see <a href="../../reference/injection/#predefined-services">standard services</a>)</p>
-<p>Services use <strong>domain model</strong>, or <strong>Schema</strong> in vulcain context, to validate input data.</p>
-<p><strong>Schemas</strong> are defined with annotations. Only well defined schema properties will be taken into account when requesting an handler.</p>
-<p>Defining a schema is really easy.</p>
+<p><strong>Vulcain</strong> respects the <a href="https://martinfowler.com/bliki/BoundedContext.html"><strong>bounded context</strong></a> paradigm with the <strong>domain</strong> concept.</p>
+<p>All services belong to a domain like <strong>Customer</strong> or <strong>Billing</strong>. domain name is defined in every startup file.</p>
+<h2 id="what-is-a-domain">What is a domain ?</h2>
+<p>The main notion with <strong>bounded context</strong> is responsability. It's more a functional notion than a technical implementation. Implementing microservice targeting this concept is your responsability. <strong>Vulcain</strong> just helps you to identify domain in its communication protocol and in event notifications.</p>
+<p>But at the level of a microservice, the notion of <strong>domain</strong> is implemented by schema description and validation.</p>
+<h2 id="using-local-schema">Using local schema</h2>
+<p><strong>Vulcain</strong> provides a mechanism to define <strong>domain model</strong> (or <strong>Schema</strong>). In the context of a <strong>vulcain</strong> microservice, this provides the following functionalities:</p>
+<ul>
+<li>Describe data models used by a microservice and can help to generate code or create microservice description like swagger.</li>
+<li>Validate all input data before calling an handler.</li>
+<li>Transform data during validation process.</li>
+<li>Define some metadata informations used by default provider to persist data.</li>
+<li>Transform output data before sending over http</li>
+</ul>
+<p><strong>Schemas</strong> are defined with annotations. All input (handler argument) must be defined and defining output argument is not mandatory but without it you loose the possibility to generate typed code.</p>
+<h2 id="defining-a-schema">Defining a schema</h2>
+<p>Defining a schema is really easy with annotations.</p>
 <div class="codehilite"><pre><span></span><span class="kd">@Model</span><span class="p">()</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Child</span> <span class="p">{</span>
+    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">@Model</span><span class="p">({</span><span class="nx">validate</span>: <span class="kt">Customer.checkRule1</span><span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">Customer</span> <span class="p">{</span>
-    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
-    <span class="kd">@Validator</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">min</span>: <span class="kt">5</span> <span class="p">})</span>
+    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="kd">@Validator</span><span class="p">(</span><span class="nx">SchemaStandardValidators</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="p">{</span> <span class="nx">min</span>: <span class="kt">5</span> <span class="p">})</span>
     <span class="nx">firstName</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">unique</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">isKey</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">unique</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">isKey</span>: <span class="kt">true</span> <span class="p">})</span>
     <span class="nx">lastName</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="kd">@Property</span><span class="p">({</span><span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">type</span>: <span class="kt">SchemaStandardTypes.enum</span><span class="p">,</span> <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span> <span class="nx">bind</span>: <span class="kt">Customer.bindSex</span><span class="p">})</span>
+    <span class="nx">sex</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="kd">@Reference</span><span class="p">({</span><span class="nx">cardinality</span><span class="o">:</span> <span class="s1">&#39;many&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="o">:</span> <span class="s1">&#39;Child&#39;</span><span class="p">})</span>
+    <span class="nx">children</span>: <span class="kt">Child</span><span class="p">[];</span>
+
+    <span class="kr">static</span> <span class="nx">checkRule1</span><span class="p">(</span><span class="nx">entity</span>: <span class="kt">Customer</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">sex</span> <span class="o">===</span> <span class="s1">&#39;M&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">===</span> <span class="s1">&#39;john&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">===</span> <span class="s1">&#39;doe&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;john doe is not a valid customer&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kr">static</span> <span class="nx">bindSex</span><span class="p">(</span><span class="nx">val</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;female&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;F&#39;</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;M&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
 
-<p>This code defines a <strong>Customer</strong> model with 2 required properties.</p>
-<p><code>firstName</code> has a length validation and <code>lastName</code> provides some specific informations for the
-default provider implementation.</p>
+<p><code>@Model</code> declares a schema and can contains <code>@Property</code> and <code>@Reference</code>.</p>
+<h3 id="the-model-annotation">The @Model annotation</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Model name</td>
+<td>class name</td>
+</tr>
+<tr>
+<td>extends</td>
+<td>string</td>
+<td>extending schema name</td>
+<td>null</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Schema description</td>
+<td>null</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>(entity) =&gt; any) or boolean</td>
+<td>Transform data from request data</td>
+<td>null</td>
+</tr>
+<tr>
+<td>validate</td>
+<td>(entity, ctx?: RequestContext) =&gt; string</td>
+<td>Custom validate function</td>
+<td>null</td>
+</tr>
+<tr>
+<td>storageName</td>
+<td>string</td>
+<td>Collection name used by provider</td>
+<td>class name</td>
+</tr>
+<tr>
+<td>hasSensibleData</td>
+<td>boolean</td>
+<td>This schema has sensible data (see below)</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>*extends</strong> is need because there is no way to know if a javascript object inherits from another. If you omit it, properties of the base class will be ignored.</p>
+<h3 id="the-property-annotation">The @Property annotation</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Property type</td>
+<td>Inferred if 'string','boolean' or 'number'</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Property description</td>
+<td>null</td>
+</tr>
+<tr>
+<td>required</td>
+<td>boolean</td>
+<td>This property is mandatory</td>
+<td>false</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>(val, entity) =&gt; any) or boolean</td>
+<td>Transform data from request data</td>
+<td>null</td>
+</tr>
+<tr>
+<td>validate</td>
+<td>(val, ctx?: RequestContext) =&gt; string</td>
+<td>Custom validate function</td>
+<td>null</td>
+</tr>
+<tr>
+<td>item</td>
+<td>string</td>
+<td>Item type for <code>arrayOf</code> type</td>
+<td>null</td>
+</tr>
+<tr>
+<td>values</td>
+<td>string</td>
+<td>Authorized values for <code>enum</code> type</td>
+<td>null</td>
+</tr>
+<tr>
+<td>isKey</td>
+<td>string</td>
+<td>Used by provider</td>
+<td>false</td>
+</tr>
+<tr>
+<td>unique</td>
+<td>string</td>
+<td>Used by provider</td>
+<td>false</td>
+</tr>
+<tr>
+<td>sensible</td>
+<td>string</td>
+<td>This property is sensible</td>
+<td></td>
+</tr>
+<tr>
+<td>defaultValue</td>
+<td>string</td>
+<td>Default property value</td>
+<td></td>
+</tr>
+<tr>
+<td>dependsOn</td>
+<td>(entity) =&gt; boolean</td>
+<td>Condition to validate this property</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-reference-annotation">The @Reference annotation</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cardinality</td>
+<td>'many' or 'one'</td>
+<td>Reference cardinality</td>
+<td></td>
+</tr>
+<tr>
+<td>item</td>
+<td>string</td>
+<td>Target type. Must be a valid schema</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Reference description</td>
+<td>null</td>
+</tr>
+<tr>
+<td>required</td>
+<td>boolean</td>
+<td>This reference is mandatory</td>
+<td>false</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>(entity) =&gt; any) or boolean</td>
+<td>Transform data from request data</td>
+<td>null</td>
+</tr>
+<tr>
+<td>validate</td>
+<td>(entity, ctx?: RequestContext) =&gt; string</td>
+<td>Custom validate function</td>
+<td>null</td>
+</tr>
+<tr>
+<td>dependsOn</td>
+<td>(entity) =&gt; boolean</td>
+<td>Condition to validate this reference</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can use <code>any</code> for referencing anonymous item.</p>
+<p>Referenced schema must be declared <strong>before</strong> the referenced schema.</p>
+</blockquote>
+<h2 id="validation-process-detail">Validation process detail</h2>
+<p>When an handler is requested, <strong>vulcain</strong> will validate input data before calling the handler processing the following steps:</p>
+<ol>
+<li>
+<p>First, bind body data for all schema properties and references.</p>
+<ul>
+<li>if schema contains a <code>bind</code> method call it and return its value.</li>
+<li>else for all properties call its <code>bind</code> method if any or just take the value property then the declared property default value.</li>
+<li>call recursivly binding for extended class if any.</li>
+<li>then do binding for all referencies for any type other than <code>any</code> else take the full dependency object.</li>
+</ul>
+</li>
+<li>
+<p>Validate binded data with the same strategy by replacing <code>bind</code> method by <code>validate</code>.</p>
+</li>
+</ol>
+<p>Validate can return a list of error validation message, if this case a 400 Bad Request response is returned containing an <code>error</code> property with the following format:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;error&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Validation errors&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;errors&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;error message&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;property&quot;</span><span class="o">:</span> <span class="s2">&quot;property name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;data id&quot;</span> <span class="c1">// Property with a isKey option set to true</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="predefined-types-and-validators">Predefined types and validators</h2>
+<p>A list of predefined type are available using the <code>SchemaStandardTypes</code> static properties :</p>
+<ul>
+<li>string</li>
+<li>any</li>
+<li>boolean</li>
+<li>number</li>
+<li>integer</li>
+<li>enum : use values to enumerate valid values</li>
+<li>uid : bind to a new uid</li>
+<li>arrayOf : use item to define element type</li>
+<li>range : use min and max property</li>
+<li>email</li>
+<li>url</li>
+<li>alphanumeric</li>
+<li>date-iso8601</li>
+</ul>
+<h2 id="custom-validation-method">Custom validation method</h2>
+<p>You can create a custom validation method, this method must return an error message or null.</p>
+<p>Error message can contain substitution variables defined with the <code>{variable_name}</code> pattern :</p>
+<table>
+<thead>
+<tr>
+<th>variable name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$value</td>
+<td>Current property value</td>
+</tr>
+<tr>
+<td>$propertyName</td>
+<td>Current property name</td>
+</tr>
+<tr>
+<td>$id</td>
+<td>data id</td>
+</tr>
+<tr>
+<td>$schema</td>
+<td>schema name</td>
+</tr>
+<tr>
+<td>any other name without $</td>
+<td>another property value</td>
+</tr>
+</tbody>
+</table>
+<h2 id="validators">Validators</h2>
+<p>A list of predefined validators are available using the <code>SchemaStandardValidators</code> static properties :</p>
+<ul>
+<li>patternValidator: use pattern to define a pattern</li>
+<li>lengthValidator: use min and max to define length</li>
+</ul>
+<h3 id="definining-custom-validator">Definining custom validator</h3>
+<p>You can customize a validation method for a specific property with the <code>validate</code> method but you can share validation by creating custom validator.</p>
+<p>A validator is just a simple class with a <code>validate</code> method and properties. Properties beginning with a <code>$</code> will be override by options specified by the <code>@Validator</code> annotation.</p>
+<p>For example, the <code>length</code> validator is defined like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">export</span> <span class="k">class</span> <span class="nc">LengthValidator</span>  <span class="p">{</span>
+    <span class="k">public</span> <span class="n">type</span> <span class="p">=</span> <span class="s">&quot;string&quot;</span><span class="p">;</span> <span class="c1">// Must be a &#39;string&#39; type</span>
+    <span class="k">public</span> <span class="err">$</span><span class="n">min</span> <span class="p">=</span> <span class="n">undefined</span><span class="p">;</span>
+    <span class="k">public</span> <span class="err">$</span><span class="n">max</span> <span class="p">=</span> <span class="n">undefined</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="n">messages</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="s">&quot;Property &#39;{$propertyName}&#39; must have at least {$min} characters.&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Property &#39;{$propertyName}&#39; must have no more than {$max} characters.&quot;</span>
+    <span class="p">];</span>
+    <span class="n">validate</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">len</span> <span class="p">=</span> <span class="n">val</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="err">$</span><span class="n">min</span> <span class="p">!==</span> <span class="n">undefined</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="err">$</span><span class="n">min</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">messages</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="err">$</span><span class="n">max</span> <span class="p">!==</span> <span class="n">undefined</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="p">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="err">$</span><span class="n">max</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">messages</span><span class="p">[</span><span class="m">1</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The validator must be registered into the current domain with :</p>
+<div class="codehilite"><pre><span></span><span class="k">const</span> <span class="n">domain</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">container</span><span class="p">.</span><span class="k">get</span><span class="p">&lt;</span><span class="n">Domain</span><span class="p">&gt;(</span><span class="n">DefaultServiceNames</span><span class="p">.</span><span class="n">Domain</span><span class="p">);</span>
+<span class="n">domain</span><span class="p">.</span><span class="n">addValidator</span><span class="p">(</span><span class="s">&quot;length&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">LengthValidator</span><span class="p">());</span>
+</pre></div>
+
+
+<p>And can be used with:</p>
+<div class="codehilite"><pre><span></span>    <span class="n">@Validator</span><span class="p">(</span><span class="s">&quot;length&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="n">min</span><span class="p">:</span> <span class="m">5</span><span class="p">,</span> <span class="n">max</span><span class="p">:</span> <span class="m">10</span> <span class="p">})</span> <span class="c1">// Create a new LengthValidator instance and set $min and $max properties</span>
+</pre></div>
               
             </article>
           </div>
