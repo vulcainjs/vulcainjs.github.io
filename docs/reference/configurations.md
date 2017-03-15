@@ -76,10 +76,39 @@ You can subscribe to a specific property value change with ```property1.property
     Dynamic property can not be updated from a service, you can only override the local default value, no update
     will be sent to sources.
 
+## Providing value with environment variable
 
+A default value can be provided by an environnement variable respecting the SCREAMING SNAKE CASE pattern:
+
+* Split property name into words using the camel case rule.
+* Use underscore to separate words
+* Use only uppercase
+
+E.g. variableName -> VARIABLE_NAME
 
 ## Providing values with configuration source
 
 By default, service template uses a vulcain configuration source only valid within vulcain environment.
+This is defined in the ``ìndex.ts``` project file. You can replace the default vulcain configuration source by another one.
 
-But you can create a custom ```HttpConfigurationSource``` reading properties for a specific url.
+```csharp
+DynamicConfiguration
+    .init(60) // Polling interval
+    .addFileSource('config.json')   // Read from a configuration file (once)
+    .addSource( new HttpConfigurationSource('http://my-config-server'))
+    .startPollingAsync()
+    .then(() => { // Waiting for properties initialized
+        // Initialization OK
+        let startup = require("./startup"); // lazy loading
+        new startup.Startup().runAsync();
+    })
+    .catch((e: Error) => {
+        console.log("Bootstrap error " + e.stack + ". Process stopped");
+        process.exit(1);
+    });
+```
+
+!!!info
+    Sources can be multiple.
+
+    You can also create your own custom ```HttpConfigurationSource``` reading properties from a specific url.

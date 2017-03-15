@@ -25,7 +25,7 @@ Creating a new microservice project is easy with **vulcain-cli**. The following 
 from a template into the current directory. This template provides a sample customer management service.
 
 ```bash
-vulcain init customers-service
+vulcain new customers-service
 ```
 
 This template is fully operational, you can go to the code, and test it directly in local mode
@@ -82,7 +82,7 @@ We will now create a new facade service exposing a customer with an additional f
 Create a new service facade-service. In a new folder type:
 
 ```bash
-vulcain init facade-service
+vulcain new facade-service
 ```
 
 Then open the project and remove the ```src/api/samples``` folder to start with a new clean project.
