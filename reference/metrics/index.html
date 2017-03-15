@@ -370,6 +370,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#metrics" title="Metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -465,6 +472,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#metrics" title="Metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -483,7 +497,10 @@
                 <h1 id="metrics-and-logging">Metrics and logging</h1>
 <p><strong>Vulcain</strong> generates many metrics and logging informations formatted to be used directly with well-know tools.</p>
 <h2 id="logging">Logging</h2>
-<p>Log are json formated and are emit directly to the console to levearage docker logging plug-in.</p>
+<ul>
+<li>Log are json formated and are emit directly to the console to levearage docker logging plug-in.</li>
+<li>Every log contains a correlationId propagated along vulcain service requests.</li>
+</ul>
 <p>You can emit log with the <code>RequestContext</code> log property available in every scoped component (handler or command) with the <code>requestContext</code>property. Another way to log information is to use directly the static <code>System.log</code> property.</p>
 <h3 id="using-fluentd-with-vulcain">Using fluentd with vulcain</h3>
 <p>Here a simple fluentd configuration to send all logs to an elasticsearch database.</p>
@@ -510,8 +527,102 @@
 
 
 <blockquote>
-<p>You must use the fluentd docker driver </p>
+<p>To be used with the fluentd docker log driver.</p>
 </blockquote>
+<h2 id="metrics">Metrics</h2>
+<p><strong>Vulcain</strong> emit metrics for every request and command. It provides natively an <code>statsd</code> exporter.</p>
+<p>To activate metrics, just define an environment variable <code>STATSD_AGENT</code> set with the stasd agent address.</p>
+<p>This is a sample configuration file to use with <code>telegraf</code></p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="nx">global_tags</span><span class="p">]</span>
+
+<span class="p">[</span><span class="nx">agent</span><span class="p">]</span>
+  <span class="nx">interval</span> <span class="o">=</span> <span class="s2">&quot;10s&quot;</span>
+  <span class="nx">round_interval</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="nx">metric_batch_size</span> <span class="o">=</span> <span class="mi">1000</span>
+  <span class="nx">metric_buffer_limit</span> <span class="o">=</span> <span class="mi">10000</span>
+  <span class="nx">collection_jitter</span> <span class="o">=</span> <span class="s2">&quot;0s&quot;</span>
+  <span class="nx">flush_interval</span> <span class="o">=</span> <span class="s2">&quot;10s&quot;</span>
+  <span class="nx">flush_jitter</span> <span class="o">=</span> <span class="s2">&quot;0s&quot;</span>
+  <span class="nx">debug</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="nx">quiet</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="nx">hostname</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+  <span class="nx">omit_hostname</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="p">[[</span><span class="nx">outputs</span><span class="p">.</span><span class="nx">influxdb</span><span class="p">]]</span>
+  <span class="nx">urls</span> <span class="o">=</span> <span class="p">[</span><span class="nx">$INFLUXDB_SERVERS</span><span class="p">]</span>
+  <span class="nx">database</span> <span class="o">=</span> <span class="s2">&quot;$ENV&quot;</span>
+  <span class="nx">precision</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
+  <span class="nx">retention_policy</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+  <span class="nx">write_consistency</span> <span class="o">=</span> <span class="s2">&quot;any&quot;</span>
+  <span class="nx">timeout</span> <span class="o">=</span> <span class="s2">&quot;5s&quot;</span>
+  <span class="nx">username</span> <span class="o">=</span> <span class="s2">&quot;$INFLUXDB_USER&quot;</span>
+  <span class="nx">password</span> <span class="o">=</span> <span class="s2">&quot;$INFLUXDB_PASSWORD&quot;</span>
+
+<span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">cpu</span> <span class="nx">usage</span>
+<span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">cpu</span><span class="p">]]</span>
+  <span class="nx">percpu</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="nx">totalcpu</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="nx">fielddrop</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time_*&quot;</span><span class="p">]</span>
+
+<span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">disk</span> <span class="nx">usage</span> <span class="nx">by</span> <span class="nx">mount</span> <span class="nx">point</span>
+<span class="err">#</span><span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">disk</span><span class="p">]]</span>
+  <span class="err">#</span> <span class="nx">mount_points</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;/&quot;</span><span class="p">]</span>
+  <span class="err">#</span><span class="nx">ignore_fs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tmpfs&quot;</span><span class="p">,</span> <span class="s2">&quot;devtmpfs&quot;</span><span class="p">]</span>
+
+<span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">disk</span> <span class="nx">IO</span> <span class="nx">by</span> <span class="nx">device</span>
+<span class="err">#</span><span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">diskio</span><span class="p">]]</span>
+
+<span class="err">#</span> <span class="nx">Get</span> <span class="nx">kernel</span> <span class="nx">statistics</span> <span class="nx">from</span> <span class="o">/</span><span class="nx">proc</span><span class="o">/</span><span class="nx">stat</span>
+<span class="err">#</span><span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">kernel</span><span class="p">]]</span>
+
+<span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">memory</span> <span class="nx">usage</span>
+<span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">mem</span><span class="p">]]</span>
+
+<span class="err">#</span> <span class="nx">Get</span> <span class="nx">the</span> <span class="nx">number</span> <span class="k">of</span> <span class="nx">processes</span> <span class="nx">and</span> <span class="nx">group</span> <span class="nx">them</span> <span class="nx">by</span> <span class="nx">status</span>
+<span class="err">#</span><span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">processes</span><span class="p">]]</span>
+
+<span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">swap</span> <span class="nx">memory</span> <span class="nx">usage</span>
+<span class="err">#</span><span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">swap</span><span class="p">]]</span>
+
+<span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">system</span> <span class="nx">load</span> <span class="o">&amp;</span> <span class="nx">uptime</span>
+<span class="err">#</span><span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">system</span><span class="p">]]</span>
+
+<span class="err">#</span> <span class="err">#</span> <span class="nx">Read</span> <span class="nx">metrics</span> <span class="nx">about</span> <span class="nx">docker</span> <span class="nx">containers</span>
+<span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">docker</span><span class="p">]]</span>
+   <span class="nx">endpoint</span> <span class="o">=</span> <span class="s2">&quot;unix:///var/run/docker.sock&quot;</span>
+<span class="err">#</span>   <span class="nx">container_names</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="err">#</span> <span class="nx">Statsd</span> <span class="nx">server</span>
+<span class="p">[[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">statsd</span><span class="p">]]</span>
+  <span class="err">##</span> <span class="nx">Address</span> <span class="nx">and</span> <span class="nx">port</span> <span class="nx">to</span> <span class="nx">host</span> <span class="nx">UDP</span> <span class="nx">listener</span> <span class="nx">on</span>
+   <span class="nx">service_address</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0:8125&quot;</span>
+  <span class="err">##</span> <span class="nx">Delete</span> <span class="nx">gauges</span> <span class="nx">every</span> <span class="nx">interval</span> <span class="p">(</span><span class="k">default</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+   <span class="nx">delete_gauges</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="err">##</span> <span class="nx">Delete</span> <span class="nx">counters</span> <span class="nx">every</span> <span class="nx">interval</span> <span class="p">(</span><span class="k">default</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+   <span class="nx">delete_counters</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="err">##</span> <span class="nx">Delete</span> <span class="nx">sets</span> <span class="nx">every</span> <span class="nx">interval</span> <span class="p">(</span><span class="k">default</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+   <span class="nx">delete_sets</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="err">##</span> <span class="nx">Delete</span> <span class="nx">timings</span> <span class="o">&amp;</span> <span class="nx">histograms</span> <span class="nx">every</span> <span class="nx">interval</span> <span class="p">(</span><span class="k">default</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+   <span class="nx">delete_timings</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="err">##</span> <span class="nx">Percentiles</span> <span class="nx">to</span> <span class="nx">calculate</span> <span class="k">for</span> <span class="nx">timing</span> <span class="o">&amp;</span> <span class="nx">histogram</span> <span class="nx">stats</span>
+   <span class="nx">percentiles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">]</span>
+
+  <span class="err">##</span> <span class="nx">separator</span> <span class="nx">to</span> <span class="nx">use</span> <span class="nx">between</span> <span class="nx">elements</span> <span class="k">of</span> <span class="nx">a</span> <span class="nx">statsd</span> <span class="nx">metric</span>
+   <span class="nx">metric_separator</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span>
+
+  <span class="err">##</span> <span class="nx">Parses</span> <span class="nx">tags</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">datadog</span> <span class="nx">statsd</span> <span class="nx">format</span>
+  <span class="err">##</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//docs.datadoghq.com/guides/dogstatsd/</span>
+  <span class="nx">parse_data_dog_tags</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="err">#</span> <span class="nb">Number</span> <span class="k">of</span> <span class="nx">UDP</span> <span class="nx">messages</span> <span class="nx">allowed</span> <span class="nx">to</span> <span class="nx">queue</span> <span class="nx">up</span><span class="p">,</span> <span class="nx">once</span> <span class="nx">filled</span><span class="p">,</span>
+<span class="err">#</span> <span class="nx">the</span> <span class="nx">statsd</span> <span class="nx">server</span> <span class="nx">will</span> <span class="nx">start</span> <span class="nx">dropping</span> <span class="nx">packets</span>
+   <span class="nx">allowed_pending_messages</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="err">#</span>
+  <span class="err">##</span> <span class="nb">Number</span> <span class="k">of</span> <span class="nx">timing</span><span class="o">/</span><span class="nx">histogram</span> <span class="nx">values</span> <span class="nx">to</span> <span class="nx">track</span> <span class="nx">per</span><span class="o">-</span><span class="nx">measurement</span> <span class="k">in</span> <span class="nx">the</span>
+  <span class="err">##</span> <span class="nx">calculation</span> <span class="k">of</span> <span class="nx">percentiles</span><span class="p">.</span> <span class="nx">Raising</span> <span class="k">this</span> <span class="nx">limit</span> <span class="nx">increases</span> <span class="nx">the</span> <span class="nx">accuracy</span>
+  <span class="err">##</span> <span class="k">of</span> <span class="nx">percentiles</span> <span class="nx">but</span> <span class="nx">also</span> <span class="nx">increases</span> <span class="nx">the</span> <span class="nx">memory</span> <span class="nx">usage</span> <span class="nx">and</span> <span class="nx">cpu</span> <span class="nx">time</span><span class="p">.</span>
+  <span class="nx">percentile_limit</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre></div>
               
             </article>
           </div>

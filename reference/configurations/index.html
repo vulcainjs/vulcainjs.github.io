@@ -368,6 +368,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#providing-value-with-environment-variable" title="Providing value with environment variable" class="md-nav__link">
+    Providing value with environment variable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#providing-values-with-configuration-source" title="Providing values with configuration source" class="md-nav__link">
     Providing values with configuration source
   </a>
@@ -489,6 +496,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#providing-value-with-environment-variable" title="Providing value with environment variable" class="md-nav__link">
+    Providing value with environment variable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#providing-values-with-configuration-source" title="Providing values with configuration source" class="md-nav__link">
     Providing values with configuration source
   </a>
@@ -590,9 +604,39 @@ available.</p>
 <p>Dynamic property can not be updated from a service, you can only override the local default value, no update
 will be sent to sources.</p>
 </div>
+<h2 id="providing-value-with-environment-variable">Providing value with environment variable</h2>
+<p>A default value can be provided by an environnement variable respecting the SCREAMING SNAKE CASE pattern:</p>
+<ul>
+<li>Split property name into words using the camel case rule.</li>
+<li>Use underscore to separate words</li>
+<li>Use only uppercase</li>
+</ul>
+<p>E.g. variableName -&gt; VARIABLE_NAME</p>
 <h2 id="providing-values-with-configuration-source">Providing values with configuration source</h2>
-<p>By default, service template uses a vulcain configuration source only valid within vulcain environment.</p>
-<p>But you can create a custom <code>HttpConfigurationSource</code> reading properties for a specific url.</p>
+<p>By default, service template uses a vulcain configuration source only valid within vulcain environment.
+This is defined in the ``ìndex.ts``` project file. You can replace the default vulcain configuration source by another one.</p>
+<div class="codehilite"><pre><span></span><span class="n">DynamicConfiguration</span>
+    <span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="m">60</span><span class="p">)</span> <span class="c1">// Polling interval</span>
+    <span class="p">.</span><span class="n">addFileSource</span><span class="p">(</span><span class="err">&#39;</span><span class="n">config</span><span class="p">.</span><span class="n">json</span><span class="err">&#39;</span><span class="p">)</span>   <span class="c1">// Read from a configuration file (once)</span>
+    <span class="p">.</span><span class="n">addSource</span><span class="p">(</span> <span class="k">new</span> <span class="n">HttpConfigurationSource</span><span class="p">(</span><span class="err">&#39;</span><span class="n">http</span><span class="p">:</span><span class="c1">//my-config-server&#39;))</span>
+    <span class="p">.</span><span class="n">startPollingAsync</span><span class="p">()</span>
+    <span class="p">.</span><span class="n">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// Waiting for properties initialized</span>
+        <span class="c1">// Initialization OK</span>
+        <span class="k">let</span> <span class="n">startup</span> <span class="p">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&quot;./startup&quot;</span><span class="p">);</span> <span class="c1">// lazy loading</span>
+        <span class="k">new</span> <span class="n">startup</span><span class="p">.</span><span class="n">Startup</span><span class="p">().</span><span class="n">runAsync</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="n">e</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Bootstrap error &quot;</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="n">stack</span> <span class="p">+</span> <span class="s">&quot;. Process stopped&quot;</span><span class="p">);</span>
+        <span class="n">process</span><span class="p">.</span><span class="n">exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="p">});</span>
+</pre></div>
+
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Sources can be multiple.</p>
+<p>You can also create your own custom <code>HttpConfigurationSource</code> reading properties from a specific url.</p>
+</div>
               
             </article>
           </div>

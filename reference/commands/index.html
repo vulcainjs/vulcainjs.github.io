@@ -307,6 +307,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
     
     <a href="./" title="Commands" class="md-nav__link md-nav__link--active">
       Commands
@@ -315,6 +317,8 @@
       
 <nav class="md-nav md-nav--secondary">
   
+  
+    
   
   
 </nav>
@@ -406,6 +410,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
 </nav>
                   </div>
@@ -420,9 +426,14 @@
                
               
                 
-                  <h1>Commands</h1>
-                
-                
+                <h1 id="commands">Commands</h1>
+<p>Command must be used for every I/O request. <strong>Vulcain</strong> Command is a javascript implementation of <a href="https://github.com/Netflix/Hystrix">Netflix hystrix</a> forked from <a href="https://bitbucket.org/igor_sechyn/hystrixjs">hystrixjs</a>.</p>
+<p><strong>Vulcain</strong> provides three abstract commands :</p>
+<ul>
+<li><code>AbstractHttpCommand</code> to encapsulate all http request (other than calling a vulcain service)</li>
+<li><code>AbstractServiceCommand</code> to encapsulate all vulcain service call</li>
+<li><code>AbstractProviderCommand</code> to encapsulate database actions.</li>
+</ul>
               
             </article>
           </div>
