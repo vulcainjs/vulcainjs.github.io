@@ -4,6 +4,7 @@ theme_dir: 'docs/theme'
 theme: 'material'
 site_url: https://vulcainjs.github.io
 repo_url: https://github.com/vulcainjs/vulcainjs.github.io
+edit_uri: edit/mkdocs/docs/
 site_author: Alain Metge
 copyright: Copyright © 2017 Zenasoft
 google_analytics: ['UA-49523450-2', 'auto']
