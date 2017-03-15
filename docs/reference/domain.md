@@ -2,7 +2,7 @@
 
 **Vulcain** respects the [**bounded context**](https://martinfowler.com/bliki/BoundedContext.html) paradigm with the **domain** concept.
 
-All services belong to a domain like **Customer** or **Billing**. domain name is defined in every startup file.
+All services belong to a domain like **Customer** or **Billing**. Domain name is defined in every startup file.
 
 ## What is a domain ?
 
@@ -14,17 +14,17 @@ But at the level of a microservice, the notion of **domain** is implemented by s
 
 **Vulcain** provides a mechanism to define **domain model** (or **Schema**). In the context of a **vulcain** microservice, this provides the following functionalities:
 
-- Describe data models used by a microservice and can help to generate code or create microservice description like swagger.
+- Describe data models used by a microservice and can help generating code or creating microservice description like swagger.
 - Validate all input data before calling an handler.
 - Transform data during validation process.
-- Define some metadata informations used by default provider to persist data.
+- Define some metadata information used by default provider to persist data.
 - Transform output data before sending over http
 
-**Schemas** are defined with annotations. All input (handler argument) must be defined and defining output argument is not mandatory but without it you loose the possibility to generate typed code.
+**Schemas** are defined with annotations. All input (handler argument) must be defined even though output argument definition is not mandatory, without it you loose the possibility to generate typed code.
 
 ## Defining a schema
 
-Defining a schema is really easy with annotations.
+Thanks to annotations, defining a schema is really easy.
 
 ```ts
 @Model()
@@ -68,26 +68,26 @@ export class Customer {
 | extends | string | extending schema name | null |
 | description | string | Schema description | null |
 | bind | (entity) => any) or boolean | Transform data from request data | null |
-| validate | (entity, ctx?: RequestContext) => string | Custom validate function | null |
-| storageName | string | Collection name used by provider | class name |
+| validate | (entity, ctx?: RequestContext) => string | Custom validation function | null |
+| storageName | string | Collection (as in MongoDb) name used by provider | class name |
 | hasSensibleData | boolean | This schema has sensible data (see below)| false |
 
-***extends** is need because there is no way to know if a javascript object inherits from another. If you omit it, properties of the base class will be ignored.
+***extends** is needed because there is no way to know if a javascript object inherits from another. If you omit it, properties of the base class will be ignored.
 
 ### The @Property annotation
 
 | Option | type | Description | Default value |
 |------|-----|---|------|
-| type | string | Property type | Inferred if 'string','boolean' or 'number'  |
+| type | string | Property type | Inferred for basic types such as 'string','boolean' or 'number'  |
 | description | string | Property description | null |
 | required | boolean | This property is mandatory | false |
 | bind | (val, entity) => any) or boolean | Transform data from request data | null |
 | validate | (val, ctx?: RequestContext) => string | Custom validate function | null |
-| item | string | Item type for ```arrayOf``` type | null |
+| items | string | Item type for ```arrayOf``` type | null |
 | values | string | Authorized values for ```enum``` type | null |
 | isKey | string | Used by provider | false |
 | unique | string | Used by provider | false |
-| sensible | string | This property is sensible | |
+| sensible | string | This property is sensible and will be encrypted and protected (value hidden in logs etc...)| |
 | defaultValue | string | Default property value | |
 | dependsOn | (entity) => boolean | Condition to validate this property | true |
 
@@ -105,7 +105,7 @@ export class Customer {
 
 > You can use ```any``` for referencing anonymous item.
 
-> Referenced schema must be declared **before** the referenced schema.
+> Referenced schema must be declared **before** the schema using it a reference (in the sample above **Child** is defined before **Customer**).
 
 ## Validation process detail
 
@@ -115,11 +115,11 @@ When an handler is requested, **vulcain** will validate input data before callin
     - if schema contains a ```bind``` method call it and return its value.
     - else for all properties call its ```bind``` method if any or just take the value property then the declared property default value.
     - call recursivly binding for extended class if any.
-    - then do binding for all referencies for any type other than ```any``` else take the full dependency object.
+    - then do binding for all referencies for any type other than ```any``` otherwise take the full dependency object.
 
-2. Validate binded data with the same strategy by replacing ```bind``` method by ```validate```.
+2. Validate bound data with the same strategy by replacing ```bind``` method by ```validate```.
 
-Validate can return a list of error validation message, if this case a 400 Bad Request response is returned containing an ```error``` property with the following format:
+Validate can return a list of error validation message, in this case a 400 Bad Request response is returned containing an ```error``` property with the following format:
 
 ```js
 "error": {
@@ -136,7 +136,7 @@ Validate can return a list of error validation message, if this case a 400 Bad R
 
 ## Predefined types and validators
 
-A list of predefined type are available using the ```SchemaStandardTypes``` static properties :
+A list of predefined types are available using the ```SchemaStandardTypes``` static properties :
 
 - string
 - any
@@ -154,7 +154,7 @@ A list of predefined type are available using the ```SchemaStandardTypes``` stat
 
 ## Custom validation method
 
-You can create a custom validation method, this method must return an error message or null.
+You can create a custom validation method, it must return an error message or null.
 
 Error message can contain substitution variables defined with the ```{variable_name}``` pattern :
 
@@ -169,16 +169,16 @@ Error message can contain substitution variables defined with the ```{variable_n
 
 ## Validators
 
-A list of predefined validators are available using the ```SchemaStandardValidators``` static properties :
+A list of predefined validators is available using the ```SchemaStandardValidators``` static properties :
 
 - patternValidator: use pattern to define a pattern
 - lengthValidator: use min and max to define length
 
 ### Definining custom validator
 
-You can customize a validation method for a specific property with the ```validate``` method but you can share validation by creating custom validator.
+You can customize a validation method for a specific property with the ```validate``` method but you can also share validation by creating custom validator.
 
-A validator is just a simple class with a ```validate``` method and properties. Properties beginning with a ```$``` will be override by options specified by the ```@Validator``` annotation.
+A validator is just a simple class with a ```validate``` method and properties. Properties beginning with a ```$``` will be overridden by options specified by the ```@Validator``` annotation.
 
 For example, the ```length``` validator is defined like this:
 
