@@ -105,7 +105,7 @@ export class Customer {
 
 > You can use ```any``` for referencing anonymous item.
 
-> Referenced schema must be declared **before** the referenced schema.
+> Referenced schema must be declared **before** the schema using it a reference (in the sample above **child** is defined before **Customer**).
 
 ## Validation process detail
 
