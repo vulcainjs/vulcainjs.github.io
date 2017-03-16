@@ -23,14 +23,24 @@ pages:
     - Configurations: 'reference/configurations.md'
     - Monitoring: 'reference/metrics.md'
     - Security: 'reference/security.md'
+  - Articles:
+    - "How to index": 'articles/index.md'
+    - "Users service": 'articles/users.md'
   - About: 
     - license: 'about/license.md'
 extra:
+  disqus: 'vulcainjs'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  social:
+    - type: 'github'
+      link: 'https://github.com/vulcainjs'
   palette:
     primary: 'blue'
     accent: 'light blue'
 markdown_extensions:
-  - toc
+  - toc(permalink=true)
   - admonition
   - codehilite(guess_lang=false)
   - footnotes

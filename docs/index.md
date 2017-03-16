@@ -29,7 +29,6 @@ template: home.html
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -43,9 +42,6 @@ template: home.html
                 <div class="item">
                     <img class="img-responsive" src="images/intro3.png" alt="vulcain.js">
                 </div>
-                <div class="item">
-                    <img class="img-responsive" src="images/intro4.png" alt="vulcain.js">
-                </div>                
             </div>
 
             <!-- Left and right controls -->

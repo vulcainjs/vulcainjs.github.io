@@ -1,4 +1,4 @@
-### Getting started
+## Getting started
 
 In this tutorial, we will create two micro-services, a backend service and a facade service calling the backend service.
 
