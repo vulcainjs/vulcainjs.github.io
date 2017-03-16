@@ -469,10 +469,53 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      About
+      Articles
     </label>
     <nav class="md-nav" data-md-component="collapsible">
       <label class="md-nav__title" for="nav-4">
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../articles/" title="How to index" class="md-nav__link">
+        How to index
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../articles/users/" title="Users service" class="md-nav__link">
+        Users service
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-5">
         About
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -618,13 +661,13 @@
                
               
                 
-                <h1 id="domain-model">Domain model</h1>
+                <h1 id="domain-model">Domain model<a class="headerlink" href="#domain-model" title="Permanent link">&para;</a></h1>
 <p><strong>Vulcain</strong> respects the <a href="https://martinfowler.com/bliki/BoundedContext.html"><strong>bounded context</strong></a> paradigm with the <strong>domain</strong> concept.</p>
 <p>All services belong to a domain like <strong>Customer</strong> or <strong>Billing</strong>. Domain name is defined in every startup file.</p>
-<h2 id="what-is-a-domain">What is a domain ?</h2>
+<h2 id="what-is-a-domain">What is a domain ?<a class="headerlink" href="#what-is-a-domain" title="Permanent link">&para;</a></h2>
 <p>The main notion with <strong>bounded context</strong> is responsability. It's more a functional notion than a technical implementation. Implementing microservice targeting this concept is your responsability. <strong>Vulcain</strong> just helps you to identify domain in its communication protocol and in event notifications.</p>
 <p>But at the level of a microservice, the notion of <strong>domain</strong> is implemented by schema description and validation.</p>
-<h2 id="using-local-schema">Using local schema</h2>
+<h2 id="using-local-schema">Using local schema<a class="headerlink" href="#using-local-schema" title="Permanent link">&para;</a></h2>
 <p><strong>Vulcain</strong> provides a mechanism to define <strong>domain model</strong> (or <strong>Schema</strong>). In the context of a <strong>vulcain</strong> microservice, this provides the following functionalities:</p>
 <ul>
 <li>Describe data models used by a microservice and can help generating code or creating microservice description like swagger.</li>
@@ -634,7 +677,7 @@
 <li>Transform output data before sending over http</li>
 </ul>
 <p><strong>Schemas</strong> are defined with annotations. All input (handler argument) must be defined even though output argument definition is not mandatory, without it you loose the possibility to generate typed code.</p>
-<h2 id="defining-a-schema">Defining a schema</h2>
+<h2 id="defining-a-schema">Defining a schema<a class="headerlink" href="#defining-a-schema" title="Permanent link">&para;</a></h2>
 <p>Thanks to annotations, defining a schema is really easy.</p>
 <div class="codehilite"><pre><span></span><span class="kd">@Model</span><span class="p">()</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">Child</span> <span class="p">{</span>
@@ -669,7 +712,7 @@
 
 
 <p><code>@Model</code> declares a schema and can contains <code>@Property</code> and <code>@Reference</code>.</p>
-<h3 id="the-model-annotation">The @Model annotation</h3>
+<h3 id="the-model-annotation">The @Model annotation<a class="headerlink" href="#the-model-annotation" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -725,7 +768,7 @@
 </tbody>
 </table>
 <p><strong>*extends</strong> is needed because there is no way to know if a javascript object inherits from another. If you omit it, properties of the base class will be ignored.</p>
-<h3 id="the-property-annotation">The @Property annotation</h3>
+<h3 id="the-property-annotation">The @Property annotation<a class="headerlink" href="#the-property-annotation" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -810,7 +853,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="the-reference-annotation">The @Reference annotation</h3>
+<h3 id="the-reference-annotation">The @Reference annotation<a class="headerlink" href="#the-reference-annotation" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -869,7 +912,7 @@
 <p>You can use <code>any</code> for referencing anonymous item.</p>
 <p>Referenced schema must be declared <strong>before</strong> the schema using it a reference (in the sample above <strong>Child</strong> is defined before <strong>Customer</strong>).</p>
 </blockquote>
-<h2 id="validation-process-detail">Validation process detail</h2>
+<h2 id="validation-process-detail">Validation process detail<a class="headerlink" href="#validation-process-detail" title="Permanent link">&para;</a></h2>
 <p>When an handler is requested, <strong>vulcain</strong> will validate input data before calling the handler processing the following steps:</p>
 <ol>
 <li>
@@ -899,7 +942,7 @@
 </pre></div>
 
 
-<h2 id="predefined-types-and-validators">Predefined types and validators</h2>
+<h2 id="predefined-types-and-validators">Predefined types and validators<a class="headerlink" href="#predefined-types-and-validators" title="Permanent link">&para;</a></h2>
 <p>A list of predefined types are available using the <code>SchemaStandardTypes</code> static properties :</p>
 <ul>
 <li>string</li>
@@ -916,7 +959,7 @@
 <li>alphanumeric</li>
 <li>date-iso8601</li>
 </ul>
-<h2 id="custom-validation-method">Custom validation method</h2>
+<h2 id="custom-validation-method">Custom validation method<a class="headerlink" href="#custom-validation-method" title="Permanent link">&para;</a></h2>
 <p>You can create a custom validation method, it must return an error message or null.</p>
 <p>Error message can contain substitution variables defined with the <code>{variable_name}</code> pattern :</p>
 <table>
@@ -949,13 +992,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="validators">Validators</h2>
+<h2 id="validators">Validators<a class="headerlink" href="#validators" title="Permanent link">&para;</a></h2>
 <p>A list of predefined validators is available using the <code>SchemaStandardValidators</code> static properties :</p>
 <ul>
 <li>patternValidator: use pattern to define a pattern</li>
 <li>lengthValidator: use min and max to define length</li>
 </ul>
-<h3 id="definining-custom-validator">Definining custom validator</h3>
+<h3 id="definining-custom-validator">Definining custom validator<a class="headerlink" href="#definining-custom-validator" title="Permanent link">&para;</a></h3>
 <p>You can customize a validation method for a specific property with the <code>validate</code> method but you can also share validation by creating custom validator.</p>
 <p>A validator is just a simple class with a <code>validate</code> method and properties. Properties beginning with a <code>$</code> will be overridden by options specified by the <code>@Validator</code> annotation.</p>
 <p>For example, the <code>length</code> validator is defined like this:</p>
@@ -1050,6 +1093,14 @@
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/vulcainjs" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
       
     </div>
   </div>

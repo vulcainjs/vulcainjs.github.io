@@ -422,10 +422,53 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      About
+      Articles
     </label>
     <nav class="md-nav" data-md-component="collapsible">
       <label class="md-nav__title" for="nav-4">
+        Articles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../articles/" title="How to index" class="md-nav__link">
+        How to index
+      </a>
+    
+  </li>
+
+        
+          
+          
+  <li class="md-nav__item">
+    
+      <a href="../../articles/users/" title="Users service" class="md-nav__link">
+        Users service
+      </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible">
+      <label class="md-nav__title" for="nav-5">
         About
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -524,13 +567,13 @@
                
               
                 
-                <h1 id="dynamic-configuration-properties">Dynamic configuration properties</h1>
+                <h1 id="dynamic-configuration-properties">Dynamic configuration properties<a class="headerlink" href="#dynamic-configuration-properties" title="Permanent link">&para;</a></h1>
 <p>Configuration properties often require to be updated at runtime without restarting your services.</p>
 <p>Dynamic properties offers a simple and easy way to update properties on the fly.</p>
 <blockquote>
 <p>This is inspired by <a href="http://github.com/netflix/archaius">Netflix archaius</a>.</p>
 </blockquote>
-<h2 id="features">Features</h2>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Runtime update. Last values are cached locally.</li>
 <li>Service can be notified when a value changes.</li>
@@ -539,7 +582,7 @@
 <li>Properties can be chained, providing a value to a hierachical chain of values.</li>
 <li>Properties can be encrypted and decrypted locally inside a service.</li>
 </ul>
-<h2 id="concepts">Concepts</h2>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <p>All properties are managed by a <code>DynamicConfiguration</code> singleton object.
 This is the unique entry point to all dynamic properties and exposes different static methods for creating, listening and initializing properties.</p>
 <p>Property values are updated with <code>ConfigurationSource</code> object pulling data at specific time interval.</p>
@@ -566,7 +609,7 @@ This is the unique entry point to all dynamic properties and exposes different s
 </tr>
 </tbody>
 </table>
-<h2 id="declaring-a-dynamic-property">Declaring a dynamic property</h2>
+<h2 id="declaring-a-dynamic-property">Declaring a dynamic property<a class="headerlink" href="#declaring-a-dynamic-property" title="Permanent link">&para;</a></h2>
 <p><strong>Vulcain</strong> provides helpers to create dynamic properties.</p>
 <p>To create a shared property:</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">createSharedConfigurationProperty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="s2">&quot;default value&quot;</span><span class="p">);</span>
@@ -592,7 +635,7 @@ available.</p>
 <p class="admonition-title">Info</p>
 <p>You can create your own chained property with <code>DynamicConfiguration.asChainedProperty&lt;string&gt;()</code>.</p>
 </div>
-<h2 id="using-a-dynamic-property">Using a dynamic property</h2>
+<h2 id="using-a-dynamic-property">Using a dynamic property<a class="headerlink" href="#using-a-dynamic-property" title="Permanent link">&para;</a></h2>
 <p>You can get a property value through its <code>value</code> property.</p>
 <div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">property1</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
 </pre></div>
@@ -604,7 +647,7 @@ available.</p>
 <p>Dynamic property can not be updated from a service, you can only override the local default value, no update
 will be sent to sources.</p>
 </div>
-<h2 id="providing-value-with-environment-variable">Providing value with environment variable</h2>
+<h2 id="providing-value-with-environment-variable">Providing value with environment variable<a class="headerlink" href="#providing-value-with-environment-variable" title="Permanent link">&para;</a></h2>
 <p>A default value can be provided by an environnement variable respecting the SCREAMING SNAKE CASE pattern:</p>
 <ul>
 <li>Split property name into words using the camel case rule.</li>
@@ -612,7 +655,7 @@ will be sent to sources.</p>
 <li>Use only uppercase</li>
 </ul>
 <p>E.g. variableName -&gt; VARIABLE_NAME</p>
-<h2 id="providing-values-with-configuration-source">Providing values with configuration source</h2>
+<h2 id="providing-values-with-configuration-source">Providing values with configuration source<a class="headerlink" href="#providing-values-with-configuration-source" title="Permanent link">&para;</a></h2>
 <p>By default, service template uses a vulcain configuration source only valid within vulcain environment.
 This is defined in the ``ìndex.ts``` project file. You can replace the default vulcain configuration source by another one.</p>
 <div class="codehilite"><pre><span></span><span class="n">DynamicConfiguration</span>
@@ -697,6 +740,14 @@ This is defined in the ``ìndex.ts``` project file. You can replace the default 
       </div>
       
         
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/vulcainjs" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
       
     </div>
   </div>
