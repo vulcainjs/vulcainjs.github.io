@@ -1,4 +1,4 @@
-# Creating a user service
+# Create a user service
 
 **Vulcain** uses [scopes](../reference/security) to manage authorizations but this is only valid if you authentify users.
 
@@ -8,7 +8,7 @@ In this article, we will create a service for managing users. It will provide th
 - Generate bearer token to use with vulcain service.
 - Optionaly manage api key.
 
-## Initializing the project
+## Initialize the project
 
 Let's start from an empty vulcain project.
 
