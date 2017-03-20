@@ -1,12 +1,12 @@
-# Creating an user service
+# Creating a user service
 
-**Vulcain** uses [scopes](../reference/security) to manage authorization but this is only valid if you authentify users.
+**Vulcain** uses [scopes](../reference/security) to manage authorizations but this is only valid if you authentify users.
 
 In this article, we will create a service for managing users. It will provide the following features:
 
-- Manage user defined in a basic extensible user model
-- Generate bearer token for use with vulcain service.
-- Optionaly can manage api key.
+- Manage users defined in a basic extensible user model
+- Generate bearer token to use with vulcain service.
+- Optionaly manage api key.
 
 ## Initializing the project
 
@@ -18,15 +18,15 @@ vulcain new --template NodeMicroService users-service
 
 Then open the project and remove the src/sample folder.
 
-## Add users management functionalities
+## Add users management feature
 
-For this, we will just add a dependency npm package with:
+To do this, we will just add an npm package with the following command:
 
 ```sh
 npm i vulcain-users --save
 ```
 
-This package contains all functionalities, we need then to declare it as services. Go to startup.ts and :
+This package contains all the required features, we need then to declare it as services. Go to startup.ts and :
 
 - Add import statement
 
@@ -40,9 +40,9 @@ import * as users from "vulcain-users";
 users.useUserManagement(container);
 ```
 
-That is. You have a fully user and apikey service management. You can see all exposed handlers with http://localhost:8080/api/_servicedescription.
+That's it. You have a user and apikey service management ready to use. You can see all the handlers exposed with http://localhost:8080/api/_servicedescription.
 
-## Creating a new user
+## Create a new user
 
 First we need to create a new admin user with all authorizations by settings its scope to '*'.
 
@@ -52,11 +52,11 @@ curl -XPOST http://localhost:8080/api/user.create -u admin:admin -H "Content-Typ
 ```
 
 !!!info
-    For this first request, we have used admin/admin as authentified user. This is the default user with all admin rights if **NO** user exists in the database.
+    For this first request, we have used admin/admin as the authentified user. This is the default user with all admin rights if **NO** user exists in the database.
     
-    As soon as you create an user, this admin/admin authentication stops to be valid (but you can create a new one with the same name).
+    As soon as you create an user, this admin/admin authentication is no longer valid (but you can create a new one with the same name).
 
-We can now test authentication and authorization by trying the following requests:
+We can now test authentication and authorization with the following requests:
 
 ```sh
 curl http://localhost:8080/api/user.all -I
@@ -67,9 +67,9 @@ curl http://localhost:8080/api/user.all -u admin:password
 
 > Note how admin:admin is no longer valid.
 
-## Creating a bearer token
+## Create a bearer token
 
-A bearer token is used to authentify user. Its typically created when an user logs into a web site. It will be valid for all other vulcain service.
+A bearer token is used to authentify user. It is generaly created when a user logs into a web site. It will be valid for all other vulcain service requests.
 
 ```sh
 curl http://localhost:8080/api/createToken -XPOST -u admin:password
@@ -87,9 +87,9 @@ You can now use this token directly
 curl http://localhost:8080/api/user.all -H 'Authorization: Bearer <your token>'
 ```
 
-## Renewing a token
+## Renew a token
 
-You can renew a bearer token to extend its expiration time. For this you must use the renewToken provided when your create the token.
+You can renew a bearer token to extend its expiration time. For this you must use the renewToken provided when your first requested the token.
 
 > Obviously you need to renew a token before its expiration.
 
@@ -97,13 +97,13 @@ You can renew a bearer token to extend its expiration time. For this you must us
 curl http://localhost:8080/api/renewToken -H 'Authorization: Bearer <your bearer token>' -XPOST -d '{"renewToken": "<your renew token>"}' -H 'Content-Type: application/json'
 ```
 
-For more informations about using token read [this](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them)
+For more information about using token read [this](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them)
 
 ### How to specify a custom secret key for production
 
 **Vulcain** uses a default secret key to create token. If you want to deploy **vulcain** service in production you **MUST** provide a new secret key.
 
-This secret key must be share by all service using bearer token. The best way to share a property is to use a [dynamic property](../reference/configurations). But like all dynamic properties you can simply use an environment variable.
+This secret key must be shared by all services using bearer token. The best way to share a property is to use a [dynamic property](../reference/configurations). But like all dynamic properties you can simply use an environment variable.
 
 Three properties can be defined:
 
@@ -115,7 +115,7 @@ Three properties can be defined:
 
 > Under the hood, **vulcain** uses [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
 
-## Creating apikey
+## Create apikey
 
 Apikey can be created with the ```apikey.create``` verb (see service description for details) and can be used like a bearer token by replacing the ```Authorization: Bearer <token>``` by ```Authorization: ApiKey <apikey>```
 
@@ -127,9 +127,9 @@ Since apikey validation process needs to access apikey data, if you want to use 
   this.enableApiKeyAuthentication("users-service"); // Set with the name of the users service
 ```
 
-## Extending default user model
+## Extend default user model
 
-**Vulcain** uses a default user model, you can extend or replace it in your users service by adding a new user model.
+**Vulcain** uses a default user model, you can extend or replace it in your user service by adding a new user model.
 
 To extends the default user model, add this file into the src/api hierarchy.
 
@@ -144,7 +144,7 @@ export class MyUser extends User {
 }
 ```
 
-The thing to note is the ```extends``` syntax with a '+' prefix before the model to extend. This means inherit and extend an existing model and replace it with this new model.
+The thing to note is the ```extends``` syntax with a '+' prefix before the model to extend. This means inheriting and extending an existing model and replace it with this new one.
 
 To replace an existing model with a new one, use ```extends: "-User"``` instead.
 
