@@ -78,7 +78,7 @@ export class Customer {
 
 | Option | type | Description | Default value |
 |------|-----|---|------|
-| type | string | Property type | Inferred for basic types such as 'string','boolean' or 'number'  |
+| type | string | Property type |  |
 | description | string | Property description | null |
 | required | boolean | This property is mandatory | false |
 | bind | (val, entity) => any) or boolean | Transform data from request data | null |
