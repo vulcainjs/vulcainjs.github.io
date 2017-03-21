@@ -212,13 +212,23 @@
         },
         {
             "location": "/reference/commands/",
-            "text": "Commands\n\u00b6\n\n\nCommand must be used for every I/O request. \nVulcain\n Command is a javascript implementation of \nNetflix hystrix\n forked from \nhystrixjs\n.\n\n\nVulcain\n provides three abstract commands :\n\n\n\n\nAbstractHttpCommand\n to encapsulate all http request (other than calling a vulcain service)\n\n\nAbstractServiceCommand\n to encapsulate all vulcain service call\n\n\nAbstractProviderCommand\n to encapsulate database actions.",
+            "text": "Commands\n\u00b6\n\n\nCommand must be used for every I/O request. \nVulcain\n Command is a javascript implementation of \nNetflix hystrix\n forked from \nhystrixjs\n.\n\n\nVulcain\n provides three abstract commands :\n\n\n\n\nAbstractHttpCommand\n to encapsulate all http request (other than calling a vulcain service)\n\n\nAbstractServiceCommand\n to encapsulate all vulcain service call\n\n\nAbstractProviderCommand\n to encapsulate database actions.\n\n\n\n\nUsing a command\n\u00b6\n\n\nCommand must \nalways\n be instanciated with requestContext.getCommandAsync.\n\n\nCreating a command\n\u00b6",
             "title": "Commands"
         },
         {
             "location": "/reference/commands/#commands",
             "text": "Command must be used for every I/O request.  Vulcain  Command is a javascript implementation of  Netflix hystrix  forked from  hystrixjs .  Vulcain  provides three abstract commands :   AbstractHttpCommand  to encapsulate all http request (other than calling a vulcain service)  AbstractServiceCommand  to encapsulate all vulcain service call  AbstractProviderCommand  to encapsulate database actions.",
             "title": "Commands"
+        },
+        {
+            "location": "/reference/commands/#using-a-command",
+            "text": "Command must  always  be instanciated with requestContext.getCommandAsync.",
+            "title": "Using a command"
+        },
+        {
+            "location": "/reference/commands/#creating-a-command",
+            "text": "",
+            "title": "Creating a command"
         },
         {
             "location": "/reference/configurations/",
@@ -287,8 +297,28 @@
         },
         {
             "location": "/reference/security/",
-            "text": "",
+            "text": "Authorization\n\u00b6\n\n\nVulcain\n uses scope to manage authorization.\n\n\nEvery handler must have a scope defined in its annotation. A scope definition can have three kind of value:\n\n\n\n\n\n\n\n\nscope\n\n\ndescription\n\n\n\n\n\n\n\n\n\n\n?\n\n\nAnonymous user (not authentified)\n\n\n\n\n\n\n*\n\n\nAny authentified user\n\n\n\n\n\n\n'name'\n\n\nA scope name\n\n\n\n\n\n\n\n\n\n\nVulcain\n supports basic, bearer token and api key authentification. Go to \nthis article\n to see how creating an authentication service providing bearer or apikey token for use with \nvulcain\n.\n\n\n\n\nA scope defined in \nActionHandler\n or \nQueryHandler\n is a default scope for all handler method but can be override in every method.\n\n\nYou can defined many scope for a same handler by seprating them with a comma.\n\n\nScope definition format\n\u00b6\n\n\nScope name is composed by the domain service name and the defined name.\n\n\nFor example, the following scope definition in a \nIdentities\n \ndomain name\n :\n\n\n@ActionHandler\n({\nscope\n:\n'\nUser\n:\ncreate\n'\n})\n\n\n\n\n\n\nwill be named 'identities:user:create'.\n\n\n\n\nScope is case insensitive.\n\n\n\n\nA scope defines a hierarchy with a root level (e.g. identities) and sub levels separed by colon.\n\n\nScope rule\n\u00b6\n\n\nWhen you create a new user, you assign it a list of scope rules. This rules are processed to check if an user is authorized to use an handler.\n\n\nA rule is compared to a scope and can contains a '\n' operator which means all sub levels. For example, the rule 'identities:\n' matches all scope beginning with 'identities:'.\n\n\n'\n' is only valid at a level position e.g. 'identi\n:' is not valid.\n\n\n\n\nThe rule '*' means \nadministrator\n\n\n\n\n\n\nWarning\n\n\nIn development mode (local development) scope are ignored.\n\n\n\n\nScope description\n\u00b6\n\n\nEvery service exposes its description like handler definition, dependencies and its scope. It's a good practice to provide a description for all scope used in a service.\n\n\nYou can do that in the \nstartup\n class.\n\n\ndefineScopes\n(\nscopes\n)\n \n{\n\n    \nscopes\n.\ndefineScope\n(\n\"user:create\"\n,\n \n\"Create a new user\"\n);\n\n\n}",
             "title": "Security"
+        },
+        {
+            "location": "/reference/security/#authorization",
+            "text": "Vulcain  uses scope to manage authorization.  Every handler must have a scope defined in its annotation. A scope definition can have three kind of value:     scope  description      ?  Anonymous user (not authentified)    *  Any authentified user    'name'  A scope name      Vulcain  supports basic, bearer token and api key authentification. Go to  this article  to see how creating an authentication service providing bearer or apikey token for use with  vulcain .   A scope defined in  ActionHandler  or  QueryHandler  is a default scope for all handler method but can be override in every method.  You can defined many scope for a same handler by seprating them with a comma.",
+            "title": "Authorization"
+        },
+        {
+            "location": "/reference/security/#scope-definition-format",
+            "text": "Scope name is composed by the domain service name and the defined name.  For example, the following scope definition in a  Identities   domain name  :  @ActionHandler ({ scope : ' User : create ' })   will be named 'identities:user:create'.   Scope is case insensitive.   A scope defines a hierarchy with a root level (e.g. identities) and sub levels separed by colon.",
+            "title": "Scope definition format"
+        },
+        {
+            "location": "/reference/security/#scope-rule",
+            "text": "When you create a new user, you assign it a list of scope rules. This rules are processed to check if an user is authorized to use an handler.  A rule is compared to a scope and can contains a ' ' operator which means all sub levels. For example, the rule 'identities: ' matches all scope beginning with 'identities:'.  ' ' is only valid at a level position e.g. 'identi :' is not valid.   The rule '*' means  administrator    Warning  In development mode (local development) scope are ignored.",
+            "title": "Scope rule"
+        },
+        {
+            "location": "/reference/security/#scope-description",
+            "text": "Every service exposes its description like handler definition, dependencies and its scope. It's a good practice to provide a description for all scope used in a service.  You can do that in the  startup  class.  defineScopes ( scopes )   { \n     scopes . defineScope ( \"user:create\" ,   \"Create a new user\" );  }",
+            "title": "Scope description"
         },
         {
             "location": "/articles/",
