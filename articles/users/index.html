@@ -794,7 +794,7 @@ curl http://localhost:8080/api/user.all -u admin:password
 
 <span class="n">@Model</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">User</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">extends</span><span class="p">:</span> <span class="err">&#39;</span><span class="p">+</span><span class="n">User</span><span class="err">&#39;</span> <span class="p">})</span>
 <span class="n">export</span> <span class="k">class</span> <span class="nc">MyUser</span> <span class="n">extends</span> <span class="n">User</span> <span class="p">{</span>
-    <span class="n">@Property</span><span class="p">()</span>
+    <span class="n">@Property</span><span class="p">({</span><span class="n">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">number</span><span class="err">&#39;</span><span class="p">})</span>
     <span class="n">age</span><span class="p">:</span> <span class="n">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
