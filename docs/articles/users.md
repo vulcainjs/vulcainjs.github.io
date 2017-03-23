@@ -1,6 +1,6 @@
 # Create a user service
 
-**Vulcain** uses [scopes](../reference/security) to manage authorizations but this is only valid if you authentify users.
+**Vulcain** uses [scopes](../reference/security) to manage authorizations but this is only valid if your users are authentified.
 
 In this article, we will create a service for managing users. It will provide the following features:
 
@@ -26,7 +26,8 @@ To do this, we will just add an npm package with the following command:
 npm i vulcain-users --save
 ```
 
-This package contains all the required features, we need then to declare it as services. Go to startup.ts and :
+This package contains all the required features.
+We need then to declare it as services. Go to startup.ts and :
 
 - Add import statement
 
@@ -40,7 +41,7 @@ import * as users from "vulcain-users";
 users.useUserManagement(container);
 ```
 
-That's it. You have a user and apikey service management ready to use. You can see all the handlers exposed with http://localhost:8080/api/_servicedescription.
+That's it. You have a user and apikey service management ready to use. You can see all the handlers exposed from http://localhost:8080/api/_servicedescription.
 
 ## Create a new user
 
@@ -52,8 +53,8 @@ curl -XPOST http://localhost:8080/api/user.create -u admin:admin -H "Content-Typ
 ```
 
 !!!info
-    For this first request, we have used admin/admin as the authentified user. This is the default user with all admin rights if **NO** user exists in the database.
-    
+    For this first request, we have used admin/admin as the authentified user. This is the default user with all admin rights if **ANY** user exists in the database.
+
     As soon as you create an user, this admin/admin authentication is no longer valid (but you can create a new one with the same name).
 
 We can now test authentication and authorization with the following requests:
@@ -69,7 +70,14 @@ curl http://localhost:8080/api/user.all -u admin:password
 
 ## Create a bearer token
 
-A bearer token is used to authentify user. It is generaly created when a user logs into a web site. It will be valid for all other vulcain service requests.
+A bearer token is used to authentify user. It is generaly created when a user logs into a web site.
+
+!!!info
+    Security context propagation
+
+    Bearer token will be valid and propagated along all vulcain service requests propagating the security context. Each bearer token encapsulates user properties (name, displayName, scopes and tenant) available from the ```requestContext.user``` property.
+
+    You can override a security context when you call another service by using **impersonation**. Impersonation can only be done using api key by calling the ```AbstractServiceCommand.setRequestContext``` method.
 
 ```sh
 curl http://localhost:8080/api/createToken -XPOST -u admin:password
