@@ -16,6 +16,13 @@ A scope defined in ```ActionHandler``` or ```QueryHandler``` is a default scope 
 
 You can defined many scope for a same handler by seprating them with a comma.
 
+!!!info
+    Security context propagation
+
+    Bearer token is used to propagate along all vulcain service requests the security context. A bearer token is automatically created for every request with basic or api key authentication.
+
+    Each bearer token encapsulates user properties (name, displayName, scopes and tenant) available from the ```requestContext.user``` property.
+
 ## Scope definition format
 
 Scope name is composed by the domain service name and the defined name.
