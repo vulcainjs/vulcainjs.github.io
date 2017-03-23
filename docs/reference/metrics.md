@@ -40,11 +40,13 @@ Here a simple fluentd configuration to send all logs to an elasticsearch databas
 
 ## Metrics
 
-**Vulcain** emit metrics for every request and command. It provides natively an ```statsd``` exporter.
+### Statsd metrics
+
+**Vulcain** emit metrics for every request and command. It provides natively a ```statsd``` exporter.
 
 To activate metrics, just define an environment variable ```STATSD_AGENT``` set with the stasd agent address.
 
-This is a sample configuration file to use with ```telegraf```
+Here a sample configuration file to use with [telegraf](https://docs.influxdata.com/telegraf/v1.2/introduction/getting_started/)
 
 ```js
 [global_tags]
@@ -137,3 +139,15 @@ This is a sample configuration file to use with ```telegraf```
   ## of percentiles but also increases the memory usage and cpu time.
   percentile_limit = 1000
 ```
+
+### Zipkin instrumentation
+
+[Zipkin](http://zipkin.io/) is a distributed tracing system and it is fully integrated within **vulcain**.
+
+You can enable it by providing a [dynamic property](./configurations) (zipkinAgent) or an environment variable (ZIPKIN_AGENT) defining the zipkin agent address.
+
+```bash
+export ZIPKIN_AGENT=http://host:9411
+```
+
+Go to this [page](https://github.com/openzipkin/docker-zipkin) to see how to run zipkin agent and dashboard.

@@ -2,7 +2,7 @@
 
 **Documentation is in progress**
 
-**Vulcain** is a new microservice framework. It provides a way to create easily full operational microservices by normalizing i/o protocol, metrics and logging.
+**Vulcain** is a new microservice framework. It provides a way to create easily full operational microservices running in docker container by normalizing i/o protocol, metrics and logging.
 
 Every **vulcain** microservice encapsulates metadata description allowing to use external tools for generating code, services cartography, monitoring...
 
@@ -10,14 +10,16 @@ Every **vulcain** microservice encapsulates metadata description allowing to use
 
 It targets the nodejs V6 (or more) platform and leverages all typescript functionalities like annotations, async/await, reflection...
 
+
+
 ## Major functionalities
 
 - Standardizes request and response HTTP format
-- Generate metrics for every request
+- Generate metrics for every request (zipkin, statsd)
 - Standardizes logging format with data obfuscation for sensible data.
 - Services are organized by domain and separate Query request from action (command) request.
-- Validate input data.
-- Request context propagation on every service request.
+- Automatic input data validation
+- Request context propagation (security, correlation id) on every service request.
 
 
 ### Main concepts

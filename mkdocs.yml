@@ -10,8 +10,7 @@ copyright: Copyright © 2017 Zenasoft
 #google_analytics: ['UA-49523450-2', 'auto']
 pages:
   - Home: index.md
-  - "Getting started":
-    - "My first microservices": gettingStarted/index.md
+  - "Getting started": gettingStarted/index.md
   - Documentation:
     - Overview: 'reference/index.md'
     - Actions: 'reference/actions.md'

@@ -1,4 +1,4 @@
-## Getting started
+## Creating my first microservices
 
 In this tutorial, we will create two micro-services, a backend service and a facade service calling the backend service.
 
@@ -58,18 +58,19 @@ vulcain run customers-service:1.0
 !!!info
     you can also use ./build.sh 1.0 to build the service.
 
-> ```vulcain run``` initializes a swarm cluster if any and create a net-vulcain network and create a new docker service.
+> ```vulcain run``` initializes a swarm cluster if any, create a net-vulcain network and create a new docker service.
 
-The service is now available with a new exposed port (30000 if this is the first service in your swarm cluster). This port is displayed when the vulcain run command ends.
+The service is now available with a new exposed port (30000 if this is the first service in your swarm cluster). This port is displayed when the ```vulcain run``` command ends.
 
 Let's try to create some customers using this new port using the ```customer.create``` action.
+
 E.g.
 
 ```sh
 curl -XPOST localhost:30000/api/customer.create -d '{"firstName":"Albert", "lastName": "Einstein"}' -H 'Content-Type: application/json'
 ```
 
-You can list all customers with /api/customer.all (or /api).
+You can list all customers with /api/customer.all (or just /api).
 
 !!!warning
     By default, data is stored in memory and will be lost if you restart the container.
@@ -79,7 +80,7 @@ You can list all customers with /api/customer.all (or /api).
 
 We will now create a new facade service exposing a customer with an additional fullName property.
 
-Create a new service facade-service. In a new folder type:
+Create a new service facade-service. In a new folder, type:
 
 ```bash
 vulcain new facade-service
@@ -111,7 +112,7 @@ export class CustomerView {
 ```
 
 This is a very basic model, it has the properties of a customer with an additional fullName property.
-Since this model will be used for output response, no validation is added.
+Since this model will be used for output response only, no validation is added.
 
 Now we will create an handler to query a customer view into a new file src/api/queryHandler.ts
 
@@ -139,18 +140,19 @@ export class MyQueryHandler extends AbstractQueryHandler {
 ```
 
 !!! info
-    See below to remove the reference error on customersService10
+    For the moment, the editor displays errors. This is normal. We will see below how to remove the reference error on customersService10
 
 #### Handler anatomy
 
 - An handler is just a class with annoted methods. These annotations describe how the handler can be requested. There are 3 kinds of handler: ```Query handler```, ```Action handler``` and ```Event handler```. See [concepts](../reference/index)
 - The ```QueryHandler``` annotation tells that the class exposes handler(s) for query (accessible with a GET http verb) and can define default configurations. In this case, the handler could be requested by any (anonymous) user thanks to the ```scope:'?'``` property.
-- The ```Query``` annotation is used to expose a method. Annotations have mandatory properties used to describe the service. The query will be accessible from ```/api/customersview``` (The name is inferred from the method name and removing the Async suffix).
-- The handler code is like any traditional method. With some specificities:
-    - It can take only one argument described by a model. This model will be validated before the method is called and raise a Bad Request error in case of errors.
+- The ```Query``` annotation is used to expose a method. Annotations have mandatory properties used to describe the service. The query will be accessible from ```/api/customersview``` (The name is inferred from the method name removing the Async suffix).
+- The handler code is like any traditional method with some specificities:
+    - It can take only one argument described by a model. This model will be validated before the method is called and can raise a Bad Request error in case of errors.
     - The return value must be described by a model (can be the same as the input argument). This is used to describe the service.
-    - If any error occurs, a 500 http error will be sent to the client.
+    - If any error occurs during processing the handler, a 500 http error will be sent to the client.
 
+Now it's time to remove errors from your code.
 You can note that the service uses a custom service class (```CustomersService```) to read all customers. This is a proxy class requesting our first service : customers-service.
 
 But how can i create this proxy class ?
@@ -164,7 +166,7 @@ Vulcain compatible means context propagation : security context, global correlat
 To generate the proxy class, we need some information:
 
 - Address of the target service. In our case, localhost:30000
-- A template to use, by default this is microServiceProxy (for generating vulcain proxy). The other template is angularServiceProxy to generate proxy class for angular application.
+- A template to use, by default this is microServiceProxy (for generating vulcain proxy). The other template available is angularServiceProxy to generate proxy class for angular application.
 - The folder where the generated file will be saved. Default is the current folder.
 
 To generate the class, type the following code from the application root folder (Change the port number if necessary)
@@ -218,11 +220,18 @@ You must see something like this:
 Calling microservice over http is not a long quiet stream, many errors can occur and you must be prepared for this.
 For this situation, **vulcain** uses an hystrix implementation of command. You can configure the command behavior with annotation. For example, the following command has a 1500ms timeout protecting from long requests.
 
+```csharp
+@Command({ executionTimeoutInMilliseconds: 1500 })
+export class CustomersServiceGetAllCustomerCommand extends AbstractServiceCommand {
+
+}
+```
+
 This is the microservice philosophy : Service can failed but quickly.
 
 For most scenarii, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.
 
-Try a request failure by removing the backend service with ```docker service rm customersservice10``` and by requesting the facade service. Due to the default 1500ms timeout, errors will occur quickly.
+Try a request failure by removing the backend service with ```docker service rm customersservice10``` and by requesting again the facade service. Due to the default 1500ms timeout, errors will occur quickly.
 You can see it in hystrix dashboard.
 
 <img src="../images/demo-hystrix2.png" width="300px">
@@ -235,7 +244,7 @@ Since we will customize a call to ```getAllCustomerAsync``` of the proxy class n
 
 To add compensation we need to provide a ```fallback``` method returning the default value.
 
-You can now create a new file in src/api/ containing the following code.
+You can now create a new file in src/api/ containing the new command.
 
 ```csharp
 import { ServiceDependency, Command, AbstractServiceCommand, IHasFallbackCommand } from 'vulcain-corejs';
