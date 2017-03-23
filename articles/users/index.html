@@ -672,7 +672,7 @@
                 
                 
                 <h1 id="create-a-user-service">Create a user service<a class="headerlink" href="#create-a-user-service" title="Permanent link">&para;</a></h1>
-<p><strong>Vulcain</strong> uses <a href="../../reference/security">scopes</a> to manage authorizations but this is only valid if you authentify users.</p>
+<p><strong>Vulcain</strong> uses <a href="../../reference/security">scopes</a> to manage authorizations but this is only valid if your users are authentified.</p>
 <p>In this article, we will create a service for managing users. It will provide the following features:</p>
 <ul>
 <li>Manage users defined in a basic extensible user model</li>
@@ -692,7 +692,8 @@
 </pre></div>
 
 
-<p>This package contains all the required features, we need then to declare it as services. Go to startup.ts and :</p>
+<p>This package contains all the required features.
+We need then to declare it as services. Go to startup.ts and :</p>
 <ul>
 <li>Add import statement</li>
 </ul>
@@ -707,7 +708,7 @@
 </pre></div>
 
 
-<p>That's it. You have a user and apikey service management ready to use. You can see all the handlers exposed with http://localhost:8080/api/_servicedescription.</p>
+<p>That's it. You have a user and apikey service management ready to use. You can see all the handlers exposed from http://localhost:8080/api/_servicedescription.</p>
 <h2 id="create-a-new-user">Create a new user<a class="headerlink" href="#create-a-new-user" title="Permanent link">&para;</a></h2>
 <p>First we need to create a new admin user with all authorizations by settings its scope to '*'.</p>
 <div class="codehilite"><pre><span></span>curl -XPOST http://localhost:8080/api/user.create -u admin:admin -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
@@ -717,7 +718,7 @@
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>For this first request, we have used admin/admin as the authentified user. This is the default user with all admin rights if <strong>NO</strong> user exists in the database.</p>
+<p>For this first request, we have used admin/admin as the authentified user. This is the default user with all admin rights if <strong>ANY</strong> user exists in the database.</p>
 <p>As soon as you create an user, this admin/admin authentication is no longer valid (but you can create a new one with the same name).</p>
 </div>
 <p>We can now test authentication and authorization with the following requests:</p>
@@ -732,7 +733,13 @@ curl http://localhost:8080/api/user.all -u admin:password
 <p>Note how admin:admin is no longer valid.</p>
 </blockquote>
 <h2 id="create-a-bearer-token">Create a bearer token<a class="headerlink" href="#create-a-bearer-token" title="Permanent link">&para;</a></h2>
-<p>A bearer token is used to authentify user. It is generaly created when a user logs into a web site. It will be valid for all other vulcain service requests.</p>
+<p>A bearer token is used to authentify user. It is generaly created when a user logs into a web site.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Security context propagation</p>
+<p>Bearer token will be valid and propagated along all vulcain service requests propagating the security context. Each bearer token encapsulates user properties (name, displayName, scopes and tenant) available from the <code>requestContext.user</code> property.</p>
+<p>You can override a security context when you call another service by using <strong>impersonation</strong>. Impersonation can only be done using api key by calling the <code>AbstractServiceCommand.setRequestContext</code> method.</p>
+</div>
 <div class="codehilite"><pre><span></span>curl http://localhost:8080/api/createToken -XPOST -u admin:password
 </pre></div>
 
@@ -806,7 +813,7 @@ curl http://localhost:8080/api/user.all -u admin:password
 
 <span class="n">@Model</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">User</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">extends</span><span class="p">:</span> <span class="err">&#39;</span><span class="p">+</span><span class="n">User</span><span class="err">&#39;</span> <span class="p">})</span>
 <span class="n">export</span> <span class="k">class</span> <span class="nc">MyUser</span> <span class="n">extends</span> <span class="n">User</span> <span class="p">{</span>
-    <span class="n">@Property</span><span class="p">()</span>
+    <span class="n">@Property</span><span class="p">({</span><span class="n">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">number</span><span class="err">&#39;</span><span class="p">})</span>
     <span class="n">age</span><span class="p">:</span> <span class="n">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>

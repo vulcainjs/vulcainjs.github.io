@@ -367,10 +367,59 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Security
+      </label>
     
     <a href="./" title="Security" class="md-nav__link md-nav__link--active">
       Security
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scope-definition-format" title="Scope definition format" class="md-nav__link">
+    Scope definition format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-rule" title="Scope rule" class="md-nav__link">
+    Scope rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-description" title="Scope description" class="md-nav__link">
+    Scope description
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -490,6 +539,42 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scope-definition-format" title="Scope definition format" class="md-nav__link">
+    Scope definition format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-rule" title="Scope rule" class="md-nav__link">
+    Scope rule
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-description" title="Scope description" class="md-nav__link">
+    Scope description
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -504,9 +589,72 @@
                   <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/security.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                  <h1>Security</h1>
-                
-                
+                <h1 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">&para;</a></h1>
+<p><strong>Vulcain</strong> uses scope to manage authorization.</p>
+<p>Every handler must have a scope defined in its annotation. A scope definition can have three kind of value:</p>
+<table>
+<thead>
+<tr>
+<th align="center">scope</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">?</td>
+<td>Anonymous user (not authentified)</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td>Any authentified user</td>
+</tr>
+<tr>
+<td align="center">'name'</td>
+<td>A scope name</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Vulcain</strong> supports basic, bearer token and api key authentification. Go to <a href="../../articles/users">this article</a> to see how creating an authentication service providing bearer or apikey token for use with <strong>vulcain</strong>.</p>
+</blockquote>
+<p>A scope defined in <code>ActionHandler</code> or <code>QueryHandler</code> is a default scope for all handler method but can be override in every method.</p>
+<p>You can defined many scope for a same handler by seprating them with a comma.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Security context propagation</p>
+<p>Bearer token is used to propagate along all vulcain service requests the security context. A bearer token is automatically created for every request with basic or api key authentication.</p>
+<p>Each bearer token encapsulates user properties (name, displayName, scopes and tenant) available from the <code>requestContext.user</code> property.</p>
+</div>
+<h2 id="scope-definition-format">Scope definition format<a class="headerlink" href="#scope-definition-format" title="Permanent link">&para;</a></h2>
+<p>Scope name is composed by the domain service name and the defined name.</p>
+<p>For example, the following scope definition in a <strong>Identities</strong> <a href="../domain">domain name</a> :</p>
+<div class="codehilite"><pre><span></span><span class="n">@ActionHandler</span><span class="p">({</span><span class="n">scope</span><span class="p">:</span><span class="err">&#39;</span><span class="n">User</span><span class="p">:</span><span class="n">create</span><span class="err">&#39;</span><span class="p">})</span>
+</pre></div>
+
+
+<p>will be named 'identities:user:create'.</p>
+<blockquote>
+<p>Scope is case insensitive.</p>
+</blockquote>
+<p>A scope defines a hierarchy with a root level (e.g. identities) and sub levels separed by colon.</p>
+<h2 id="scope-rule">Scope rule<a class="headerlink" href="#scope-rule" title="Permanent link">&para;</a></h2>
+<p>When you create a new user, you assign it a list of scope rules. This rules are processed to check if an user is authorized to use an handler.</p>
+<p>A rule is compared to a scope and can contains a '<em>' operator which means all sub levels. For example, the rule 'identities:</em>' matches all scope beginning with 'identities:'.</p>
+<p>'<em>' is only valid at a level position e.g. 'identi</em>:' is not valid.</p>
+<blockquote>
+<p>The rule '*' means <strong>administrator</strong></p>
+</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In development mode (local development) scope are ignored.</p>
+</div>
+<h2 id="scope-description">Scope description<a class="headerlink" href="#scope-description" title="Permanent link">&para;</a></h2>
+<p>Every service exposes its description like handler definition, dependencies and its scope. It's a good practice to provide a description for all scope used in a service.</p>
+<p>You can do that in the <code>startup</code> class.</p>
+<div class="codehilite"><pre><span></span><span class="n">defineScopes</span><span class="p">(</span><span class="n">scopes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">scopes</span><span class="p">.</span><span class="n">defineScope</span><span class="p">(</span><span class="s">&quot;user:create&quot;</span><span class="p">,</span> <span class="s">&quot;Create a new user&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
