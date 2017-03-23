@@ -8,3 +8,9 @@ Command must be used for every I/O request. **Vulcain** Command is a javascript 
 - ```AbstractServiceCommand``` to encapsulate all vulcain service call
 - ```AbstractProviderCommand``` to encapsulate database actions.
 
+## Using a command
+
+Command must **always** be instanciated with requestContext.getCommandAsync.
+
+## Creating a command
+

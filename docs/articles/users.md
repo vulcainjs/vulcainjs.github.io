@@ -147,7 +147,7 @@ import { Model, Property } from "vulcain-corejs";
 
 @Model({ name: 'User', extends: '+User' })
 export class MyUser extends User {
-    @Property()
+    @Property({type: 'number'})
     age: number;
 }
 ```

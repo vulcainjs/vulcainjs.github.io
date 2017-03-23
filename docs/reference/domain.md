@@ -29,18 +29,18 @@ Thanks to annotations, defining a schema is really easy.
 ```ts
 @Model()
 export class Child {
-    @Property({ required: true })
+    @Property({ type: 'string', required: true })
     name: string;
 }
 
 @Model({validate: Customer.checkRule1})
 export class Customer {
-    @Property({ required: true })
+    @Property({ type: 'string', required: true })
     @Validator(SchemaStandardValidators.length, { min: 5 })
     firstName: string;
-    @Property({ required: true, unique: true, isKey: true })
+    @Property({ type: 'string', required: true, unique: true, isKey: true })
     lastName: string;
-    @Property({required: true, type: SchemaStandardTypes.enum, values: ['M', 'F'], bind: Customer.bindSex})
+    @Property({ type: 'string', required: true, type: SchemaStandardTypes.enum, values: ['M', 'F'], bind: Customer.bindSex})
     sex: string;
     @Reference({cardinality: 'many', item: 'Child'})
     children: Child[];
