@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.3.0">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
     
     
       
@@ -26,9 +26,9 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-1d1da4857d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header" data-md-component="header">
+      <header class="md-header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -196,10 +196,34 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../gettingStarted/" title="Getting started" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gettingStarted/" title="My first microservices" class="md-nav__link">
+      My first microservices
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -450,14 +474,6 @@
   
 </li>
       
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -648,14 +664,6 @@
   
 </li>
       
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -666,13 +674,13 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
+               
+                 <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/testing.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+               
               
                 
-                  <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/testing.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
-                
-                
                 <h1 id="testing-microservice">Testing microservice<a class="headerlink" href="#testing-microservice" title="Permanent link">&para;</a></h1>
-<p>A big challenge with microservice is testing integration with others services and dependencies.</p>
+<p>A big challenge with microservice is testing integration with other services and dependencies.</p>
 <p><strong>Vulcain</strong> provides many features to help testing in this context.</p>
 <h2 id="mock-functionality">Mock functionality<a class="headerlink" href="#mock-functionality" title="Permanent link">&para;</a></h2>
 <p><strong>Vulcain</strong> can create <strong>mock</strong> by registering a request and saving it in a <strong>session</strong>. When a <strong>session</strong> is registered, you can replay it many times. You can create many <strong>session</strong> given them a different name.</p>
@@ -682,11 +690,11 @@
 </pre></div>
 
 
-<p>When a microservice endpoint is called with its header, it will save the calling context (action and parameters) and the result.</p>
+<p>When a microservice endpoint is called with this header, it will save the calling context (action and parameters) as well as its result.</p>
 <blockquote>
 <p>By default, a mock session is saved in the '.vulcain' file but you can create your own session manager by overriding the <code>MockManager</code> default service.</p>
 </blockquote>
-<p>A mock is replayed if the call context (action and parameters) is strictly equals to the registered mock context. If you want to be less restrictive, you can remove some arguments to the saved session, the filter will operate only on existing arguments.</p>
+<p>A mock is replayed if the call context (action and parameters) is strictly identical to the registered mock context. If you want to be less restrictive, you can remove some arguments to the saved session, the filter will operate only on existing arguments.</p>
 <p>By default, the mock session header is propagated along requests registering mock for all 'sub' services. If you want to limit the scope of the registering session to some specific services, you can include in the mock header a service name filter (as a regular expression).</p>
 <p>Example to register a mock session for all services with a name beginning with customer:</p>
 <div class="codehilite"><pre><span></span>x-vulcain-register-mock-session: mocksessionname:^customer
@@ -696,12 +704,12 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Since mock session are saved in the .vulcain file which will be included in the docker container, you can save mock session locally before deploying your microservice.
-In all cases, mock functionality is disabled in production mode.</p>
+In all cases, mock feature is disabled in production mode.</p>
 </div>
 <h3 id="using-a-mock">Using a mock<a class="headerlink" href="#using-a-mock" title="Permanent link">&para;</a></h3>
-<p>You can use a mock session by using the <code>x-vulcain-use-mock-session</code> header specifying the session name to use. If no session exists, this header is ignored and the microservice runs normally.</p>
+<p>You can use a mock session by using the <code>x-vulcain-use-mock-session</code> header specifying the session name to use. If no matching session exists, this header is ignored and the microservice runs normally.</p>
 <blockquote>
-<p>This header supports the filter mechanism.</p>
+<p>This header supports filtering mechanism.</p>
 </blockquote>
 <h3 id="using-dynamic-properties">Using dynamic properties<a class="headerlink" href="#using-dynamic-properties" title="Permanent link">&para;</a></h3>
 <p>Setting request header is not so easy in particular if you don't want to modify your code. So you can enable mock session with <a href="../configurations">dynamic properties</a>. Since dynamic properties can be initialized with environment variables it's easy to use it.</p>
@@ -727,7 +735,7 @@ In all cases, mock functionality is disabled in production mode.</p>
 <p>Service dynamic property is valid only for a specific service and don't need a filter. It is not propagated along requests.</p>
 </blockquote>
 <h2 id="local-development">Local development<a class="headerlink" href="#local-development" title="Permanent link">&para;</a></h2>
-<p>Sometimes you want to mock not existing (yet) service or an external api for testing your service locally. You can simulate calls using local mock defined in the .vulcain file.</p>
+<p>Sometimes you want to mock non (yet) existing service or an external api for testing your service locally. You can simulate calls using local mock defined in the .vulcain file.</p>
 <p>You could define mocks for service (requesting with a <code>AbstractServiceCommand</code>) or for external api (requesting with a <code>AbstractHttpCommand</code>).</p>
 <blockquote>
 <p>For database, you can use the <code>MemoryProvider</code>.</p>
@@ -783,28 +791,23 @@ In all cases, mock functionality is disabled in production mode.</p>
 
 
 <p>The first input (or null) matching wins.</p>
-                
-                  
-                
               
               
-                
-                  <h2 id="__comments">Comments</h2>
-                  <div id="disqus_thread"></div>
-<script>
-  var disqus_config = function () {
-    this.page.url = "https://vulcainjs.github.io/reference/testing/";
-    this.page.identifier =
-      "/reference/testing/";
-  };
-  (function() {
-    var d = document, s = d.createElement("script");
-    s.src = "//vulcainjs.disqus.com/embed.js";
-    s.setAttribute("data-timestamp", +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-                
+                <h2>Comments</h2>
+                <div id="disqus_thread"></div>
+                <script>
+                  var disqus_config = function () {
+                    this.page.url = "https://vulcainjs.github.io/reference/testing/";
+                    this.page.identifier =
+                      "/reference/testing/";
+                  };
+                  (function() {
+                    var d = document, s = d.createElement("script");
+                    s.src = "//vulcainjs.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
               
             </article>
           </div>
@@ -880,7 +883,7 @@ In all cases, mock functionality is disabled in production mode.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
+      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     

@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.3.0">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
     
     
       
@@ -26,9 +26,9 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-1d1da4857d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header" data-md-component="header">
+      <header class="md-header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -196,10 +196,34 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../gettingStarted/" title="Getting started" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       Getting started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gettingStarted/" title="My first microservices" class="md-nav__link">
+      My first microservices
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -385,14 +409,6 @@
   
 </li>
       
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -542,14 +558,6 @@
   
 </li>
       
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
     </ul>
   
 </nav>
@@ -560,14 +568,14 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
+               
+                 <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/security.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+               
               
                 
-                  <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/security.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
-                
-                
                 <h1 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">&para;</a></h1>
-<p><strong>Vulcain</strong> uses scope to manage authorization.</p>
-<p>Every handler must have a scope defined in its annotation. A scope definition can have three kind of value:</p>
+<p><strong>Vulcain</strong> uses scopes to manage authorization.</p>
+<p>Every handler must have a scope defined in its annotation. A scope definition can be any of the following kind:</p>
 <table>
 <thead>
 <tr>
@@ -591,10 +599,10 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>Vulcain</strong> supports basic, bearer token and api key authentification. Go to <a href="../../articles/users">this article</a> to see how creating an authentication service providing bearer or apikey token for use with <strong>vulcain</strong>.</p>
+<p><strong>Vulcain</strong> supports basic, bearer token and api key authentification. Go to <a href="../../articles/users">this article</a> to see how to create an authentication service providing bearer or apikey token to use with <strong>vulcain</strong>.</p>
 </blockquote>
-<p>A scope defined in <code>ActionHandler</code> or <code>QueryHandler</code> is a default scope for all handler method but can be override in every method.</p>
-<p>You can defined many scope for a same handler by seprating them with a comma.</p>
+<p>A scope defined in <code>ActionHandler</code> or <code>QueryHandler</code> is a default scope for all handler methods but can be overriden in each and every method.</p>
+<p>You can define many scopes for a same handler by seperating them with a comma.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Security context propagation</p>
@@ -603,7 +611,7 @@
 </div>
 <h2 id="scope-definition-format">Scope definition format<a class="headerlink" href="#scope-definition-format" title="Permanent link">&para;</a></h2>
 <p>Scope name is composed by the domain service name and the defined name.</p>
-<p>For example, the following scope definition in a <strong>Identities</strong> <a href="../domain">domain name</a> :</p>
+<p>For example, the following scope definition in an <strong>Identities</strong> <a href="../domain">domain name</a> :</p>
 <div class="codehilite"><pre><span></span><span class="n">@ActionHandler</span><span class="p">({</span><span class="n">scope</span><span class="p">:</span><span class="err">&#39;</span><span class="n">User</span><span class="p">:</span><span class="n">create</span><span class="err">&#39;</span><span class="p">})</span>
 </pre></div>
 
@@ -614,8 +622,8 @@
 </blockquote>
 <p>A scope defines a hierarchy with a root level (e.g. identities) and sub levels separed by colon.</p>
 <h2 id="scope-rule">Scope rule<a class="headerlink" href="#scope-rule" title="Permanent link">&para;</a></h2>
-<p>When you create a new user, you assign it a list of scope rules. This rules are processed to check if an user is authorized to use an handler.</p>
-<p>A rule is compared to a scope and can contains a '<em>' operator which means all sub levels. For example, the rule 'identities:</em>' matches all scope beginning with 'identities:'.</p>
+<p>When you create a new user, you assign it a list of scope rules. These rules are processed to check if a user is authorized to use an handler.</p>
+<p>A rule is compared to a scope and can contain a '<em>' operator which means all sub levels. For example, the rule 'identities:</em>' matches all scopes beginning with 'identities:'.</p>
 <p>'<em>' is only valid at a level position e.g. 'identi</em>:' is not valid.</p>
 <blockquote>
 <p>The rule '*' means <strong>administrator</strong></p>
@@ -625,34 +633,29 @@
 <p>In development mode (local development) scope are ignored.</p>
 </div>
 <h2 id="scope-description">Scope description<a class="headerlink" href="#scope-description" title="Permanent link">&para;</a></h2>
-<p>Every service exposes its description like handler definition, dependencies and its scope. It's a good practice to provide a description for all scope used in a service.</p>
+<p>Every service exposes its description like handler definition, dependencies and its scope. It's a good practice to provide a description for all scopes used in a service.</p>
 <p>You can do that in the <code>startup</code> class.</p>
 <div class="codehilite"><pre><span></span><span class="n">defineScopes</span><span class="p">(</span><span class="n">scopes</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">scopes</span><span class="p">.</span><span class="n">defineScope</span><span class="p">(</span><span class="s">&quot;user:create&quot;</span><span class="p">,</span> <span class="s">&quot;Create a new user&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
-                
-                  
-                
               
               
-                
-                  <h2 id="__comments">Comments</h2>
-                  <div id="disqus_thread"></div>
-<script>
-  var disqus_config = function () {
-    this.page.url = "https://vulcainjs.github.io/reference/security/";
-    this.page.identifier =
-      "/reference/security/";
-  };
-  (function() {
-    var d = document, s = d.createElement("script");
-    s.src = "//vulcainjs.disqus.com/embed.js";
-    s.setAttribute("data-timestamp", +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-                
+                <h2>Comments</h2>
+                <div id="disqus_thread"></div>
+                <script>
+                  var disqus_config = function () {
+                    this.page.url = "https://vulcainjs.github.io/reference/security/";
+                    this.page.identifier =
+                      "/reference/security/";
+                  };
+                  (function() {
+                    var d = document, s = d.createElement("script");
+                    s.src = "//vulcainjs.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
               
             </article>
           </div>
@@ -728,7 +731,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
+      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     
