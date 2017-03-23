@@ -1,6 +1,6 @@
 # Dependency injection
 
-**Vulcain** provides a simple [dependency injection](https://martinfowler.com/articles/injection.html#ConstructorInjectionWithPicocontainer) mechanism supportting ```constructor parameters injection``` and ```Setter injection```
+**Vulcain** provides a simple [dependency injection](https://martinfowler.com/articles/injection.html#ConstructorInjectionWithPicocontainer) mechanism supporting ```constructor parameters injection``` and ```Setter injection```
 
 It uses annotations to declare dependencies.
 
@@ -31,24 +31,24 @@ with **lifeTime**
 
 When service starts, **vulcain** loads all components found in the ```src/api``` folder. You can register components from another folder with the container ```injectFrom``` method.
 
-Also you can inject component manually with the following container methods :
+Also you can inject components manually with the following container methods :
 
 - ```injectTransient```
 - ```injectSingleton``` and ```injectInstance```
 - ```injectScoped```
 
-In this case, they don't need to be declared with a ```@Injectable``` annotation.
+In this case, they don't need to be declared with an ```@Injectable``` annotation.
 
-There is two locations to register component both in the ```startup``` class.
+There are two locations to register component, both in the ```startup``` class.
 
-- In the ```initializeDefaultServices``` method - This allows you to override default services (like logging service or database provider) used by application services. This method is called before the application bootstrap.
+- In the ```initializeDefaultServices``` method - This allows you to override default services (like logging service or database provider) used by application services. This method is called before the application bootstraps.
 - In the ```initializeServices``` method - This allows you to register custom application service (If not declared in the ```src/api``` folder).
 
 > All handlers are automatically registered as scoped service and available using their class name or ```@xxxxHandler``` serviceName option.
 
 ## Using components
 
-As mentioned above, component can be injected as a constructor argument or as a setter property.
+As mentioned above, components can be injected as a constructor argument or as a setter property.
 
 ### Construction injection
 
@@ -66,12 +66,12 @@ export class MyClass {
 The ```@Inject``` annotation has two optionals arguments:
 
 - A name used to specify a specific name declared in the ```@Injectable``` annotation. Default is argument type name.
-- A boolean named optional used to not raise an error if the injected component doesn't exist. The default behavior is to raise an exception if the component is unknow.
+- A boolean named optional used to catch the error raised if the injected component doesn't exist. The default behavior is to raise an exception if the component is unknown.
 
 The following rules are applied :
 
 1. Using ```@Inject``` is mandatory to specify argument injection.
-1. You can mix injected arguments with *classic* arguments **however** injected arguments must be declared first.
+1. You can mix injected arguments with *classic* arguments, **however** injected arguments must be declared first.
 
 ### Setter injection
 
@@ -88,12 +88,12 @@ export class MyClass {
 
 ```
 
-If you want to be notified when property injections are completed, you can implement the ```IInjectionNotification``` interface ```onInjectionCompleted``` method. This method is called by the dependency injection engine.
+If you want to be notified when property injection is completed, you can implement the ```IInjectionNotification``` interface ```onInjectionCompleted``` method. This method is called by the dependency injection engine.
 
 
 ## Component lifetime
 
-To create a component with dependencies, you must instanciate it from the application container. It is available in all handlers and commands from the ```container``` property.
+To create a component with dependencies, you must instantiate it from the application container. It is available in all handlers and commands from the ```container``` property.
 
 ```csharp
 
@@ -101,7 +101,7 @@ container.get("component-name")
 
 ```
 
-> Using the ```new``` keyword to instanciate a component will result to unexpected behavior.
+> Using the ```new``` keyword to instantiate a component will result to unexpected behavior.
 
 ### Scoped component
 
@@ -115,12 +115,12 @@ All predefined service names are declared in a static class named ```DefaultServ
 
 | name | service |
 |------|-----------|
-| Container | Current container (global) or scoped in requestContext
+| Container | Current container (global) or scoped to requestContext
 | TenantPolicy | Policy used to resolve TenantPolicy
 | AuthorizationPolicy | Policy used to check authorization from ScopesDescriptor
 | TokenService | Service to manage jwt token
-| ScopesDescriptor | Metadata service for describing all scopes used in the current service
-| ServiceDescriptors | Metadata service for describing all service handlers
+| ScopesDescriptor | Metadata service describing all scopes used in the current service
+| ServiceDescriptors | Metadata service  describing all service handlers
 | Authentication | Default authentication service
 | Logger | Default logger
 | Provider | Default provider (do not use it directly - Use ProviderFactory instead)
