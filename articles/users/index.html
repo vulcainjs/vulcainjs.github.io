@@ -366,6 +366,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/testing/" title="Testing" class="md-nav__link">
+      Testing
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -794,7 +806,7 @@ curl http://localhost:8080/api/user.all -u admin:password
 
 <span class="n">@Model</span><span class="p">({</span> <span class="n">name</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">User</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">extends</span><span class="p">:</span> <span class="err">&#39;</span><span class="p">+</span><span class="n">User</span><span class="err">&#39;</span> <span class="p">})</span>
 <span class="n">export</span> <span class="k">class</span> <span class="nc">MyUser</span> <span class="n">extends</span> <span class="n">User</span> <span class="p">{</span>
-    <span class="n">@Property</span><span class="p">({</span><span class="n">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">number</span><span class="err">&#39;</span><span class="p">})</span>
+    <span class="n">@Property</span><span class="p">()</span>
     <span class="n">age</span><span class="p">:</span> <span class="n">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -907,8 +919,6 @@ curl http://localhost:8080/api/user.all -u admin:password
       
     
     
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-49523450-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>

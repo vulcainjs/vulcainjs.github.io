@@ -341,22 +341,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaring-services" title="Declaring services" class="md-nav__link">
-    Declaring services
+  <a href="#declaring-components" title="Declaring components" class="md-nav__link">
+    Declaring components
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-services" title="Using services" class="md-nav__link">
-    Using services
+  <a href="#using-components" title="Using components" class="md-nav__link">
+    Using components
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construction-injection" title="Construction injection" class="md-nav__link">
+    Construction injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setter-injection" title="Setter injection" class="md-nav__link">
+    Setter injection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#predefined-services" title="Predefined services" class="md-nav__link">
-    Predefined services
+  <a href="#component-lifetime" title="Component lifetime" class="md-nav__link">
+    Component lifetime
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoped-component" title="Scoped component" class="md-nav__link">
+    Scoped component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-services" title="Default services" class="md-nav__link">
+    Default services
   </a>
   
 </li>
@@ -420,6 +460,18 @@
   <li class="md-nav__item">
     <a href="../security/" title="Security" class="md-nav__link">
       Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing" class="md-nav__link">
+      Testing
     </a>
   </li>
 
@@ -534,22 +586,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaring-services" title="Declaring services" class="md-nav__link">
-    Declaring services
+  <a href="#declaring-components" title="Declaring components" class="md-nav__link">
+    Declaring components
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-services" title="Using services" class="md-nav__link">
-    Using services
+  <a href="#using-components" title="Using components" class="md-nav__link">
+    Using components
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construction-injection" title="Construction injection" class="md-nav__link">
+    Construction injection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setter-injection" title="Setter injection" class="md-nav__link">
+    Setter injection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#predefined-services" title="Predefined services" class="md-nav__link">
-    Predefined services
+  <a href="#component-lifetime" title="Component lifetime" class="md-nav__link">
+    Component lifetime
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoped-component" title="Scoped component" class="md-nav__link">
+    Scoped component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-services" title="Default services" class="md-nav__link">
+    Default services
   </a>
   
 </li>
@@ -578,12 +670,12 @@
                 
                 
                 <h1 id="dependency-injection">Dependency injection<a class="headerlink" href="#dependency-injection" title="Permanent link">&para;</a></h1>
-<p><strong>Vulcain</strong> provides a simple dependency injection mechanism limited to <code>constructor parameters injection</code></p>
+<p><strong>Vulcain</strong> provides a simple <a href="https://martinfowler.com/articles/injection.html#ConstructorInjectionWithPicocontainer">dependency injection</a> mechanism supportting <code>constructor parameters injection</code> and <code>Setter injection</code></p>
 <p>It uses annotations to declare dependencies.</p>
-<h2 id="declaring-services">Declaring services<a class="headerlink" href="#declaring-services" title="Permanent link">&para;</a></h2>
-<p>You can declare service with the <code>@Injectable</code> annotation.</p>
+<h2 id="declaring-components">Declaring components<a class="headerlink" href="#declaring-components" title="Permanent link">&para;</a></h2>
+<p>You can declare component (also called service) with the <code>@Injectable</code> annotation.</p>
 <div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">Injectable</span><span class="p">(</span><span class="nx">LifeTime</span><span class="p">.</span><span class="nx">Singleton</span><span class="p">)</span>
-<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Service1</span> <span class="p">{}</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyComponent</span> <span class="p">{}</span>
 </pre></div>
 
 
@@ -600,17 +692,17 @@
 <tr>
 <td>lifeTime</td>
 <td>yes</td>
-<td>Service life time can be <code>Singleton</code>, <code>Scoped</code> or <code>Transient</code></td>
+<td>Component life time can be <code>Singleton</code>, <code>Scoped</code> or <code>Transient</code></td>
 </tr>
 <tr>
-<td>service name</td>
+<td>component name</td>
 <td>false</td>
 <td>default to class name</td>
 </tr>
 <tr>
 <td>enableInTestOnly</td>
 <td>false</td>
-<td>Register this service only in test mode (default false)</td>
+<td>Register this component only in test mode (default false)</td>
 </tr>
 </tbody>
 </table>
@@ -637,33 +729,70 @@
 </tr>
 </tbody>
 </table>
-<h2 id="using-services">Using services<a class="headerlink" href="#using-services" title="Permanent link">&para;</a></h2>
-<p>As mentioned above, dependency injection only works with constructor with <code>@Inject</code> annotation.</p>
-<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
-    <span class="nx">constructor</span><span class="p">(</span><span class="err">@</span><span class="nx">Inject</span><span class="p">(</span><span class="s2">&quot;Service1&quot;</span><span class="p">)</span> <span class="nx">myService</span><span class="o">:</span> <span class="nx">Service1</span><span class="p">)</span> <span class="p">{}</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>The following rules are applied :</p>
-<ol>
-<li>Using <code>@Inject</code> is mandatory to specify parameter injection.</li>
-<li>You can mix injected parameters with <em>classic</em> parameters however injected parameters must be declared first.</li>
-<li>When service starts, all services defined in the following folders are automatically registered : api/handlers,
-api/models, api/services and api/commands.</li>
-<li>Scoped services are disposed when the request ends. You can provide your own <code>dispose</code> method.</li>
-<li>All scoped services are initialized with a <code>requestContext</code> property.</li>
-</ol>
-<p>Service can be created manually using <code>container.get("service-name")</code>.</p>
-<p>Also you can inject service manually with the following container methods :</p>
+<p>When service starts, <strong>vulcain</strong> loads all components found in the <code>src/api</code> folder. You can register components from another folder with the container <code>injectFrom</code> method.</p>
+<p>Also you can inject component manually with the following container methods :</p>
 <ul>
 <li><code>injectTransient</code></li>
 <li><code>injectSingleton</code> and <code>injectInstance</code></li>
 <li><code>injectScoped</code></li>
 </ul>
-<h2 id="predefined-services">Predefined services<a class="headerlink" href="#predefined-services" title="Permanent link">&para;</a></h2>
+<p>In this case, they don't need to be declared with a <code>@Injectable</code> annotation.</p>
+<p>There is two locations to register component both in the <code>startup</code> class.</p>
+<ul>
+<li>In the <code>initializeDefaultServices</code> method - This allows you to override default services (like logging service or database provider) used by application services. This method is called before the application bootstrap.</li>
+<li>In the <code>initializeServices</code> method - This allows you to register custom application service (If not declared in the <code>src/api</code> folder).</li>
+</ul>
+<blockquote>
+<p>All handlers are automatically registered as scoped service and available using their class name or <code>@xxxxHandler</code> serviceName option.</p>
+</blockquote>
+<h2 id="using-components">Using components<a class="headerlink" href="#using-components" title="Permanent link">&para;</a></h2>
+<p>As mentioned above, component can be injected as a constructor argument or as a setter property.</p>
+<h3 id="construction-injection">Construction injection<a class="headerlink" href="#construction-injection" title="Permanent link">&para;</a></h3>
+<p>Argument must be annotated with the <code>@Inject</code> annotation.</p>
+<div class="codehilite"><pre><span></span><span class="n">export</span> <span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+    <span class="n">constructor</span><span class="p">(</span><span class="n">@Inject</span><span class="p">(</span><span class="n">DefaultServiceNames</span><span class="p">.</span><span class="n">Container</span><span class="p">)</span> <span class="n">container</span><span class="p">:</span> <span class="n">IContainer</span><span class="p">,</span> <span class="n">@Inject</span><span class="p">(</span><span class="s">&quot;MyComponent&quot;</span><span class="p">)</span> <span class="n">myComponent</span><span class="p">:</span> <span class="n">MyComponent</span><span class="p">,</span> <span class="n">otherArg</span><span class="p">:</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The <code>@Inject</code> annotation has two optionals arguments:</p>
+<ul>
+<li>A name used to specify a specific name declared in the <code>@Injectable</code> annotation. Default is argument type name.</li>
+<li>A boolean named optional used to not raise an error if the injected component doesn't exist. The default behavior is to raise an exception if the component is unknow.</li>
+</ul>
+<p>The following rules are applied :</p>
+<ol>
+<li>Using <code>@Inject</code> is mandatory to specify argument injection.</li>
+<li>You can mix injected arguments with <em>classic</em> arguments <strong>however</strong> injected arguments must be declared first.</li>
+</ol>
+<h3 id="setter-injection">Setter injection<a class="headerlink" href="#setter-injection" title="Permanent link">&para;</a></h3>
+<p>Component can be injected into property <strong>after</strong> the constructor is completed.</p>
+<div class="codehilite"><pre><span></span><span class="n">export</span> <span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+    <span class="n">@Inject</span><span class="p">()</span>
+    <span class="n">myComponent</span><span class="p">:</span> <span class="n">MyComponent</span><span class="p">;</span>
+
+    <span class="n">constructor</span><span class="p">(</span><span class="n">otherArg</span><span class="p">:</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>If you want to be notified when property injections are completed, you can implement the <code>IInjectionNotification</code> interface <code>onInjectionCompleted</code> method. This method is called by the dependency injection engine.</p>
+<h2 id="component-lifetime">Component lifetime<a class="headerlink" href="#component-lifetime" title="Permanent link">&para;</a></h2>
+<p>To create a component with dependencies, you must instanciate it from the application container. It is available in all handlers and commands from the <code>container</code> property.</p>
+<div class="codehilite"><pre><span></span><span class="n">container</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">&quot;component-name&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<blockquote>
+<p>Using the <code>new</code> keyword to instanciate a component will result to unexpected behavior.</p>
+</blockquote>
+<h3 id="scoped-component">Scoped component<a class="headerlink" href="#scoped-component" title="Permanent link">&para;</a></h3>
+<p>Scoped components are disposed when the request ends. You can provide your own component <code>dispose</code> method.
+All scoped components are initialized with a <code>requestContext</code> property.</p>
+<h2 id="default-services">Default services<a class="headerlink" href="#default-services" title="Permanent link">&para;</a></h2>
 <p>Vulcain provides predefined services available with standardized names.
-All predefined service names are defined in a static class named <code>DefaultServiceNames</code></p>
+All predefined service names are declared in a static class named <code>DefaultServiceNames</code></p>
 <table>
 <thead>
 <tr>
@@ -733,8 +862,8 @@ All predefined service names are defined in a static class named <code>DefaultSe
 <td>Service to use for creating providers</td>
 </tr>
 <tr>
-<td>TestUser</td>
-<td>Default test user in test environment</td>
+<td>MockManager</td>
+<td>Default mock manager</td>
 </tr>
 <tr>
 <td>RequestContext</td>
@@ -747,6 +876,10 @@ All predefined service names are defined in a static class named <code>DefaultSe
 <tr>
 <td>ApiKeyService</td>
 <td>Service to manage api key</td>
+</tr>
+<tr>
+<td>RequestTracer</td>
+<td>Default service tracer (zipkin)</td>
 </tr>
 </tbody>
 </table>
@@ -852,8 +985,6 @@ All predefined service names are defined in a static class named <code>DefaultSe
       
     
     
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-49523450-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>

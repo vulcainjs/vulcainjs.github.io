@@ -492,6 +492,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="Testing" class="md-nav__link">
+      Testing
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -733,18 +745,18 @@
 <p>Thanks to annotations, defining a schema is really easy.</p>
 <div class="codehilite"><pre><span></span><span class="kd">@Model</span><span class="p">()</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">Child</span> <span class="p">{</span>
-    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
     <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">@Model</span><span class="p">({</span><span class="nx">validate</span>: <span class="kt">Customer.checkRule1</span><span class="p">})</span>
 <span class="kr">export</span> <span class="kr">class</span> <span class="nx">Customer</span> <span class="p">{</span>
-    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">required</span>: <span class="kt">true</span> <span class="p">})</span>
     <span class="kd">@Validator</span><span class="p">(</span><span class="nx">SchemaStandardValidators</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="p">{</span> <span class="nx">min</span>: <span class="kt">5</span> <span class="p">})</span>
     <span class="nx">firstName</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">unique</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">isKey</span>: <span class="kt">true</span> <span class="p">})</span>
+    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">unique</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">isKey</span>: <span class="kt">true</span> <span class="p">})</span>
     <span class="nx">lastName</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">type</span>: <span class="kt">SchemaStandardTypes.enum</span><span class="p">,</span> <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span> <span class="nx">bind</span>: <span class="kt">Customer.bindSex</span><span class="p">})</span>
+    <span class="kd">@Property</span><span class="p">({</span><span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">type</span>: <span class="kt">SchemaStandardTypes.enum</span><span class="p">,</span> <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span> <span class="nx">bind</span>: <span class="kt">Customer.bindSex</span><span class="p">})</span>
     <span class="nx">sex</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="kd">@Reference</span><span class="p">({</span><span class="nx">cardinality</span><span class="o">:</span> <span class="s1">&#39;many&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="o">:</span> <span class="s1">&#39;Child&#39;</span><span class="p">})</span>
     <span class="nx">children</span>: <span class="kt">Child</span><span class="p">[];</span>
@@ -1187,8 +1199,6 @@
       
     
     
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-49523450-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>
