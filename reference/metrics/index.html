@@ -196,34 +196,10 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Getting started
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        Getting started
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../../gettingStarted/" title="My first microservices" class="md-nav__link">
-      My first microservices
+    <a href="../../gettingStarted/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -401,6 +377,26 @@
     Metrics
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statsd-metrics" title="Statsd metrics" class="md-nav__link">
+    Statsd metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zipkin-instrumentation" title="Zipkin instrumentation" class="md-nav__link">
+    Zipkin instrumentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -576,6 +572,26 @@
     Metrics
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statsd-metrics" title="Statsd metrics" class="md-nav__link">
+    Statsd metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zipkin-instrumentation" title="Zipkin instrumentation" class="md-nav__link">
+    Zipkin instrumentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -637,9 +653,10 @@
 <p>To be used with the fluentd docker log driver.</p>
 </blockquote>
 <h2 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h2>
-<p><strong>Vulcain</strong> emit metrics for every request and command. It provides natively an <code>statsd</code> exporter.</p>
+<h3 id="statsd-metrics">Statsd metrics<a class="headerlink" href="#statsd-metrics" title="Permanent link">&para;</a></h3>
+<p><strong>Vulcain</strong> emit metrics for every request and command. It provides natively a <code>statsd</code> exporter.</p>
 <p>To activate metrics, just define an environment variable <code>STATSD_AGENT</code> set with the stasd agent address.</p>
-<p>This is a sample configuration file to use with <code>telegraf</code></p>
+<p>Here a sample configuration file to use with <a href="https://docs.influxdata.com/telegraf/v1.2/introduction/getting_started/">telegraf</a></p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="nx">global_tags</span><span class="p">]</span>
 
 <span class="p">[</span><span class="nx">agent</span><span class="p">]</span>
@@ -730,6 +747,16 @@
   <span class="err">##</span> <span class="k">of</span> <span class="nx">percentiles</span> <span class="nx">but</span> <span class="nx">also</span> <span class="nx">increases</span> <span class="nx">the</span> <span class="nx">memory</span> <span class="nx">usage</span> <span class="nx">and</span> <span class="nx">cpu</span> <span class="nx">time</span><span class="p">.</span>
   <span class="nx">percentile_limit</span> <span class="o">=</span> <span class="mi">1000</span>
 </pre></div>
+
+
+<h3 id="zipkin-instrumentation">Zipkin instrumentation<a class="headerlink" href="#zipkin-instrumentation" title="Permanent link">&para;</a></h3>
+<p><a href="http://zipkin.io/">Zipkin</a> is a distributed tracing system and it is fully integrated within <strong>vulcain</strong>.</p>
+<p>You can enable it by providing a <a href="../configurations">dynamic property</a> (zipkinAgent) or an environment variable (ZIPKIN_AGENT) defining the zipkin agent address.</p>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">ZIPKIN_AGENT</span><span class="o">=</span>http://host:9411
+</pre></div>
+
+
+<p>Go to this <a href="https://github.com/openzipkin/docker-zipkin">page</a> to see how to run zipkin agent and dashboard.</p>
                 
                   
                 
