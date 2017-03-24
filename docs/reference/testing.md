@@ -1,6 +1,6 @@
 # Testing microservice
 
-A big challenge with microservice is testing integration with others services and dependencies.
+A big challenge with microservice is testing integration with other services and dependencies.
 
 **Vulcain** provides many features to help testing in this context.
 
@@ -16,11 +16,11 @@ To register a __mock session__, you must call a microservice with the specific h
 x-vulcain-register-mock-session: mocksessionname
 ```
 
-When a microservice endpoint is called with its header, it will save the calling context (action and parameters) and the result.
+When a microservice endpoint is called with this header, it will save the calling context (action and parameters) as well as its result.
 
 > By default, a mock session is saved in the '.vulcain' file but you can create your own session manager by overriding the ```MockManager``` default service.
 
-A mock is replayed if the call context (action and parameters) is strictly equals to the registered mock context. If you want to be less restrictive, you can remove some arguments to the saved session, the filter will operate only on existing arguments.
+A mock is replayed if the call context (action and parameters) is strictly identical to the registered mock context. If you want to be less restrictive, you can remove some arguments to the saved session, the filter will operate only on existing arguments.
 
 By default, the mock session header is propagated along requests registering mock for all 'sub' services. If you want to limit the scope of the registering session to some specific services, you can include in the mock header a service name filter (as a regular expression).
 
@@ -32,13 +32,13 @@ x-vulcain-register-mock-session: mocksessionname:^customer
 
 !!!info
     Since mock session are saved in the .vulcain file which will be included in the docker container, you can save mock session locally before deploying your microservice.
-    In all cases, mock functionality is disabled in production mode.
+    In all cases, mock feature is disabled in production mode.
 
 ### Using a mock
 
-You can use a mock session by using the ```x-vulcain-use-mock-session``` header specifying the session name to use. If no session exists, this header is ignored and the microservice runs normally.
+You can use a mock session by using the ```x-vulcain-use-mock-session``` header specifying the session name to use. If no matching session exists, this header is ignored and the microservice runs normally.
 
-> This header supports the filter mechanism.
+> This header supports filtering mechanism.
 
 ### Using dynamic properties
 
@@ -53,7 +53,7 @@ Setting request header is not so easy in particular if you don't want to modify 
 
 ## Local development
 
-Sometimes you want to mock not existing (yet) service or an external api for testing your service locally. You can simulate calls using local mock defined in the .vulcain file.
+Sometimes you want to mock non (yet) existing service or an external api for testing your service locally. You can simulate calls using local mock defined in the .vulcain file.
 
 You could define mocks for service (requesting with a ```AbstractServiceCommand```) or for external api (requesting with a ```AbstractHttpCommand```).
 
