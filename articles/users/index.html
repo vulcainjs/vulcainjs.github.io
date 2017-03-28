@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.3.0">
     
     
       
@@ -26,9 +26,9 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-1d1da4857d.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -196,34 +196,10 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Getting started
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        Getting started
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../../gettingStarted/" title="My first microservices" class="md-nav__link">
-      My first microservices
+    <a href="../../gettingStarted/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -510,6 +486,14 @@
   
 </li>
       
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -640,6 +624,14 @@
   
 </li>
       
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -650,10 +642,10 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
-                 <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/articles/users.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
-               
               
+                
+                  <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/articles/users.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
                 
                 <h1 id="create-a-user-service">Create a user service<a class="headerlink" href="#create-a-user-service" title="Permanent link">&para;</a></h1>
 <p><strong>Vulcain</strong> uses <a href="../../reference/security">scopes</a> to manage authorizations but this is only valid if your users are authentified.</p>
@@ -808,23 +800,28 @@ curl http://localhost:8080/api/user.all -u admin:password
 <blockquote>
 <p>Be carefull with that, you must implement all default model behaviors like password protection.</p>
 </blockquote>
+                
+                  
+                
               
               
-                <h2>Comments</h2>
-                <div id="disqus_thread"></div>
-                <script>
-                  var disqus_config = function () {
-                    this.page.url = "https://vulcainjs.github.io/articles/users/";
-                    this.page.identifier =
-                      "/articles/users/";
-                  };
-                  (function() {
-                    var d = document, s = d.createElement("script");
-                    s.src = "//vulcainjs.disqus.com/embed.js";
-                    s.setAttribute("data-timestamp", +new Date());
-                    (d.head || d.body).appendChild(s);
-                  })();
-                </script>
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://vulcainjs.github.io/articles/users/";
+    this.page.identifier =
+      "/articles/users/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//vulcainjs.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+                
               
             </article>
           </div>
@@ -900,7 +897,7 @@ curl http://localhost:8080/api/user.all -u admin:password
       
     </div>
     
-      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
+      <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     

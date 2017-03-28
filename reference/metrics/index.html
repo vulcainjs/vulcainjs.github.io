@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.2.0">
+      <meta name="generator" content="mkdocs-0.16.2, mkdocs-material-1.3.0">
     
     
       
@@ -26,9 +26,9 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-e17eeafcbc.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-1d1da4857d.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-892b79c5c5.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-66fa0d9bba.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -196,34 +196,10 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Getting started
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        Getting started
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
-    <a href="../../gettingStarted/" title="My first microservices" class="md-nav__link">
-      My first microservices
+    <a href="../../gettingStarted/" title="Getting started" class="md-nav__link">
+      Getting started
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
     
@@ -401,7 +377,42 @@
     Metrics
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-metrics" title="Prometheus metrics" class="md-nav__link">
+    Prometheus metrics
+  </a>
+  
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#statsd-metrics" title="Statsd metrics" class="md-nav__link">
+    Statsd metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zipkin-instrumentation" title="Zipkin instrumentation" class="md-nav__link">
+    Zipkin instrumentation
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
       
     </ul>
   
@@ -568,7 +579,42 @@
     Metrics
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-metrics" title="Prometheus metrics" class="md-nav__link">
+    Prometheus metrics
+  </a>
+  
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#statsd-metrics" title="Statsd metrics" class="md-nav__link">
+    Statsd metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zipkin-instrumentation" title="Zipkin instrumentation" class="md-nav__link">
+    Zipkin instrumentation
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
       
     </ul>
   
@@ -580,10 +626,10 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
-                 <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/metrics.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
-               
               
+                
+                  <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/metrics.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
                 
                 <h1 id="metrics-and-logging">Metrics and logging<a class="headerlink" href="#metrics-and-logging" title="Permanent link">&para;</a></h1>
 <p><strong>Vulcain</strong> generates many metrics and logging informations formatted to be used directly with well-know tools.</p>
@@ -621,9 +667,13 @@
 <p>To be used with the fluentd docker log driver.</p>
 </blockquote>
 <h2 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h2>
-<p><strong>Vulcain</strong> emit metrics for every request and command. It provides natively an <code>statsd</code> exporter.</p>
-<p>To activate metrics, just define an environment variable <code>STATSD_AGENT</code> set with the stasd agent address.</p>
-<p>This is a sample configuration file to use with <code>telegraf</code></p>
+<p><strong>Vulcain</strong> emit metrics for every request and internal command. It provides natively a <code>prometheus</code>and a <code>statsd</code> exporter.</p>
+<p><a href="https://prometheus.io/">Prometheus</a> is the default metrics process. It's enabled if statsd is not.</p>
+<h3 id="prometheus-metrics">Prometheus metrics<a class="headerlink" href="#prometheus-metrics" title="Permanent link">&para;</a></h3>
+<p>Prometheus metrics are available with the <code>/metrics</code> endpoint.</p>
+<h3 id="statsd-metrics">Statsd metrics<a class="headerlink" href="#statsd-metrics" title="Permanent link">&para;</a></h3>
+<p>To activate statsd metrics, just define an environment variable <code>STATSD_AGENT</code> set with the stasd agent address.</p>
+<p>Here a sample configuration file to use with <a href="https://docs.influxdata.com/telegraf/v1.2/introduction/getting_started/">telegraf</a></p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="nx">global_tags</span><span class="p">]</span>
 
 <span class="p">[</span><span class="nx">agent</span><span class="p">]</span>
@@ -714,23 +764,38 @@
   <span class="err">##</span> <span class="k">of</span> <span class="nx">percentiles</span> <span class="nx">but</span> <span class="nx">also</span> <span class="nx">increases</span> <span class="nx">the</span> <span class="nx">memory</span> <span class="nx">usage</span> <span class="nx">and</span> <span class="nx">cpu</span> <span class="nx">time</span><span class="p">.</span>
   <span class="nx">percentile_limit</span> <span class="o">=</span> <span class="mi">1000</span>
 </pre></div>
+
+
+<h2 id="zipkin-instrumentation">Zipkin instrumentation<a class="headerlink" href="#zipkin-instrumentation" title="Permanent link">&para;</a></h2>
+<p><a href="http://zipkin.io/">Zipkin</a> is a distributed tracing system and it is fully integrated within <strong>vulcain</strong>.</p>
+<p>You can enable it by providing a <a href="../configurations">dynamic property</a> (zipkinAgent) or an environment variable (ZIPKIN_AGENT) defining the zipkin agent address.</p>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">ZIPKIN_AGENT</span><span class="o">=</span>http://host:9411
+</pre></div>
+
+
+<p>Go to this <a href="https://github.com/openzipkin/docker-zipkin">page</a> to see how to run zipkin agent and dashboard.</p>
+                
+                  
+                
               
               
-                <h2>Comments</h2>
-                <div id="disqus_thread"></div>
-                <script>
-                  var disqus_config = function () {
-                    this.page.url = "https://vulcainjs.github.io/reference/metrics/";
-                    this.page.identifier =
-                      "/reference/metrics/";
-                  };
-                  (function() {
-                    var d = document, s = d.createElement("script");
-                    s.src = "//vulcainjs.disqus.com/embed.js";
-                    s.setAttribute("data-timestamp", +new Date());
-                    (d.head || d.body).appendChild(s);
-                  })();
-                </script>
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://vulcainjs.github.io/reference/metrics/";
+    this.page.identifier =
+      "/reference/metrics/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//vulcainjs.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+                
               
             </article>
           </div>
@@ -806,7 +871,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
+      <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     
