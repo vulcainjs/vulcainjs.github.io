@@ -12,18 +12,14 @@ Dynamic properties offers a simple and easy way to update properties on the fly.
 * Service can be notified when a value changes.
 * Property values are pulled from a remote server with a configuration source adapter.
 * Many adapters can be used with different protocols (http, consul, file...)
-* Properties can be chained, providing a value to a hierachical chain of values.
+* Properties can be chained, providing a value from a hierachical chain of values.
 * Properties can be encrypted and decrypted locally inside a service.
+* Supports docker secret
 
 ## Concepts
 
 All properties are managed by a `DynamicConfiguration` singleton object.
-This is the unique entry point to all dynamic properties and exposes different static methods for creating, listening and initializing properties.
-
-Property values are updated with `ConfigurationSource` object pulling data at specific time interval.
-
-!!! info
-    Polling configurations are set in index.ts. Application starts only after first polling completes successfully.
+This is the unique entry point to all dynamic properties and it exposes different static methods for creating, listening and initializing properties.
 
 There are two kind of properties :
 
@@ -48,8 +44,7 @@ To create a service property:
 let property1 = System.createServiceConfigurationProperty<number>("property-name", 0);
 ```
 
-These helpers create a *chained* property. Chained property create a pipeline of dynamic properties using the first value
-available.
+These helpers create a *chained* property. Chained property create a pipeline of dynamic properties using the first value available.
 
 For example for a service property, the pipeline consists of the following property names :
 
@@ -57,10 +52,57 @@ For example for a service property, the pipeline consists of the following prope
 1. service name + property name
 1. property name (= shared property)
 1. default value
-1. Environment variable (as property name in uppercase and all '.' replaced by '_')
+
+> You can create your own chained property with ```DynamicConfiguration.asChainedProperty<string>()```.
+
+### Dynamic property value
+
+A property can be initialized from external source, environment variable or docker secret.
+
+External source uses polling to get values. This process is initialized before bootstrapping the application. It uses ```ConfigurationSource``` object pulling data at specific time interval.
+
+**Vulcain** provides many adapters to retrieve values like ```HttpConfigurationSource``` or ```VulcainConfigurationSource```.
+
+> You can see how to create an external service providing values to use with ```VulcainConfigurationSource``` in this [article](../articles/dynamicProperties).
+
+Polling configurations are set in index.ts in the default vulcain template.
+
+```csharp
+import { DynamicConfiguration } from "vulcain-corejs";
+
+// Configuration initialization must run first.
+DynamicConfiguration
+    .init(60) // Polling interval
+    .addVulcainSource()
+    .startPollingAsync()
+    .then(() => { // Waiting for properties initialized
+        // Initialization OK
+        // Bootstrap application
+        // lazy loading to ensure component is loaded only after properties are initialized
+        let startup = require("./startup");
+        new startup.Startup().runAsync();
+    })
+    .catch((e: Error) => {
+        console.log("Bootstrap error " + e.stack + ". Process stopped");
+        process.exit(1);
+    });
+```
 
 !!! info
-    You can create your own chained property with ```DynamicConfiguration.asChainedProperty<string>()```.
+
+    Application starts only after first polling completes successfully. This ensures services can use updated  properties when they are initialized.
+
+Using external sources is optional. Dynamic property can also be initialized with :
+
+* Environment variable with name transforming in uppercase and all specific character replaced with '_'. Exemple a property named ```vulcainSecretKey``` is transformed to ```VULCAIN_SECRET_KEY```.
+* [Docker secret key](https://docs.docker.com/engine/swarm/secrets/).
+
+Value are initialized respecting the following order:
+
+1. External source
+1. Environment variable
+1. Docker secret file
+
 
 ## Using a dynamic property
 

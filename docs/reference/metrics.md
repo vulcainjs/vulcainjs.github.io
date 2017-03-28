@@ -40,11 +40,17 @@ Here a simple fluentd configuration to send all logs to an elasticsearch databas
 
 ## Metrics
 
+**Vulcain** emit metrics for every request and internal command. It provides natively a ```prometheus```and a ```statsd``` exporter.
+
+[Prometheus](https://prometheus.io/) is the default metrics process. It's enabled if statsd is not.
+
+### Prometheus metrics
+
+Prometheus metrics are available with the ```/metrics``` endpoint.
+
 ### Statsd metrics
 
-**Vulcain** emit metrics for every request and command. It provides natively a ```statsd``` exporter.
-
-To activate metrics, just define an environment variable ```STATSD_AGENT``` set with the stasd agent address.
+To activate statsd metrics, just define an environment variable ```STATSD_AGENT``` set with the stasd agent address.
 
 Here a sample configuration file to use with [telegraf](https://docs.influxdata.com/telegraf/v1.2/introduction/getting_started/)
 
@@ -140,7 +146,7 @@ Here a sample configuration file to use with [telegraf](https://docs.influxdata.
   percentile_limit = 1000
 ```
 
-### Zipkin instrumentation
+## Zipkin instrumentation
 
 [Zipkin](http://zipkin.io/) is a distributed tracing system and it is fully integrated within **vulcain**.
 

@@ -26,6 +26,7 @@ pages:
   - Articles:
     - "How to index": 'articles/index.md'
     - "Users service": 'articles/users.md'
+    - "Configuration properties server": 'articles/dynamicProperties'
   - About: 
     - license: 'about/license.md'
 extra:
