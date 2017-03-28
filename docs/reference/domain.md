@@ -42,6 +42,8 @@ export class Customer {
     lastName: string;
     @Property({ type: 'string', required: true, type: SchemaStandardTypes.enum, values: ['M', 'F'], bind: Customer.bindSex})
     sex: string;
+    @Property({type:'boolean'})
+    enabled = true; // Default value
     @Reference({cardinality: 'many', item: 'Child'})
     children: Child[];
 
@@ -49,6 +51,7 @@ export class Customer {
         if( entity.sex === 'M' && entity.firstName === 'john' && entity.lastName === 'doe')
             return "john doe is not a valid customer";
     }
+
     static bindSex(val: string) {
         if( val && val.toLowerCase() === 'female')
             return 'F';
@@ -88,7 +91,6 @@ export class Customer {
 | isKey | string | Used by provider | false |
 | unique | string | Used by provider | false |
 | sensible | string | This property is sensible and will be encrypted and protected (value hidden in logs etc...)| |
-| defaultValue | string | Default property value | |
 | dependsOn | (entity) => boolean | Condition to validate this property | true |
 
 ### The @Reference annotation
