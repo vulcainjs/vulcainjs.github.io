@@ -1,13 +1,13 @@
 # Metrics and logging
 
-**Vulcain** generates many metrics and logging informations formatted to be used directly with well-know tools.
+**Vulcain** generates many metrics and logging information formatted to be used directly with well-know tools.
 
 ## Logging
 
-- Log are json formated and are emit directly to the console to levearage docker logging plug-in.
+- Log are json formated and are emited directly to the console to levearage docker logging plug-in.
 - Every log contains a correlationId propagated along vulcain service requests.
 
-You can emit log with the ```RequestContext``` log property available in every scoped component (handler or command) with the ```requestContext```property. Another way to log information is to use directly the static ```System.log``` property.
+You can emit log with the ```RequestContext``` log property available in every scoped component (handler or command) with the ```requestContext```property. Another way to log information is to directly use the static ```System.log``` property.
 
 
 ### Using fluentd with vulcain
@@ -42,7 +42,7 @@ Here a simple fluentd configuration to send all logs to an elasticsearch databas
 
 **Vulcain** emit metrics for every request and internal command. It provides natively a ```prometheus```and a ```statsd``` exporter.
 
-[Prometheus](https://prometheus.io/) is the default metrics process. It's enabled if statsd is not.
+[Prometheus](https://prometheus.io/) is the default metrics process. It is enabled if statsd is not.
 
 ### Prometheus metrics
 
