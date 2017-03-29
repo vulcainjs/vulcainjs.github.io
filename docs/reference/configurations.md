@@ -97,7 +97,7 @@ Using external sources is optional. Dynamic property can also be initialized wit
 * Environment variable with name transforming in uppercase and all specific character replaced with '_'. Exemple a property named ```vulcainSecretKey``` is transformed to ```VULCAIN_SECRET_KEY```.
 * [Docker secret key](https://docs.docker.com/engine/swarm/secrets/).
 
-Value are initialized respecting the following order:
+Values are initialized in the following order:
 
 1. External source
 1. Environment variable
