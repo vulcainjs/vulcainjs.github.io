@@ -2,20 +2,20 @@
 
 **Documentation is in progress**
 
-**Vulcain** is a microservice framework. It provides a way to create easily full operational microservices running in docker container by normalizing i/o protocol, metrics and logging.
+**Vulcain** is a microservice framework. It provides a way to easily create fully operational microservices running in docker container by normalizing i/o protocol, metrics and logging.
 
-Every **vulcain** microservice encapsulates metadata description allowing to use external tools for generating code, services cartography, monitoring...
+Every **vulcain** microservice encapsulates its own metadata description allowing to use external tools for generating code, services cartography, monitoring...
 
-**Vulcain** implements natively some major well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.
+**Vulcain** natively implements some well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.
 
-It targets the nodejs V6 (or more) platform and leverages all typescript functionalities like annotations, async/await, reflection...
+It targets Nodejs V6 (or more) platform and leverages all typescript functionalities such as annotations, async/await, reflection...
 
-## Major functionalities
+## Main features
 
 - Uses typescript annotations to declare endpoints.
-- Standardizes request and response HTTP format
+- Standardized request and response HTTP format
 - Generate metrics for every request (zipkin, statsd)
-- Standardizes logging format with data obfuscation for sensible data.
+- Standardized logging format with data obfuscation for sensible data.
 - Services are organized by domain and separate query request from action (command) request.
 - Automatic input data validation
 - Request context propagation (security, correlation id) on every service request.
@@ -34,7 +34,7 @@ This a basic schema showing how a **vulcain** service works:
 The first concept to understand how **vulcain** works is ```handler``` which define service endpoint. There is three kind of handler:
 
 - **Query** handler can not manipulate data and has no side effect, it just returns data.
-- **Action** handler can modify data and can be asynchrone. Every action raises an event when it completes.
+- **Action** handler can modify data and can be asynchronous. Every action raises an event once it completes.
 - **Event** handler subscribes to event. Event can be filtered by domain, action, schema and any more.
 
 #### Command
