@@ -27,7 +27,7 @@ It targets Nodejs V6 (or more) platform and leverages all typescript functionali
 
 This a basic schema showing how a **vulcain** service works:
 
-<img src="../images/vulcainjs-schema.png" width="500px">
+<img src="../images/overview.png" width="500px">
 
 #### Handler
 
