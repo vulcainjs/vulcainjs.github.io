@@ -494,6 +494,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/dynamicProperties/" title="Configuration properties server" class="md-nav__link">
+      Configuration properties server
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -645,9 +657,9 @@
 <li>Service can be notified when a value changes.</li>
 <li>Property values are pulled from a remote server with a configuration source adapter.</li>
 <li>Many adapters can be used with different protocols (http, consul, file...)</li>
-<li>Properties can be chained, providing a value to a hierachical chain of values.</li>
+<li>Properties can be chained, providing a value from a hierachical chain of values.</li>
 <li>Properties can be encrypted and decrypted locally inside a service.</li>
-<li>Support docker secret</li>
+<li>Supports docker secret</li>
 </ul>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <p>All properties are managed by a <code>DynamicConfiguration</code> singleton object.
@@ -732,7 +744,7 @@ This is the unique entry point to all dynamic properties and it exposes differen
 <li>Environment variable with name transforming in uppercase and all specific character replaced with '_'. Exemple a property named <code>vulcainSecretKey</code> is transformed to <code>VULCAIN_SECRET_KEY</code>.</li>
 <li><a href="https://docs.docker.com/engine/swarm/secrets/">Docker secret key</a>.</li>
 </ul>
-<p>Value are initialized respecting the following order:</p>
+<p>Values are initialized in the following order:</p>
 <ol>
 <li>External source</li>
 <li>Environment variable</li>

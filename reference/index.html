@@ -257,8 +257,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#major-functionalities" title="Major functionalities" class="md-nav__link">
-    Major functionalities
+  <a href="#main-features" title="Main features" class="md-nav__link">
+    Main features
   </a>
   
     <nav class="md-nav">
@@ -479,6 +479,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../articles/dynamicProperties/" title="Configuration properties server" class="md-nav__link">
+      Configuration properties server
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -541,8 +553,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#major-functionalities" title="Major functionalities" class="md-nav__link">
-    Major functionalities
+  <a href="#main-features" title="Main features" class="md-nav__link">
+    Main features
   </a>
   
     <nav class="md-nav">
@@ -605,16 +617,16 @@
                 
                 <h1 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h1>
 <p><strong>Documentation is in progress</strong></p>
-<p><strong>Vulcain</strong> is a microservice framework. It provides a way to create easily full operational microservices running in docker container by normalizing i/o protocol, metrics and logging.</p>
-<p>Every <strong>vulcain</strong> microservice encapsulates metadata description allowing to use external tools for generating code, services cartography, monitoring...</p>
-<p><strong>Vulcain</strong> implements natively some major well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.</p>
-<p>It targets the nodejs V6 (or more) platform and leverages all typescript functionalities like annotations, async/await, reflection...</p>
-<h2 id="major-functionalities">Major functionalities<a class="headerlink" href="#major-functionalities" title="Permanent link">&para;</a></h2>
+<p><strong>Vulcain</strong> is a microservice framework. It provides a way to easily create fully operational microservices running in docker container by normalizing i/o protocol, metrics and logging.</p>
+<p>Every <strong>vulcain</strong> microservice encapsulates its own metadata description allowing to use external tools for generating code, services cartography, monitoring...</p>
+<p><strong>Vulcain</strong> natively implements some well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.</p>
+<p>It targets Nodejs V6 (or more) platform and leverages all typescript functionalities such as annotations, async/await, reflection...</p>
+<h2 id="main-features">Main features<a class="headerlink" href="#main-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Uses typescript annotations to declare endpoints.</li>
-<li>Standardizes request and response HTTP format</li>
+<li>Standardized request and response HTTP format</li>
 <li>Generate metrics for every request (zipkin, statsd)</li>
-<li>Standardizes logging format with data obfuscation for sensible data.</li>
+<li>Standardized logging format with data obfuscation for sensible data.</li>
 <li>Services are organized by domain and separate query request from action (command) request.</li>
 <li>Automatic input data validation</li>
 <li>Request context propagation (security, correlation id) on every service request.</li>
@@ -629,7 +641,7 @@
 <p>The first concept to understand how <strong>vulcain</strong> works is <code>handler</code> which define service endpoint. There is three kind of handler:</p>
 <ul>
 <li><strong>Query</strong> handler can not manipulate data and has no side effect, it just returns data.</li>
-<li><strong>Action</strong> handler can modify data and can be asynchrone. Every action raises an event when it completes.</li>
+<li><strong>Action</strong> handler can modify data and can be asynchronous. Every action raises an event once it completes.</li>
 <li><strong>Event</strong> handler subscribes to event. Event can be filtered by domain, action, schema and any more.</li>
 </ul>
 <h4 id="command">Command<a class="headerlink" href="#command" title="Permanent link">&para;</a></h4>

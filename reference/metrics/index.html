@@ -493,6 +493,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/dynamicProperties/" title="Configuration properties server" class="md-nav__link">
+      Configuration properties server
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -632,13 +644,13 @@
                 
                 
                 <h1 id="metrics-and-logging">Metrics and logging<a class="headerlink" href="#metrics-and-logging" title="Permanent link">&para;</a></h1>
-<p><strong>Vulcain</strong> generates many metrics and logging informations formatted to be used directly with well-know tools.</p>
+<p><strong>Vulcain</strong> generates many metrics and logging information formatted to be used directly with well-know tools.</p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Log are json formated and are emit directly to the console to levearage docker logging plug-in.</li>
+<li>Log are json formated and are emited directly to the console to levearage docker logging plug-in.</li>
 <li>Every log contains a correlationId propagated along vulcain service requests.</li>
 </ul>
-<p>You can emit log with the <code>RequestContext</code> log property available in every scoped component (handler or command) with the <code>requestContext</code>property. Another way to log information is to use directly the static <code>System.log</code> property.</p>
+<p>You can emit log with the <code>RequestContext</code> log property available in every scoped component (handler or command) with the <code>requestContext</code>property. Another way to log information is to directly use the static <code>System.log</code> property.</p>
 <h3 id="using-fluentd-with-vulcain">Using fluentd with vulcain<a class="headerlink" href="#using-fluentd-with-vulcain" title="Permanent link">&para;</a></h3>
 <p>Here a simple fluentd configuration to send all logs to an elasticsearch database.</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;source&gt;</span>
@@ -668,7 +680,7 @@
 </blockquote>
 <h2 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h2>
 <p><strong>Vulcain</strong> emit metrics for every request and internal command. It provides natively a <code>prometheus</code>and a <code>statsd</code> exporter.</p>
-<p><a href="https://prometheus.io/">Prometheus</a> is the default metrics process. It's enabled if statsd is not.</p>
+<p><a href="https://prometheus.io/">Prometheus</a> is the default metrics process. It is enabled if statsd is not.</p>
 <h3 id="prometheus-metrics">Prometheus metrics<a class="headerlink" href="#prometheus-metrics" title="Permanent link">&para;</a></h3>
 <p>Prometheus metrics are available with the <code>/metrics</code> endpoint.</p>
 <h3 id="statsd-metrics">Statsd metrics<a class="headerlink" href="#statsd-metrics" title="Permanent link">&para;</a></h3>

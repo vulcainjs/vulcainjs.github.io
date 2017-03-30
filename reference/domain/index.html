@@ -528,6 +528,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../articles/dynamicProperties/" title="Configuration properties server" class="md-nav__link">
+      Configuration properties server
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -734,6 +746,8 @@
     <span class="nx">lastName</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="kd">@Property</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span> <span class="nx">type</span>: <span class="kt">SchemaStandardTypes.enum</span><span class="p">,</span> <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">],</span> <span class="nx">bind</span>: <span class="kt">Customer.bindSex</span><span class="p">})</span>
     <span class="nx">sex</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="kd">@Property</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span><span class="s1">&#39;boolean&#39;</span><span class="p">})</span>
+    <span class="nx">enabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// Default value</span>
     <span class="kd">@Reference</span><span class="p">({</span><span class="nx">cardinality</span><span class="o">:</span> <span class="s1">&#39;many&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="o">:</span> <span class="s1">&#39;Child&#39;</span><span class="p">})</span>
     <span class="nx">children</span>: <span class="kt">Child</span><span class="p">[];</span>
 
@@ -741,6 +755,7 @@
         <span class="k">if</span><span class="p">(</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">sex</span> <span class="o">===</span> <span class="s1">&#39;M&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">===</span> <span class="s1">&#39;john&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">===</span> <span class="s1">&#39;doe&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="s2">&quot;john doe is not a valid customer&quot;</span><span class="p">;</span>
     <span class="p">}</span>
+
     <span class="kr">static</span> <span class="nx">bindSex</span><span class="p">(</span><span class="nx">val</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span> <span class="nx">val</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;female&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="s1">&#39;F&#39;</span><span class="p">;</span>
@@ -877,12 +892,6 @@
 <td>sensible</td>
 <td>string</td>
 <td>This property is sensible and will be encrypted and protected (value hidden in logs etc...)</td>
-<td></td>
-</tr>
-<tr>
-<td>defaultValue</td>
-<td>string</td>
-<td>Default property value</td>
 <td></td>
 </tr>
 <tr>
