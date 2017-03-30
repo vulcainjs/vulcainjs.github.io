@@ -118,13 +118,12 @@ Now we will create an handler to query a customer view into a new file src/api/q
 
 ```csharp
 import { QueryHandler, Query, AbstractQueryHandler, Command, ServiceDependency, AbstractServiceCommand, IHasFallbackCommand } from "vulcain-corejs";
-import { CustomerView } from "./model";
 import { CustomersService, Customer } from "./customersService10";
 
 @QueryHandler({ scope: '?' })
 export class MyQueryHandler extends AbstractQueryHandler {
 
-    @Query({ description: "Get a list of customers", outputSchema: CustomerView })
+    @Query({ description: "Get a list of customers", outputSchema: 'CustomerView' })
     async CustomerViewsAsync() {
         let customersService = new CustomersService(this.requestContext);
         let customers = await customersService.getAllCustomerAsync();
