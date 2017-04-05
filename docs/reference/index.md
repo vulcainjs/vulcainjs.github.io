@@ -10,6 +10,10 @@ Every **vulcain** microservice encapsulates its own metadata description allowin
 
 It targets Nodejs V6 (or more) platform and leverages all typescript functionalities such as annotations, async/await, reflection...
 
+## Vulcain philosophy
+
+
+
 ## Main features
 
 - Uses typescript annotations to declare endpoints.
