@@ -666,14 +666,14 @@ $Env:COMPOSE_CONVERT_WINDOWS_PATHS = &quot;true&quot;
 <p>On <strong>Windows</strong> you'll need to run <code>./install-demo.ps1 --hostName &lt;machine-name&gt;</code> script from the root directory using <strong>PowerShell</strong></p>
 <p>Once everything is setup you should see the following message</p>
 <blockquote>
-<p>Vulcain UI is available at http://\<machine-ip>\:8080 user: admin/vulcain</p>
+<p>Vulcain UI is available at http://<machine-ip>\:8080 user: admin/vulcain</p>
 </blockquote>
 <h2 id="post-install-configuration">Post install configuration<a class="headerlink" href="#post-install-configuration" title="Permanent link">&para;</a></h2>
-<p>Before accessing Vulcain UI through <code>:8080</code> port you need to openup this port for inbound traffic on the VM firewall (\<machine-name>-firewall). The same applies to ElasticSearch ports (9200-9300) where a predefined rule is available in the firewall port settings.</p>
-<p>If you wish to stop and start the Vulcain VM you may endup with a different IP address. You can setup a DNS entry for this machine from the Azure portal on your VM public ip blade (\<machine-name>-ip) under configuration / DNS name label</p>
+<p>Before accessing Vulcain UI through <code>:8080</code> port you need to openup this port for inbound traffic on the VM firewall (<machine-name>-firewall). The same applies to ElasticSearch ports (9200-9300) where a predefined rule is available in the firewall port settings.</p>
+<p>If you wish to stop and start the Vulcain VM you may endup with a different IP address. You can setup a DNS entry for this machine from the Azure portal on your VM public ip blade (<machine-name>-ip) under configuration / DNS name label</p>
 <blockquote>
 <p>This way you can access <strong>vulcain-ui</strong> with an address like:<br/>
-<strong>http://\<dns-label>.\<azure-region>.cloudapp.azure.com:8080</strong></p>
+<strong>http://<dns-label>.<azure-region>.cloudapp.azure.com:8080</strong></p>
 </blockquote>
 <p>You may also use this address in your <strong>vulcain-cli</strong> configuration</p>
                 
