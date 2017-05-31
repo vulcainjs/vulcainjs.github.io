@@ -43,7 +43,7 @@ Once everything is setup you should see the following message
 > Vulcain UI is available at http://\<machine-ip>\:8080 user: admin/vulcain
 
 ## Post install configuration
-Before accessing Vulcain UI through `:8080` port you need to openup this port for inbound traffic on the VM firewall (\<machine-name>-firewall).
+Before accessing Vulcain UI through `:8080` port you need to openup this port for inbound traffic on the VM firewall (\<machine-name>-firewall). The same applies to ElasticSearch ports (9200-9300) where a predefined rule is available in the firewall port settings.
 
 If you wish to stop and start the Vulcain VM you may endup with a different IP address. You can setup a DNS entry for this machine from the Azure portal on your VM public ip blade (\<machine-name>-ip) under configuration / DNS name label
 > This way you can access **vulcain-ui** with an address like:<br/>
