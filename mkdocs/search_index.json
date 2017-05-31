@@ -52,13 +52,18 @@
         },
         {
             "location": "/reference/",
-            "text": "Documentation\n\u00b6\n\n\nDocumentation is in progress\n\n\nVulcain\n is a microservice framework. It provides a way to easily create fully operational microservices running in docker container by normalizing i/o protocol, metrics and logging.\n\n\nEvery \nvulcain\n microservice encapsulates its own metadata description allowing to use external tools for generating code, services cartography, monitoring...\n\n\nVulcain\n natively implements some well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.\n\n\nIt targets Nodejs V6 (or more) platform and leverages all typescript functionalities such as annotations, async/await, reflection...\n\n\nMain features\n\u00b6\n\n\n\n\nUses typescript annotations to declare endpoints.\n\n\nStandardized request and response HTTP format\n\n\nGenerate metrics for every request (zipkin, statsd)\n\n\nStandardized logging format with data obfuscation for sensible data.\n\n\nServices are organized by domain and separate query request from action (command) request.\n\n\nAutomatic input data validation\n\n\nRequest context propagation (security, correlation id) on every service request.\n\n\nUses hystrix command to encapsulate all i/o (http, database, service communication, ...)\n\n\nFully extensible thanks to dependency injection.\n\n\nProvides default adapters to quickly start with mongodb, zipkin, rabbitmq...\n\n\n\n\nMain concepts\n\u00b6\n\n\nThis a basic schema showing how a \nvulcain\n service works:\n\n\n\n\nHandler\n\u00b6\n\n\nThe first concept to understand how \nvulcain\n works is \nhandler\n which define service endpoint. There is three kind of handler:\n\n\n\n\nQuery\n handler can not manipulate data and has no side effect, it just returns data.\n\n\nAction\n handler can modify data and can be asynchronous. Every action raises an event once it completes.\n\n\nEvent\n handler subscribes to event. Event can be filtered by domain, action, schema and any more.\n\n\n\n\nCommand\n\u00b6\n\n\nAnother important concept is \nCommand\n which encapsulates all i/o access.",
+            "text": "Documentation\n\u00b6\n\n\nDocumentation is in progress\n\n\nVulcain\n is a microservice framework. It provides a way to easily create fully operational microservices running in docker container by normalizing i/o protocol, metrics and logging.\n\n\nEvery \nvulcain\n microservice encapsulates its own metadata description allowing to use external tools for generating code, services cartography, monitoring...\n\n\nVulcain\n natively implements some well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.\n\n\nIt targets Nodejs V6 (or more) platform and leverages all typescript functionalities such as annotations, async/await, reflection...\n\n\nVulcain philosophy\n\u00b6\n\n\nMain features\n\u00b6\n\n\n\n\nUses typescript annotations to declare endpoints.\n\n\nStandardized request and response HTTP format\n\n\nGenerate metrics for every request (zipkin, statsd)\n\n\nStandardized logging format with data obfuscation for sensible data.\n\n\nServices are organized by domain and separate query request from action (command) request.\n\n\nAutomatic input data validation\n\n\nRequest context propagation (security, correlation id) on every service request.\n\n\nUses hystrix command to encapsulate all i/o (http, database, service communication, ...)\n\n\nFully extensible thanks to dependency injection.\n\n\nProvides default adapters to quickly start with mongodb, zipkin, rabbitmq...\n\n\n\n\nMain concepts\n\u00b6\n\n\nThis a basic schema showing how a \nvulcain\n service works:\n\n\n\n\nHandler\n\u00b6\n\n\nThe first concept to understand how \nvulcain\n works is \nhandler\n which define service endpoint. There is three kind of handler:\n\n\n\n\nQuery\n handler can not manipulate data and has no side effect, it just returns data.\n\n\nAction\n handler can modify data and can be asynchronous. Every action raises an event once it completes.\n\n\nEvent\n handler subscribes to event. Event can be filtered by domain, action, schema and any more.\n\n\n\n\nCommand\n\u00b6\n\n\nAnother important concept is \nCommand\n which encapsulates all i/o access.",
             "title": "Overview"
         },
         {
             "location": "/reference/#documentation",
             "text": "Documentation is in progress  Vulcain  is a microservice framework. It provides a way to easily create fully operational microservices running in docker container by normalizing i/o protocol, metrics and logging.  Every  vulcain  microservice encapsulates its own metadata description allowing to use external tools for generating code, services cartography, monitoring...  Vulcain  natively implements some well-know patterns like DDD, CQRS, hystrix command, dynamic configuration, dependency injection and event driving development.  It targets Nodejs V6 (or more) platform and leverages all typescript functionalities such as annotations, async/await, reflection...",
             "title": "Documentation"
+        },
+        {
+            "location": "/reference/#vulcain-philosophy",
+            "text": "",
+            "title": "Vulcain philosophy"
         },
         {
             "location": "/reference/#main-features",
@@ -127,8 +132,13 @@
         },
         {
             "location": "/reference/event/",
-            "text": "",
+            "text": "Using events\n\u00b6",
             "title": "Events"
+        },
+        {
+            "location": "/reference/event/#using-events",
+            "text": "",
+            "title": "Using events"
         },
         {
             "location": "/reference/domain/",
@@ -422,12 +432,12 @@
         },
         {
             "location": "/articles/",
-            "text": "How-to articles\n\u00b6\n\n\n\n\nCreating an user service\n\n\nCreating a dynamic properties server",
+            "text": "How-to articles\n\u00b6\n\n\n\n\nCreating an user service\n\n\nCreating a dynamic properties server\n\n\nSetup Vulcain Demo on Azure",
             "title": "How to index"
         },
         {
             "location": "/articles/#how-to-articles",
-            "text": "Creating an user service  Creating a dynamic properties server",
+            "text": "Creating an user service  Creating a dynamic properties server  Setup Vulcain Demo on Azure",
             "title": "How-to articles"
         },
         {
