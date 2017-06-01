@@ -28,6 +28,7 @@ pages:
     - "Users service": 'articles/users.md'
     - "Configuration properties server": 'articles/dynamicProperties.md'
     - "Setup Vulcain Demo on Azure": 'articles/setupVulcainDemo.md'
+  - "Plugins" : 'plugins/index.md'
   - About: 
     - license: 'about/license.md'
 extra:
