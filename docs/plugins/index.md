@@ -1,6 +1,6 @@
 # Plugins
 
-Vulcainjs plugins enable you to build fastly microservices.
+Vulcainjs plugins allows you to quickly build microservices.
 
 ## Messaging
 
