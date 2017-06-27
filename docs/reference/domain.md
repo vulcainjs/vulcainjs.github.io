@@ -59,6 +59,12 @@ export class Customer {
             return 'M';
     }
 }
+
+@Model({ extends: "Customer"})
+export class PremiumCustomer extends Customer {
+    @Property({type:'number')
+    discount: number;
+}
 ```
 
 ```@Model``` declares a schema and can contains ```@Property``` and ```@Reference```.
@@ -75,7 +81,7 @@ export class Customer {
 | storageName | string | Collection (as in MongoDb) name used by provider | class name |
 | hasSensibleData | boolean | This schema has sensible data (see below)| false |
 
-***extends** is needed because there is no way to know if a javascript object inherits from another. If you omit it, properties of the base class will be ignored.
+@Model ***extends** is mandatory because there is no way to know if a javascript object inherits from another object (even though your typescript class extends another class). If you omit it, properties of the base class will be ignored.
 
 ### The @Property annotation
 
