@@ -787,6 +787,12 @@
             <span class="k">return</span> <span class="s1">&#39;M&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
+
+<span class="kd">@Model</span><span class="p">({</span> <span class="kr">extends</span><span class="o">:</span> <span class="s2">&quot;Customer&quot;</span><span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">PremiumCustomer</span> <span class="kr">extends</span> <span class="nx">Customer</span> <span class="p">{</span>
+    <span class="kd">@Property</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span><span class="s1">&#39;number&#39;</span><span class="p">)</span>
+    <span class="nx">discount</span>: <span class="kt">number</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -846,7 +852,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>*extends</strong> is needed because there is no way to know if a javascript object inherits from another. If you omit it, properties of the base class will be ignored.</p>
+<p>@Model <strong>*extends</strong> is mandatory because there is no way to know if a javascript object inherits from another object (even though your typescript class extends another class). If you omit it, properties of the base class will be ignored.</p>
 <h3 id="the-property-annotation">The @Property annotation<a class="headerlink" href="#the-property-annotation" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
