@@ -51,10 +51,8 @@ This ensures that dynamic properties will be up-to-date when you load them for t
 
 The easiest way is to use static methods from helper `DynamicConfiguration`.
 
-To create a simple dynamic property, use `asProperty` with a default value and a name.
-
 ```js
-let myProperty = DynamicConfiguration.asProperty<string>(0, 'myProperty');
+let myProperty = DynamicConfiguration.getProperty<string>(0, 'myProperty');
 ```
 
 This method accepts an optional third parameter which is a callback function invoked when the property value has changed more info [here](configurations/properties)

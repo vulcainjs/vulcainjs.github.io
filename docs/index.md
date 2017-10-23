@@ -62,7 +62,7 @@ template: home.html
 </div>
 <div class="row head-banner-buttons">
     <div class="col-md-offset-2 col-md-4 col-xs-12">
-        <a href="https://github.com/vulcainjs/vulcain-corejs/zipball/master" class="btn btn-default btn-lg btn-block" style="padding: 14px 16px;">Download</a>
+        <a href="https://github.com/vulcainjs/vulcain-samples" class="btn btn-default btn-lg btn-block" style="padding: 14px 16px;">Start with samples</a>
     </div>
     <div class="col-md-4  col-xs-12">
         <a href="http://github.com/vulcainjs/vulcain-corejs" class="btn btn-success btn-lg btn-block"  style="padding: 14px 16px;">View On GitHub</a>
@@ -86,7 +86,7 @@ template: home.html
         </p>
     </div>
     <div class="col-md-4">
-        <h4>Enterprise ready</h4>
+        <h4>Production ready</h4>
         <p>
             <ul>
             <li>Dynamic configuration properties</li>
