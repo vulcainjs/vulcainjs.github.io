@@ -13,7 +13,7 @@ The latter must be set on every handler method, it can override every properties
 export class CustomerActionHandler extends DefaultActionHandler {
 
     @Action({ description: "Custom action", outputSchema: "string" })
-    async myActionAsync() {
+    async myAction() {
 
     }
 }

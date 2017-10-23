@@ -124,9 +124,9 @@ import { CustomersService, Customer } from "./customersService10";
 export class MyQueryHandler extends AbstractQueryHandler {
 
     @Query({ description: "Get a list of customers", outputSchema: 'CustomerView' })
-    async CustomerViewsAsync() {
+    async CustomerViews() {
         let customersService = new CustomersService(this.requestContext);
-        let customers = await customersService.getAllCustomerAsync();
+        let customers = await customersService.getAllCustomer();
         return customers.map(c => {
             return {
                 firstName: c.firstName,
@@ -253,7 +253,7 @@ import { Customer } from './customersService10';
 @ServiceDependency('customers-service', '1.0', 'http://localhost:30000/api/_servicedescription')
 export class CustomersServiceGetAllCustomerCommand extends AbstractServiceCommand
     implements IHasFallbackCommand<Customer[]> {
-    async fallbackAsync(): Promise<Customer[]> {
+    async fallback(): Promise<Customer[]> {
         return [{
             firstName: "John", lastName: "Lennon"
         }];

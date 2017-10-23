@@ -35,13 +35,13 @@ There are two kind of properties :
 To create a shared property:
 
 ```ts
-let property1 = System.createSharedConfigurationProperty<string>("property-name", "default value");
+let property1 = DynamicConfiguration.createSharedConfigurationProperty<string>("property-name", "default value");
 ```
 
 To create a service property:
 
 ```ts
-let property1 = System.createServiceConfigurationProperty<number>("property-name", 0);
+let property1 = DynamicConfiguration.createServiceConfigurationProperty<number>("property-name", 0);
 ```
 
 These helpers create a *chained* property. Chained property create a pipeline of dynamic properties using the first value available.
@@ -53,7 +53,7 @@ For example for a service property, the pipeline consists of the following prope
 1. property name (= shared property)
 1. default value
 
-> You can create your own chained property with ```DynamicConfiguration.asChainedProperty<string>()```.
+> You can create your own chained property with ```DynamicConfiguration.getChainedProperty<string>()```.
 
 ### Dynamic property value
 

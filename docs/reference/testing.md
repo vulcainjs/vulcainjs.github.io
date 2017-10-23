@@ -10,10 +10,10 @@ A big challenge with microservice is testing integration with other services and
 
 ### Registering a mock
 
-To register a __mock session__, you must call a microservice with the specific header ```x-vulcain-register-mock-session``` specifying the session name. 
+To register a __mock session__, you must call a microservice with the specific header ```x-vulcain-save-mock-session``` specifying the session name. 
 
 ```html
-x-vulcain-register-mock-session: mocksessionname
+x-vulcain-save-mock-session: mocksessionname
 ```
 
 When a microservice endpoint is called with this header, it will save the calling context (action and parameters) as well as its result.
@@ -27,7 +27,7 @@ By default, the mock session header is propagated along requests registering moc
 Example to register a mock session for all services with a name beginning with customer:
 
 ```html
-x-vulcain-register-mock-session: mocksessionname:^customer
+x-vulcain-save-mock-session: mocksessionname:^customer
 ```
 
 !!!info
