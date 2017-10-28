@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.3.0">
+      <meta name="generator" content="mkdocs-0.17.0, mkdocs-material-1.3.0">
     
     
       
@@ -666,7 +666,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/configurations.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/edit/mkdocs/docs/reference/configurations.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
                 <h1 id="dynamic-configuration-properties">Dynamic configuration properties<a class="headerlink" href="#dynamic-configuration-properties" title="Permanent link">&para;</a></h1>
@@ -710,12 +710,12 @@ This is the unique entry point to all dynamic properties and it exposes differen
 <h2 id="declaring-a-dynamic-property">Declaring a dynamic property<a class="headerlink" href="#declaring-a-dynamic-property" title="Permanent link">&para;</a></h2>
 <p><strong>Vulcain</strong> provides helpers to create dynamic properties.</p>
 <p>To create a shared property:</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">createSharedConfigurationProperty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="s2">&quot;default value&quot;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">DynamicConfiguration</span><span class="p">.</span><span class="nx">createSharedConfigurationProperty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="s2">&quot;default value&quot;</span><span class="p">);</span>
 </pre></div>
 
 
 <p>To create a service property:</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">createServiceConfigurationProperty</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">property1</span> <span class="o">=</span> <span class="nx">DynamicConfiguration</span><span class="p">.</span><span class="nx">createServiceConfigurationProperty</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;property-name&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 
 
@@ -728,7 +728,7 @@ This is the unique entry point to all dynamic properties and it exposes differen
 <li>default value</li>
 </ol>
 <blockquote>
-<p>You can create your own chained property with <code>DynamicConfiguration.asChainedProperty&lt;string&gt;()</code>.</p>
+<p>You can create your own chained property with <code>DynamicConfiguration.getChainedProperty&lt;string&gt;()</code>.</p>
 </blockquote>
 <h3 id="dynamic-property-value">Dynamic property value<a class="headerlink" href="#dynamic-property-value" title="Permanent link">&para;</a></h3>
 <p>A property can be initialized from external source, environment variable or docker secret.</p>
@@ -918,6 +918,10 @@ This is defined in the ``ìndex.ts``` project file. You can replace the default 
     
       <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../search/require.js"></script>
+      
+        <script src="../../search/search.js"></script>
       
     
     

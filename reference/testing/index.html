@@ -15,7 +15,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.3.0">
+      <meta name="generator" content="mkdocs-0.17.0, mkdocs-material-1.3.0">
     
     
       
@@ -704,7 +704,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/vulcainjs/vulcainjs.github.io/edit/mkdocs/docs/reference/testing.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/edit/mkdocs/docs/reference/testing.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
                 <h1 id="testing-microservice">Testing microservice<a class="headerlink" href="#testing-microservice" title="Permanent link">&para;</a></h1>
@@ -713,8 +713,8 @@
 <h2 id="mock-functionality">Mock functionality<a class="headerlink" href="#mock-functionality" title="Permanent link">&para;</a></h2>
 <p><strong>Vulcain</strong> can create <strong>mock</strong> by registering a request and saving it in a <strong>session</strong>. When a <strong>session</strong> is registered, you can replay it many times. You can create many <strong>session</strong> given them a different name.</p>
 <h3 id="registering-a-mock">Registering a mock<a class="headerlink" href="#registering-a-mock" title="Permanent link">&para;</a></h3>
-<p>To register a <strong>mock session</strong>, you must call a microservice with the specific header <code>x-vulcain-register-mock-session</code> specifying the session name. </p>
-<div class="codehilite"><pre><span></span>x-vulcain-register-mock-session: mocksessionname
+<p>To register a <strong>mock session</strong>, you must call a microservice with the specific header <code>x-vulcain-save-mock-session</code> specifying the session name. </p>
+<div class="codehilite"><pre><span></span>x-vulcain-save-mock-session: mocksessionname
 </pre></div>
 
 
@@ -725,7 +725,7 @@
 <p>A mock is replayed if the call context (action and parameters) is strictly identical to the registered mock context. If you want to be less restrictive, you can remove some arguments to the saved session, the filter will operate only on existing arguments.</p>
 <p>By default, the mock session header is propagated along requests registering mock for all 'sub' services. If you want to limit the scope of the registering session to some specific services, you can include in the mock header a service name filter (as a regular expression).</p>
 <p>Example to register a mock session for all services with a name beginning with customer:</p>
-<div class="codehilite"><pre><span></span>x-vulcain-register-mock-session: mocksessionname:^customer
+<div class="codehilite"><pre><span></span>x-vulcain-save-mock-session: mocksessionname:^customer
 </pre></div>
 
 
@@ -918,6 +918,10 @@ In all cases, mock feature is disabled in production mode.</p>
     
       <script src="../../assets/javascripts/application-7aa26ad9ec.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../search/require.js"></script>
+      
+        <script src="../../search/search.js"></script>
       
     
     
