@@ -19,6 +19,8 @@ We will see:
 npm install vulcain-cli -g
 ```
 
+> This quickstart uses **vulcain-cli** which it's just a helper to create and deploy vulcainjs project but it's not mandatory. You can also check the [vulcain samples repository](https://github.com/vulcainjs/vulcain-samples) to test **vulcainjs**.
+
 ### Creating the backend service
 
 Creating a new microservice project is easy with **vulcain-cli**. The following command creates a new project
@@ -139,13 +141,13 @@ export class MyQueryHandler extends AbstractQueryHandler {
 ```
 
 !!! info
-    For the moment, the editor displays errors. This is normal. We will see below how to remove the reference error on customersService10
+    For the moment, the editor displays errors. This is normal. We will see below how to remove the reference error on 'customersService10'
 
 #### Handler anatomy
 
 - An handler is just a class with annoted methods. These annotations describe how the handler can be requested. There are 3 kinds of handler: ```Query handler```, ```Action handler``` and ```Event handler```. See [concepts](../reference/index)
 - The ```QueryHandler``` annotation tells that the class exposes handler(s) for query (accessible with a GET http verb) and can define default configurations. In this case, the handler could be requested by any (anonymous) user thanks to the ```scope:'?'``` property.
-- The ```Query``` annotation is used to expose a method. Annotations have mandatory properties used to describe the service. The query will be accessible from ```/api/customersview``` (The name is inferred from the method name removing the Async suffix).
+- The ```Query``` annotation is used to expose a method. Annotations have mandatory properties used to describe the service. The query will be accessible from ```/api/customersview``` (The name is inferred from the method name removing).
 - The handler code is like any traditional method with some specificities:
     - It can take only one argument described by a model. This model will be validated before the method is called and can raise a Bad Request error in case of errors.
     - The return value must be described by a model (can be the same as the input argument). This is used to describe the service.
@@ -171,7 +173,7 @@ To generate the proxy class, we need some information:
 To generate the class, type the following code from the application root folder (Change the port number if necessary)
 
 ```sh
-vulcain generate --address localhost:30000 --folder src/api
+vulcain generate localhost:30000 --folder src/api
 ```
 
 The proxy class encapsulates all requests into [hystrix commands](https://github.com/Netflix/Hystrix) providing circuit breaker, timeout, bulkhead and monitoring.
@@ -239,7 +241,7 @@ Before adding a compensation, we need to understand how the service proxy class 
 
 If you need to customize a call, you need to customize a command but only for this specific call. To do that, the proxy class will check for every call if a specific command exists for this call otherwise it will use the default command. A specific command is identified by a name like ```<service name><method name>Command```.
 
-Since we will customize a call to ```getAllCustomerAsync``` of the proxy class named ```CustomersService``` we need to create a new command named ```CustomersServiceGetAllCustomer``` (Async is always removed for naming).
+Since we will customize a call to ```getAllCustomer``` of the proxy class named ```CustomersService``` we need to create a new command named ```CustomersServiceGetAllCustomer``` (Async is always removed for naming).
 
 To add compensation we need to provide a ```fallback``` method returning the default value.
 

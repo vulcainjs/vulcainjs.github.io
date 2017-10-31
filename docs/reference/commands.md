@@ -10,7 +10,7 @@ Command must be used for every I/O request. **Vulcain** Command is a javascript 
 
 ## Using a command
 
-Command must **always** be instanciated with requestContext.getCommandAsync.
+Command must **always** be instanciated with requestContext.getCommand.
 
 ## Creating a command
 

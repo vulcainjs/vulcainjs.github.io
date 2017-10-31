@@ -11,24 +11,24 @@ copyright: Copyright © 2017 Zenasoft
 pages:
   - Home: index.md
   - "Getting started": gettingStarted/index.md
-  - Documentation:
-    - Overview: 'reference/index.md'
-    - Actions: 'reference/actions.md'
-    - Queries: 'reference/query.md'
-    - Events: 'reference/event.md'  
-    - 'Domain models': 'reference/domain.md'  
-    - "Dependencies injection" : 'reference/injection.md'
-    - Commands: 'reference/commands.md'
-    - Configurations: 'reference/configurations.md'
-    - Monitoring: 'reference/metrics.md'
-    - Security: 'reference/security.md'
-    - Testing: 'reference/testing.md'
-  - Articles:
-    - "How to index": 'articles/index.md'
-    - "Users service": 'articles/users.md'
-    - "Configuration properties server": 'articles/dynamicProperties.md'
-    - "Setup Vulcain Demo on Azure": 'articles/setupVulcainDemo.md'
-  - "Plugins" : 'plugins/index.md'
+  #- Documentation:
+  #  - Overview: 'reference/index.md'
+  #  - Actions: 'reference/actions.md'
+  #  - Queries: 'reference/query.md'
+  #  - Events: 'reference/event.md'  
+  #  - 'Domain models': 'reference/domain.md'  
+  #  - "Dependencies injection" : 'reference/injection.md'
+  #  - Commands: 'reference/commands.md'
+  #  - Configurations: 'reference/configurations.md'
+  #  - Monitoring: 'reference/metrics.md'
+  #  - Security: 'reference/security.md'
+  #  - Testing: 'reference/testing.md'
+  #- Articles:
+  #  - "How to index": 'articles/index.md'
+  #  - "Users service": 'articles/users.md'
+  #  - "Configuration properties server": 'articles/dynamicProperties.md'
+  #  - "Setup Vulcain Demo on Azure": 'articles/setupVulcainDemo.md'
+  #- "Plugins" : 'plugins/index.md'
   - About: 
     - license: 'about/license.md'
 extra:
