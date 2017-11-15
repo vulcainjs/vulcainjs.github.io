@@ -95,7 +95,7 @@ capabilities:
 
 - For input data, it is used to check and validate argument values (raising a 400 bad request error if any errors)
 - For storing data, it can be used by the **default** provider to get some persistance information like key definition, uniqueness, collection name...
-- For metadata description, it is used to display information (with /api/_servicedescription) usefull to code generation or other tools.
+- For metadata description, it is used to display information (with /api/_servicedescription) useful to code generation or other tools.
 
 Create a new file src/api/model.ts and copy/paste the following code:
 
@@ -160,7 +160,7 @@ But how can i create this proxy class ?
 
 ### Communication between services
 
-Thanks to the metadata description hability of any vulcain service, we can use dedicated tooling to generate code. Code generation uses template to generate a static class with typed method sending request that are high tolerance, monitored and vulcain compatible.
+Thanks to the metadata description of any vulcain service, we can use dedicated tooling to generate code. Code generation uses template to generate a static class with typed method sending request that are high tolerance, monitored and vulcain compatible.
 
 Vulcain compatible means context propagation : security context, global correlation id, tenant information...
 
@@ -230,7 +230,7 @@ export class CustomersServiceGetAllCustomerCommand extends AbstractServiceComman
 
 This is the microservice philosophy : Service can failed but quickly.
 
-For most scenarii, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.
+For most scenarios, if the request failed it's better to send a default response than an error message. This is the role of the compensation (fallBack) method.
 
 Try a request failure by removing the backend service with ```docker service rm customersservice10``` and by requesting again the facade service. Due to the default 1500ms timeout, errors will occur quickly.
 You can see it in hystrix dashboard.
