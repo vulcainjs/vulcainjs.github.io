@@ -1,260 +1,189 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-        <link rel="canonical" href="https://vulcainjs.github.io/">
-      
-      
-        <meta name="author" content="Alain Metge">
-      
-      
-        <link rel="shortcut icon" href="./assets/images/favicon.ico">
-      
-      <meta name="generator" content="mkdocs-0.17.0, mkdocs-material-1.0.3">
-    
-    
-      <link rel="stylesheet" href="./assets/stylesheets/application-1d1da4857d.css">
-      
-        <link rel="stylesheet" href="./assets/stylesheets/application-66fa0d9bba.palette.css">
-      
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title> - VulcainJS</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-  crossorigin="anonymous">
-    
-    
-      
-        
-        
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    
-    
-<style>  
-  .md-header a {
-    color: white;
-  }
-  
-  .md-header a:hover {
-    text-decoration: none;
-  }
-  
-  .nav li a:hover {
-    background-color: #2196f3;
-    color: hsla( 0, 0%, 100%, .7);
-  }
-  
-  .btn-success {
-    background-image: linear-gradient(#88c149, #73a839 60%, #699934);
-  }
-</style>    
-  </head>
-    
+    crossorigin="anonymous">
+        <!-- Plugins CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/pretty-doc.css">
 
-<body data-md-color-primary="blue" data-md-color-accent="light-blue">
-  
-<svg class="md-svg">
-  <defs>
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg> 
-  </defs>
-</svg>      
-<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-<input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
-<label class="md-overlay" data-md-component="overlay" for="drawer"></label> 
-<!-- header -->
-<header class="md-header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="Vulcain" class=" md-icon md-icon--home  md-header-nav__button">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
-          <ul class="nav navbar-nav">
-            <li><a href="/gettingStarted/index.html">Getting started</a></li>
-           <!-- <li><a href="/reference/index.html">Documentation</a></li>            
-            <li><a href="/articles/index.html">How-to</a></li>        -->    
-          </ul>
-        </span>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-        <label class="md-icon md-icon--search md-header-nav__button" for="search"></label> 
-<div class="md-search" data-md-component="search">
-  <div class="md-search__overlay"></div>
-  <div class="md-search__inner">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
-      <label class="md-icon md-search__icon" for="search"></label>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result"></div>
-      </div>
-    </div>
-  </div>
-</div> 
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-           
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="/css/elegant_font.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
 
+<body class="landing-page">
 
-  
-
-
-  <a href="https://github.com/vulcainjs/vulcainjs.github.io" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
- 
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>    
-<!-- !header -->
-
-<div class="container">
-  <div class="row" style="height: 80px"></div>
-  <div class="col-md-11">
-      
-        <style>
-<style>
-  .lead {
-    color: #555;
-    font-weight: normal;
-  }
-
-  .btn-default {
-    background-image: linear-gradient(#fff, #fff 60%, #f5f5f5);
-    border-bottom: 1px solid #e6e6e6;
-  }
-
-  .head-banner-text {
-    padding: 20px 0 0 0;
-  }
-  .head-banner-buttons {
-    padding: 0 0 20px;
-  }  
-</style>
-
-<div class="row">
-    <div id="myCarousel" class="col-md-offset-1 col-md-10 carousel slide" data-ride="carousel" data-interval="5000">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img class="img-responsive" src="images/intro.png" alt="vulcain.js">                   
+    <div class="page-wrapper">
+        <header class="header text-center">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                        <span class="text-highlight">Vulcain</span>
+                        <span class="text-bold">JS</span>
+                    </h1>
                 </div>
-                <div class="item">
-                    <img class="img-responsive" src="images/intro2.png" alt="vulcain.js">
+                <!--//branding-->
+                <div class="tagline">
+                    <p>Open source micro service framework</p>
                 </div>
-                <div class="item">
-                    <img class="img-responsive" src="images/intro3.png" alt="vulcain.js">
+                <!--//tagline-->
+                <div class="social-container">
+                    <span class="twitter-tweet">
+                    <a class="github-button" href="https://github.com/vulcainjs/vulcain-corejs" aria-label="Star vulcainjs/vulcain-corejs on GitHub">Star</a>
+                    </span>
+                  <!--  <div class="twitter-tweet">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="VulcainJs"
+                            data-via="3rdwave_themes">Tweet</a>
+                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                    </div> -->
+                    <!--//tweet-->
                 </div>
+                <!--//social-container-->
             </div>
+            <!--//container-->
+        </header>
+        <!--//header-->
 
-            <!-- Left and right controls -->
-            <a class="left carousel-control" style="background-image: none" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" style="background-image: none" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        <section class="cards-section text-center">
+            <div class="container">
+                <h2 class="title">Create robust micro-service easily</h2>
+                <div class="intro">
+                    <p>An all-in-one node.js framework for building backend micro-services including instrumentations, standard patterns, event driven and more.</p>
+                    <div class="cta-container">
+                        <a class="btn btn-primary btn-cta" href="http://github.com/vulcainjs/vulcain-samples" target="_blank">
+                            <i class="fa fa-cloud-download"></i> Try the samples</a>
+                          <!--  <a class="btn btn-default btn-cta" href="/gettingStarted/" target="_blank">
+                                <i class="fa fa-book"></i> Documentation</a> -->
+                    </div>
+                    <!--//cta-container-->
+                </div>
+                <!--//intro-->
+                <div id="cards-wrapper" class="cards-wrapper row">
+     
+      <div class="item item-green col-md-4 col-sm-6 col-xs-6">
+    <div class="item-inner">
+        <div class="icon-holder">
+            <span aria-hidden="true" class="icon icon_gift"></span>
+        </div><!--//icon-holder-->
+        <h3 class="title">Patterns</h3>
+        <p class="intro">CQRS, hystrix command, event driven, graphql,
+        context propagation...</p>
+        <a class="link" href="/gettingStarted/"></a>
     </div>
 </div>
 
-<div class="row head-banner-text">
-    <p class="lead text-center col-md-12 col-xs-12">
-        Typescript open-Source Microservice Framework for nodejs(Preview)<br>
-    </p>
-</div>
-
-<div class="row head-banner-buttons">
-    <div class="col-md-offset-2 col-md-4 col-xs-12">
-        <a href="https://github.com/vulcainjs/vulcain-samples" class="btn btn-default btn-lg btn-block" style="padding: 14px 16px;">Start with samples</a>
-    </div>
-    <div class="col-md-4  col-xs-12">
-        <a href="http://github.com/vulcainjs/vulcain-corejs" class="btn btn-success btn-lg btn-block"  style="padding: 14px 16px;">View On GitHub</a>
+<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
+    <div class="item-inner">
+        <div class="icon-holder">
+            <span aria-hidden="true" class="icon icon_genius"></span>
+        </div><!--//icon-holder-->
+        <h3 class="title">Instrumentations</h3>
+        <p class="intro">Expose prometheus metrics, hystrix metrics, jaeger tracing, standardized logging</p>
+        <a class="link" href="/gettingStarted/"></a>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h4>Features</h4>
-        <p>
-            <ul>
-            <li>Hystrix command implementation (circuit-breaker, bulkhead, timeout...)</li>
-            <li>Context propagation (user context, correlation id)
-            <li>CQRS model</li>
-            <li>Batteries included but replaceable with dependency injection</li>
-            <li>Input data validation</li>
-            <li>Default adapters (MongoDb, rabbitmq, memory...)</li>
-            <li>Authoring tool (Creating project from template, service proxy code generation...)</li>
-            <li>Event sourcing</li>
-            </ul>
+<div class="item item-purple col-md-4 col-sm-6 col-xs-6">
+    <div class="item-inner">
+        <div class="icon-holder">
+            <span aria-hidden="true" class="icon icon_cloud_alt"></span>
+        </div><!--//icon-holder-->
+        <h3 class="title">Cloud ready</h3>
+        <p class="intro">Kubernetes compliant, dynamic configurations,
+        liveness probing
         </p>
-    </div>
-    <div class="col-md-4">
-        <h4>Production ready</h4>
-        <p>
-            <ul>
-            <li>Dynamic configuration properties</li>
-            <li>Built for docker</li>
-            <li>Request tracing with zipkin</li>
-            <li>Built-in metadata service description (entry points description, service dependencies, swagger description)</li>
-            <li>Log obfuscation for sensible data</li>
-            <li>Automatic metrics generation</li>
-            <li>Multi-tenants</li>
-            <li>Distributed request log aggregation with correlation-id</li>
-            </ul>
-        </p>
-    </div>
-    <div class="col-md-4">
-        <h4>Video overview</h4>
-        <p class="video-wrapper">
-            <iframe width="340" height="200" src="https://www.youtube.com/embed/LAQK-ZjW124" frameborder="0" allowfullscreen></iframe> 
-        </p>
+        <a class="link" href="/gettingStarted/"></a>
     </div>
 </div>
-      
-  </div>
-    
+
+<div class="item item-orange col-md-4 col-sm-6 col-xs-6">
+    <div class="item-inner">
+        <div class="icon-holder">
+            <span aria-hidden="true" class="icon icon_building"></span>
+        </div><!--//icon-holder-->
+        <h3 class="title">Fully extensible</h3>
+        <p class="intro">Dependency injection</p>
+        <a class="link" href="/reference/injection/"></a>
+    </div>
+</div>
+
+<div class="item item-primary col-md-4 col-sm-6 col-xs-6">
+    <div class="item-inner">
+        <div class="icon-holder">
+            <span aria-hidden="true" class="icon icon_puzzle"></span>
+        </div><!--//icon-holder-->
+        <h3 class="title">Batteries included</h3>
+        <p class="intro">Default adapter for mongodb, rabbitmq, jaeger, zipkin, statsd</p>
+        <a class="link" href="/gettingStarted/"></a>
+    </div>
+</div>
+
+<div class="item item-pink col-md-4 col-sm-6 col-xs-6">
+    <div class="item-inner">
+        <div class="icon-holder">
+            <span aria-hidden="true" class="icon icon_tools"></span>
+        </div><!--//icon-holder-->
+        <h3 class="title">Tooling</h3>
+        <p class="intro">Built-in metadata service description (entry point description, service dependencies, swagger description)</p>
+        <a class="link" href="/gettingStarted/"></a>
+    </div>
+</div>
+     
+
+                </div>
+                <!--//cards-->
+
+            </div>
+            <!--//container-->
+        </section>
+        <!--//cards-section-->
+
+    </div>
+    <!--//page-wrapper-->
+
+    <footer class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Designed with
+                <i class="fa fa-heart"></i> by
+                <a href="http://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
+
+        </div>
+        <!--//container-->
+    </footer>
+    <!--//footer-->
+
+    <!-- Main Javascript -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  crossorigin="anonymous"></script>   
+    crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>    
-    
-    
-      
-    
-  </body>
+    crossorigin="anonymous"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="/js/pretty-doc.js"></script>
+
+</body>
+
 </html>
