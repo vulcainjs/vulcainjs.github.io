@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block site_meta %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      {% if config.site_description %}
+        <meta name="description" content="{{ config.site_description }}">
+      {% endif %}
+      {% if page.canonical_url %}
+        <link rel="canonical" href="{{ page.canonical_url }}">
+      {% endif %}
+      {% if config.site_author %}
+        <meta name="author" content="{{ config.site_author }}">
+      {% endif %}
+      {% if config.site_favicon %}
+        <link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
+      {% else %}
+        <link rel="shortcut icon" href="{{ base_url }}/assets/images/favicon.ico">
+      {% endif %}
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-1.0.3">
+    {% endblock %}
+    {% block styles %}
+      <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/application-1d1da4857d.css">
+      {% if config.extra.palette %}
+        <link rel="stylesheet" href="{{ base_url }}/assets/stylesheets/application-66fa0d9bba.palette.css">
+      {% endif %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous">
+    {% endblock %}
+    {% block fonts %}
+      {% if config.extra.font != "none" %}
+        {% set text = config.extra.get("font", {}).text | default("Roboto") %}
+        {% set code = config.extra.get("font", {}).code
+                    | default("Roboto Mono") %}
+        {% set font = text + ':300,400,400i,700|' + code | replace(' ', '+') %}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ font }}">
+        <style>body,input{font-family:"{{ text }}","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"{{ code }}","Courier New",Courier,monospace}</style>
+      {% endif %}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {% endblock %}
+    {% for path in extra_css %}
+      <link rel="stylesheet" href="{{ path }}">
+    {% endfor %}
+    {% block extrahead %}{% endblock %}
+<style>  
+  .md-header a {
+    color: white;
+  }
+  
+  .md-header a:hover {
+    text-decoration: none;
+  }
+  
+  .nav li a:hover {
+    background-color: #2196f3;
+    color: hsla( 0, 0%, 100%, .7);
+  }
+  
+  .btn-success {
+    background-image: linear-gradient(#88c149, #73a839 60%, #699934);
+  }
+</style>    
+  </head>
+ {% set palette = config.extra.get("palette", {}) %} {% set primary = palette.primary | replace(" ", "-") | lower %} {% set
+accent = palette.accent | replace(" ", "-") | lower %} {% if primary or accent %}
+
+<body data-md-color-primary="{{ primary }}" data-md-color-accent="{{ accent }}">
+  {% else %}
+  <body>
+    {% endif %}
+<svg class="md-svg">
+  <defs>
+    {% set platform = config.extra.repo_icon or config.repo_url %} {% if "github" in platform %} {% include "assets/images/icons/github-1da075986e.svg"
+    %} {% elif "gitlab" in platform %} {% include "assets/images/icons/gitlab-5ad3f9f9e5.svg" %} {% elif "bitbucket" in platform
+    %} {% include "assets/images/icons/bitbucket-670608a71a.svg" %} {% endif %}
+  </defs>
+</svg>      
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+<label class="md-overlay" data-md-component="overlay" for="drawer"></label> 
+<!-- header -->
+<header class="md-header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="{{ nav.homepage.url }}" title="{{ config.site_name }}" class="{% if config.extra.logo %} md-logo {% else %} md-icon md-icon--home {% endif %} md-header-nav__button">
+          {% if config.extra.logo %}
+            <img src="{{ base_url }}/{{ config.extra.logo }}" width="24" height="24">
+          {% endif %}
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          <ul class="nav navbar-nav">
+            <li><a href="/gettingStarted/index.html">Getting started</a></li>
+           <!-- <li><a href="/reference/index.html">Documentation</a></li>            
+            <li><a href="/articles/index.html">How-to</a></li>        -->    
+          </ul>
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        {% block search_box %}
+        <label class="md-icon md-icon--search md-header-nav__button" for="search"></label> {% include "partials/search.html"
+        %} {% endblock %}
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          {% if config.repo_url %} {% include "partials/source.html" %} {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>    
+<!-- !header -->
+
+<div class="container">
+  <div class="row" style="height: 80px"></div>
+  <div class="col-md-11">
+      {% block content %}
+        {{ page.content }}
+      {% endblock %}
+  </div>
+    {% block scripts %}
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+  crossorigin="anonymous"></script>   
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>    
+    {% endblock %}
+    {% block analytics %}
+      {% if config.google_analytics %}
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","{{ config.google_analytics[0] }}","{{ config.google_analytics[1] }}"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      {% endif %}
+    {% endblock %}
+  </body>
+</html>
