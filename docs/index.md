@@ -19,7 +19,7 @@ template: home.html
             <span aria-hidden="true" class="icon icon_genius"></span>
         </div><!--//icon-holder-->
         <h3 class="title">Instrumentations</h3>
-        <p class="intro">Expose prometheus metrics, hystrix metrics, jaeger tracing, standardized logging</p>
+        <p class="intro">Expose prometheus metrics, hystrix metrics, jaeger tracing, standardized log...</p>
         <a class="link" href="/gettingStarted/"></a>
     </div>
 </div>
@@ -43,7 +43,7 @@ template: home.html
             <span aria-hidden="true" class="icon icon_building"></span>
         </div><!--//icon-holder-->
         <h3 class="title">Fully extensible</h3>
-        <p class="intro">Dependency injection</p>
+        <p class="intro">Override any components with dependency injection</p>
         <a class="link" href="/reference/injection/"></a>
     </div>
 </div>
